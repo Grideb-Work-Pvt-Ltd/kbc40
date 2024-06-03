@@ -83,6 +83,8 @@ namespace forex.Models
         public string pannumbr { get; set; }
         public string pancard { get; set; }
         public string adharnumber { get; set; }
+        public string address { get; set; }
+        public string gender { get; set; }
         public string adharfront { get; set; }
         public string adharback { get; set; }
         public string fileb { get; set; }

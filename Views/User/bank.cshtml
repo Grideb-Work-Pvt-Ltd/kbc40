@@ -86,30 +86,56 @@
                                             <button id="verifyButton">Account No Verify</button>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label" for="accountno">Account Holder Name</label>
-                                            <input class="form-control radi" type="text" id="accountno" name="AccountHolderName" value="@Model.AccountHolderName" required />
+                                            <label class="control-label" for="uploadadhar">Adhaar Front upload</label>
+                                            <input type="file" id="adhf" name="file2" value="@Model.adharfront" required />
+                                            <img src="@Model.adharfront" style="height: 260px;" />
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Adhaar Back upload</label>
+                                            <input type="file" id="adhb" name="file3" value="@Model.adharback" required />
+                                            <img src="@Model.adharback" style="height: 260px;" />
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <button id="adhverify">Adhaar Card Verify</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account Holder Name</label>
+                                            <input class="form-control radi" type="text" id="namess" name="AccountHolderName" value="@Model.AccountHolderName" required />
+                                        </div>
+
 
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">Bank Name</label>
-                                            <input class="form-control radi" type="text" id="bankname" name="bankname" value="@Model.bankname" required />
+                                            <input class="form-control radi" type="text" id="banknames" name="bankname" value="@Model.bankname" required />
 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="branch">Branch</label>
-                                            <input class="form-control radi" type="text" id="branch" name="branch" value="@Model.branch" required />
+                                            <input class="form-control radi" type="text" id="branchs" name="branch" value="@Model.branch" required />
 
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Gender</label>
+                                            <input class="form-control radi" type="text" id="genders" name="gender" value="@Model.gender" required readonly />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Address</label>
+                                            <input class="form-control radi" type="text" id="addresss" name="address" value="@Model.address" required readonly />
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">City</label>
-                                            <input class="form-control radi" type="text" id="bankname" name="city" value="@Model.city" required />
+                                            <input class="form-control radi" type="text" id="" name="city" value="@Model.city" required />
 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="branch">State</label>
-                                            <input class="form-control radi" type="text" name="state" value="@Model.state" required />
+                                            <input class="form-control radi" type="text" name="states" value="@Model.state" required readonly />
 
                                         </div>
+
+
 
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="uploadadhar">Pan Card</label>
@@ -128,20 +154,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label" for="uploadadhar">Adhaar Front upload</label>
-                                            <input type="file" id="adhf" name="file2" value="@Model.adharfront" required />
-                                            <img src="@Model.adharfront" style="height: 260px;" />
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label" for="uploadadhar">Adhaar Back upload</label>
-                                            <input type="file" id="adhb" name="file3" value="@Model.adharback" required />
-                                            <img src="@Model.adharback" style="height: 260px;" />
-                                        </div>
 
-                                        <div class="form-group col-md-12">
-                                            <button id="adhverify">Adhaar Card Verify</button>
-                                        </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="uploadadhar">Passbook/Cheque</label>
                                             <input type="file" id="uploadadhar" name="files" value="@Model.bank" required />
@@ -154,7 +167,7 @@
                                         </div>
 
                                         <div class="form-group text-right m-b-0">
-                                            <input type="submit" value="submit" class="btn btn-primary "  />
+                                            <input type="submit" value="submit" class="btn btn-primary " />
                                         </div>
                                     </div>
                                 </form>
@@ -275,10 +288,13 @@
                     console.log(response);
                     $('#age').text(response.age);
                     $('#dob').text(response.dob);
+                    $('#dobs').text(response.dob);
                     $('#father').text(response.father);
+                    $('#fathers').text(response.father);
                     $('#message').text(response.message);
                     $('#name').text(response.name);
                     $('#pan').text(response.pan);
+                    $('#pans').text(response.pan);
                     $('#pan_type').text(response.pan_type);
                     $('#reference_id').text(response.reference_id);
                     $('#status').text(response.status);
@@ -357,12 +373,16 @@
                 success: function (response) {
                     console.log(response);
                     $('#names').text(response.name);
+                    $('#namess').text(response.name);
                     $('#address').text(response.address);
+                    $('#addresss').text(response.address);
                     $('#gender').text(response.gender);
+                    $('#genders').text(response.gender);
                     $('#messages').text(response.message);
                     $('#pincode').text(response.pincode);
                    
                     $('#state').text(response.state);
+                    $('#states').text(response.state);
                     $('#statuss').text(response.status);
                     $('#uid').text(response.uid);
                     $('#valids').text(response.valid);
@@ -429,13 +449,16 @@
                 },
                 success: function (response) {
                     console.log(response);
+                    $('#branchs').text(response.data.branch);
+                    $('#citys').text(response.data.city);
+                    $('#bankNames').text(response.data.bankName);
                     const nameAtBank = response.data.nameAtBank;
                     const bankName = response.data.bankName;
                     const branch = response.data.branch;
                     const city = response.data.city;
 
                     const message = response.message;
-
+                   
                     // Display the extracted values in the modal
                     document.getElementById('modalMessage').textContent = message;
                     document.getElementById('accountName').textContent = `Account Holder: ${nameAtBank}`;

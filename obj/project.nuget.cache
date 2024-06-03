@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ash+ewywXXX06JbfAUpBxJMDuso02aEgyiDm+hq2mKV+TS26wVFTOh9kBMwFzhhPpdYdPbQBzbErbGZtAV+Rpw==",
+  "dgSpecHash": "zCMhWSAac9AQsqw+C8/R5onK30dZtqz5o2cM8qpigIc8H0MvU5ZUdEnOB/NRQjN86yCZR5b2VCCVmluFkfS/9Q==",
   "success": true,
-  "projectFilePath": "D:\\KBC40MVCCore\\forex.csproj",
+  "projectFilePath": "D:\\all project\\kbc40\\forex.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Grideb\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Grideb\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -499,11 +499,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\KBC40MVCCore\\forex.csproj",
+      "projectUniqueName": "D:\\all project\\kbc40\\forex.csproj",
       "projectName": "forex",
-      "projectPath": "D:\\KBC40MVCCore\\forex.csproj",
+      "projectPath": "D:\\all project\\kbc40\\forex.csproj",
       "packagesPath": "C:\\Users\\Grideb\\.nuget\\packages\\",
-      "outputPath": "D:\\KBC40MVCCore\\obj\\",
+      "outputPath": "D:\\all project\\kbc40\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Grideb\\AppData\\Roaming\\NuGet\\NuGet.Config",

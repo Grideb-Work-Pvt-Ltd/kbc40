@@ -1647,12 +1647,14 @@ namespace forex.Controllers
                 // ViewBag.payreq = "Payment Withdrawal Successfully!";
                 TempData["tp2"] = pay;
                 ViewBag.payreq = pay;
-                connect sms = new connect();
-                string Mobile = "9971114246";
-                string templateid = "1207171627898403620";
-                //sms.SendSMS(Mobile, "Dear " + name + ", Welcome to KBC40 Your account has been created successfully.Your Login Id is: " + ml.userid + " and Password: -" + password + ".Thanks Team kbc40", templateid,"TXN");
-                sms.SendSMS(Mobile, "Dear Admin , "+name+" With User I.D. :- "+uid+" has initiated a withdrawal request of Rs. "+amount+". Kindly process this transaction at your earliest Team KBC40", templateid, "TXN");
-
+                if (pay == "your payment is Successfully")
+                {
+                    connect sms = new connect();
+                    string Mobile = "9971114246";
+                    string templateid = "1207171627898403620";
+                    //sms.SendSMS(Mobile, "Dear " + name + ", Welcome to KBC40 Your account has been created successfully.Your Login Id is: " + ml.userid + " and Password: -" + password + ".Thanks Team kbc40", templateid,"TXN");
+                    sms.SendSMS(Mobile, "Dear Admin , " + name + " With User I.D. :- " + uid + " has initiated a withdrawal request of Rs. " + amount + ". Kindly process this transaction at your earliest Team KBC40", templateid, "TXN");
+                }
 
                 return RedirectToAction("withdrawalRequest", "user");
             }

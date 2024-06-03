@@ -1,0 +1,109 @@
+﻿@model forex.Models.kycmodellist;
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <form asp-action="userkyc" asp-controller="admin" >
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>userid</label>
+                <input type="text" class="form-control" name="id" />
+
+            </div>
+            <button class="btn btn-primary"type="submit">submit</button>
+
+        </div>
+    </form>
+    <section class="content">
+        <input type="text" id="myInput" class="mt-5" onkeyup="mysearch()" placeholder="Search for names..">
+        <table id="tbl_exporttable_to_xls" class="table table-bordered" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; background-color:#6e75784a;">
+           <thead>
+            <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Name</th>
+
+                <th scope="col">Bank </th>
+                <th scope="col">Pancard </th>
+                <th scope="col">Adhaar</th>
+                <th scope="col"></th>
+                <th scope="col">
+                    Kyc
+
+
+                </th>
+                <th scope="col">
+                    Action
+
+
+                </th>
+                <th scope="col">
+                    Action
+
+
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+
+                }
+                else
+                {
+                    int i = 0;
+
+                @foreach (var item in Model.kyclist)
+                {
+                    i++;
+                    <tr>
+                        <td scope="row">@i</td>
+                        <td>@item.Userid</td>
+
+                        <td>@item.AccountHolderName</td>
+
+                        <td>
+                            Account NO : @item.accountno<br />
+                            IFSC : @item.ifsc <br />
+                            BANK NAME : @item.branch <br />
+                            <img src="@item.bank" width="100px" />
+
+                        </td>
+                        <td>
+                            PanNO : @item.pannumbr<br />
+                            <img src="@item.pancard" width="100px" />
+                        </td>
+                        <td>
+                            Adhaar No : @item.adharnumber<br />
+                            <img src="@item.adharfront" width="100px" />
+                        </td>
+                        <td>
+
+                            <img src="@item.adharback" width="100px" />
+                        </td>
+
+                        <td>
+                            <form asp-action="updatekyc" asp-controller="admin">
+                                <input type="text" name="userid" value="@item.Userid" hidden />
+                                <button class="btn btn-danger" type="submit">Active</button>
+                            </form>
+                        </td>
+
+                        <td>
+                            <form asp-action="rejectkyc" asp-controller="admin">
+                                <input type="text" name="userid" value="@item.Userid" hidden />
+                                <button class="btn btn-danger" type="submit">Reject</button>
+                            </form>
+                        </td>
+                        <td>
+                            <a href="~/admin/bank?userid=@item.Userid" class="btn btn-danger">Edit</a>
+
+                        </td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </section>
+</div>

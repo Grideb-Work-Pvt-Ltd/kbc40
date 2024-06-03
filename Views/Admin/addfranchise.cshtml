@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 pb-4" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <h3 class="text-center" style=" background-color: #000 !important; color:#fff;">Add New Franchise</h3>
+                    <hr />
+                    <h3 style="text-align: center;">@ViewBag.tp2</h3>
+                    <form asp-action="addfranchise" asp-controller="admin">
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput2">Franchise</label> <br>
+                            <select name="fran" class="ddlbox" id="inout">
+                                <option value="0">Select</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput">User Id</label>
+                            <input type="text" class="form-control" name="userid" id="userid" placeholder="user id" onchange="myFunction()">
+                            <input type="text" class="form-control" readonly id="name" name="name">
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput2">Date</label>
+                            <input type="date" class="form-control" id="formGroupExampleInput2" name="date" placeholder="">
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput">Refral userid</label>
+                            <input type="text" class="form-control" name="refral" id="userids" placeholder="user id" onchange="myFunctions()">
+                            <input type="text" class="form-control" readonly id="names" name="name">
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput">Franchise Percent</label>
+                            <input type="number" class="form-control" name="refralp" placeholder="">
+                        </div>
+
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary pl-5 pr-5">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").value = data.name
+
+            }
+        });
+    };
+</script>
+
+
+<script language="javascript" type="text/javascript">
+    function myFunctions() {
+        var x = document.getElementById("userids").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("names").value = data.name
+
+            }
+        });
+    };
+</script>

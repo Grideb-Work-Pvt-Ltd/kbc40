@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "Topup";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    .form-control:focus {
+        color: #495057;
+        background-color: #0c0e40 !important;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+    }
+    .dark-mode input:-webkit-autofill, .dark-mode input:-webkit-autofill:focus, .dark-mode input:-webkit-autofill:hover, .dark-mode select:-webkit-autofill, .dark-mode select:-webkit-autofill:focus, .dark-mode select:-webkit-autofill:hover, .dark-mode textarea:-webkit-autofill, .dark-mode textarea:-webkit-autofill:focus, .dark-mode textarea:-webkit-autofill:hover {
+         -webkit-text-fill-color: black !important; 
+    }
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Top Up Code</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-6">
+                    <form asp-action="Topup" asp-controller="User" method="post">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">$ Balance Fund</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Balance Fund" value="@Model.tamount" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">User Code</label>
+                            <input type="text" class="form-control" name="userid" id="userid" placeholder="User Code" onchange="myFunction()">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">User Name</label>
+                            <input type="text" class="form-control"  placeholder="User Name" disabled readonly id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Amount *</label>
+                            <input name="package" class="form-control" id="exampleFormControlSelect1">                                                             
+                        </div>
+                     
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn" id="formGroupExampleInput2" style="background-color: azure;"><i class="nav-icon fa fa-edit"></i> Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").value = data.name
+            }
+        });
+    };
+</script>
+
+

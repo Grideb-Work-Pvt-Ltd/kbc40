@@ -1,0 +1,88 @@
+﻿@model forex.Models.income;
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <span>@ViewBag.error</span>
+    <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+    <table id="tbl_exporttable_to_xls" class="table table-bordered table-responsive">
+
+
+        <thead>
+
+            <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">User Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Community Charge</th>
+                <th scope="col">Net Amount</th>
+                <th scope="col">Account No</th>
+                <th scope="col">IFSC</th>
+                <th scope="col">Bank Name</th>
+                <th scope="col">contactid</th>
+                <th scope="col">Faccount</th>
+               
+                <th scope="col">Action</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+            }
+            @foreach (var item in Model.incomelist)
+            {
+                i++;
+            <tr>
+                <th scope="row">@i</th>
+                <td>@item.Userid</td>
+                <td>@item.Name</td>
+                <td>@item.mobile</td>
+                <td>@item.Detail</td>
+                <td>@item.Amount</td>
+
+
+                <td>@item.AdminCharge</td>
+                <td>@item.NetAmount</td>
+                <td>@item.accountno</td>
+                <td>@item.ifsc (@item.branch) </td>
+                <td>@item.bankname </td>
+                <td>@item.contactid </td>
+                <td>@item.faccount </td>
+               
+                <td>
+                    <form asp-action="withdrawls" asp-controller="admin">
+                        <input type="text" name="amount" placeholder="Fill Amount" value="@item.NetAmount" style="width: 88px;">
+                        <input type="text" name="indexid" value="@item.indexid" hidden>
+                        <input type="text" name="faccount" value="@item.faccount" hidden>
+                        <button type="submit">Paid</button>
+                    </form>
+                    <form asp-action="reject" asp-controller="admin">
+                        <input type="text" name="indexid1" value="@item.indexid" hidden>
+                        <button type="submit">Reject</button>
+                    </form>
+                </td>
+                <td>@item.tDate</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script>
+
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+        }
+
+    </script>

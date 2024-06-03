@@ -1,0 +1,1040 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model forex.Models.user
+    <!-- navbar end -->
+<!-- Hero Area start -->
+<div class="hero-area bgs-cover overlay pt-155 pb-170" style="background-image: url(asset/img/hero/hero.jpg);">
+    <div class="container container-1370">
+        <div class="hero-content text-center text-white">
+            <h2> Uniting Hearts, Changing Lives  at<br /> <span> Needan Welfare Foundation®</span></h2>
+            <p>
+                Transforming the World Together: Keep Believing In Charity
+            </p>
+            <div class="hero-btns pt-30 rpt-10">
+                <a class="btn" href="~/home/Donate">Donate Now</a>
+                <a class="btn btn--yellow btn--style-two" href="#foot">Contact us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="@Model.popup" />
+            </div>
+
+        </div>
+    </div>
+</div>*@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="@Model.popup" />
+            </div>
+           
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" id="modalTrigger" data-bs-toggle="modal" style="display: none;" data-bs-target="#exampleModal">
+   
+</button>
+@*<button type="button" id="modalTrigger"  data-toggle="modal" data-target="#exampleModal">12345</button>*@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Trigger a click event on the hidden button
+        document.getElementById("modalTrigger").click();
+    });
+</script>
+<!-- Hero Area end -->
+<!-- About area start -->
+<div class="about-area py-120">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-image-part">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="image">
+                                <img src="~/images/aboutus1.jpg" alt="About">
+                            </div>
+                            <div class="project-complete mb-30">
+                                <div class="project-complete__icon">
+                                    <i class="flaticon-charity"></i>
+                                </div>
+                                @*<div class="project-complete__content">
+                                        <h5>We Complate 15000+ Project</h5>
+                                        <span>Keep Believing In Charity</span>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="image mt-65 rmt-15 rel">
+                                <img src="~/images/aboutus2.jpg" alt="About">
+                                @*<div class="experiences-years">
+                                        <span class="experiences-years__number">25</span>
+                                        <span class="experiences-years__text">Years Experience</span>
+                                    </div>*@
+                            </div>
+                            <div class="image">
+                                <img src="~/images/aboutus3.jpg" alt="About">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" id="About">
+                <div class="about-content-part rmt-65">
+                    <div class="section-title mb-60">
+                        <span class="section-title__subtitle mb-10">About us</span>
+                        <h2>Welcome to <span> Needan Welfare Foundation®</span></h2>
+                    </div>
+                    <p>
+                        At Needan Welfare Foundation®, we believe in the power of collective generosity
+                        to make a meaningful impact on the lives of others.
+                        Our donation-based crowdfunding platform provides
+                        a space where compassion meets innovation, empowering individuals and organizations
+                        to come together and support causes that truly matter.
+                    </p>
+                    <!--<div class="counter-item counter-text-wrap mt-30">-->
+                    @*<div class="counter-item__icon"><i class="flaticon-solidarity"></i></div>*@
+                    @*<div class="counter-item__content">
+                            <span class="count-text" data-speed="3000" data-stop="876000">0</span>
+                            <span class="counter-title">Raised by 78,000 people in one year</span>
+                        </div>*@
+                    <!--</div>-->
+                    <div class="counter-item counter-text-wrap">
+                        <div class="counter-item__icon counter-item__icon--green">
+                            <i class="flaticon-help"></i>
+                        </div>
+                        <div class="counter-item__content">
+                            <span class="count-text" data-speed="3000" data-stop="@Model.RegDate">0</span>
+                            <span class="counter-title">Volunteers are available to help you</span>
+                        </div>
+                    </div>
+                    <a class="btn ml-5 mt-25" href="~/home/Donate">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About area end -->
+<!-- Urgent cause area start -->
+<div class="urgent-cause-area overlay bgs-cover pt-120 pb-90 rel z-1"
+     style="background-image: url(asset/img/causes/urgent-causes.jpg);" id="cause">
+    <div class="container container-1370">
+        <div class="row gap-40">
+            <div class="col-xl-3 col-md-6">
+                <div class="urgent-cause-content mb-30 rmb-65">
+                    <div class="section-title mb-30">
+                        <span class="section-title__subtitle mb-30">Our Story</span>
+                        <h3>We and our team  <span> help millions of families by </span>providing them a knowledge and right platform</h3>
+                    </div>
+                    <p>
+                        Needan Welfare Foundation® was born out of a simple yet profound vision - to create a platform that bridges
+                        the gap between those in need and those willing to lend a helping hand. We witnessed countless inspiring stories
+                        of individuals and communities rallying together to create positive change. Recognizing the immense potential of
+                        these acts of kindness, we set out to build a space where these acts could be amplified and channelled for the greater good.
+                    </p>
+                    <a class="btn ml-5 mt-35" href="~/home/register">Register Now</a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/images/food.jpeg" style="height: 194.23px;" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="causes.html">Food for everyone</a></h5>
+                        <p>Feeding Hope, Nourishing Lives: Together, Let's Eradicate Hunger Across the Globe.</p>
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>*@
+                        @*<div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">
+                                </div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class=" btn btn--green" href="~/home/Donate">Donate now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/images/fin.jpeg" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="causes.html">Financial Freedom  </a></h5>
+                        <p>Transforming Dreams into Reality: Empower Individuals and Communities through Crowdfunding.<br /></p>
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>*@
+                        @*<div class="progress">
+                                <div class="progress-bar progress-bar--yellow progress-bar-animated progress-bar-striped"
+                                     style="width: 60%"></div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class="btn " href="~/home/Donate">Donate now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/images/woom.jpeg" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="causes.html"> Women Empowerment </a></h5>
+                        <p>Unlocking Potential, Empowering Women: Fueling Equality through Crowdfunding."</p>
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>*@
+                        @*<div class="progress">
+                                <div class="progress-bar progress-bar--green progress-bar-animated progress-bar-striped"
+                                     style="width: 70%"></div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class="btn btn--yellow" href="~/home/Donate">Donate now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="urgent-cause-shapes">
+        <img class="one top_image_bounce" src="asset/img/shapes/half-circle-with-dots.png" alt="Shape">
+        <img class="two left_image_bounce" src="asset/img/shapes/circle-with-line-red.png" alt="Shape">
+        <img class="three right_image_bounce" src="asset/img/shapes/circle-with-line-green.png" alt="Shape">
+    </div>
+</div>
+<!-- Urgent cause area end -->
+<!-- Why Choose Us area start -->
+<div class="why-choose-area overlay py-120">
+    <div class="container">
+        <div class="row gap-100 align-items-center">
+            <div class="col-lg-6">
+                <div class="why-choose-content text-white rmb-65">
+                    <div class="section-title mb-60">
+                        <span class="section-title__subtitle mb-10">Why Choose Us</span>
+                        <h2>Trusted Crowdfunding Platform  <span>center</span></h2>
+                    </div>
+                    <div class="vission-mission-tab">
+                        <ul class="nav mb-25" role="tablist">
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#mission">
+                                    Mission
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab"
+                                        data-bs-target="#vission">
+                                    Vission
+                                </button>
+                            </li>
+                            @*<li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#velu">
+                                        Company
+                                        Velu
+                                    </button>
+                                </li>*@
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="mission">
+                                At Needan Welfare Foundation®, our mission is to foster a culture of empathy and generosity
+                                by providing a platform that inspires, empowers, and connects people with the causes they care about. We strive to become
+                                a driving force behind
+                                positive change, making a tangible difference in the lives of those in need.
+                            </div>
+                            <div class="tab-pane fade" id="vission">
+                                Our Vission: At Needan Welfare Foundation®, we strive to connect people with causes they care
+                                about deeply. Whether it's supporting medical treatments for a child in need, funding
+                                education for underprivileged students, aiding disaster-stricken regions, or assisting
+                                local grassroots initiatives,
+                                our platform serves as a catalyst for hope.
+                            </div>
+                            <div class="tab-pane fade" id="velu">
+                                Our Company Velu: There are many variations of
+                                passages of Lorem Ipsum available, but the majority have suffered alteration in some
+                                form, by injected humour, or random aset words which don't look even slightly.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- The Modal -->
+
+            <div class="col-lg-6">
+                <div class="why-choose-video">
+
+                    <div class="video rel">
+
+                        @*<img src="asset/img/video/video-bg.jpg" alt="Video">*@
+                        <iframe style="width:516px; height:384px;" src="@Model.video"></iframe>
+                        @*<a class="video-play video-play--one"  href="https://www.youtube.com/embed/Wimkqo8gDZ0"
+
+                            data-effect="mfp-zoom-in"><i class="fa fa-play"></i></a>*@
+                        @*<a class="video-play--one" href="@Model.video"
+                            ><i class="fa fa-play"></i></a>*@
+                    </div>
+                    <img class="leaf-shape top_image_bounce" src="asset/img/shapes/three-round-green.png"
+                         alt="Shape">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Why Choose Us area end -->
+<!-- Our cause area start -->
+<div class="our-cause-area pt-120 pb-90 rel z-1" id="Causes">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8 col-md-10">
+                <div class="section-title text-center mb-50">
+                    <span class="section-title__subtitle mb-10">What We Do</span>
+                    <h3>Our <span>Campaigns</span></h3>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/upload/@Model.latest1" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="#">@Model.latest11</a></h5>
+                       
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">
+                                </div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class="btn" href="~/home/Donate">Donate now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/upload/@Model.latest2" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="#">@Model.latest21</a></h5>
+                        
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar--green progress-bar-animated progress-bar-striped"
+                                     style="width: 70%"></div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class="btn btn--green" href="~/home/Donate">Donate now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/upload/@Model.latest3" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="#">@Model.latest31</a></h5>
+                       
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar--yellow progress-bar-animated progress-bar-striped"
+                                     style="width: 60%"></div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class="btn btn--yellow" href="~/home/Donate">Donat Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="cause-item">
+                    <div class="image">
+                        <img src="~/upload/@Model.latest4" alt="Cause">
+                    </div>
+                    <div class="content">
+                        <h5><a href="#">@Model.latest41</a></h5>
+                       
+                        @*<div class="cause-price">
+                                <span>Raised : $87,689</span>
+                                <span>Goal : $87,689</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">
+                                </div>
+                            </div>*@
+                        <div class="cause-btn">
+                            <a class="btn" href="~/home/donate">Donate now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="our-cause-shapes">
+        <img class="one top_image_bounce" src="asset/img/shapes/three-round-green.png" alt="Shape">
+    </div>
+</div>
+<!-- Our cause area end -->
+<!-- Features area start -->
+<div class="features-area rel bgs-cover z-1" style="background-image: url(asset/img/background/feature-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="feature-left-wrap bgs-cover text-white overlay"
+                     style="background-image: url(asset/img/background/feature-slider-bg.jpg);">
+                    <div class="feature-left-slider">
+                        <div class="feature-single-slide">
+                            <div class="section-title mb-40">
+                                <h3>Child Education Help</h3>
+                                <p>Your little help can make milion childrean smile model sentence structures</p>
+                            </div>
+                            <a class="btn" href="#">Donate now</a>
+                        </div>
+                        <div class="feature-single-slide">
+                            <div class="section-title mb-40">
+                                <h3>Child Education Help</h3>
+                                <p>Your little help can make milion childrean smile model sentence structures</p>
+                            </div>
+                            <a class="btn btn--yellow" href="#">Donate now</a>
+                        </div>
+                        <div class="feature-single-slide">
+                            <div class="section-title mb-40">
+                                <h3>Child Education Help</h3>
+                                <p>Your little help can make milion childrean smile model sentence structures</p>
+                            </div>
+                            <a class="btn btn--green" href="~/home/Donate">Donate now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9">
+                <div class="feature-content">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-8">
+                            <div class="section-title mb-35">
+                                <span class="section-title__subtitle mb-10">Our Features</span>
+                                <h2>How Could <span>You Help?</span></h2>
+                                <p>
+                                    Empowerment through Sharing: Needan Welfare Foundation® can create a fundraising campaign with their volunteers  sharing their story and the cause which they  wish to support. Whether you are an individual, a group of passionate changemakers, or a registered charity, we provide the tools to craft compelling campaigns that inspire action.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="slider-arrow text-lg-end mb-20">
+                                <button class="feature-prev"><i class="flaticon-left-chevron"></i></button>
+                                <button class="feature-next"><i class="flaticon-next"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="feature-right-slider mt-20">
+                                <div class="feature-item">
+                                    <div class="feature-item__icon"><i class="flaticon-help"></i></div>
+                                    <h4><a href="cause-details.html">Become an volunteer</a></h4>
+                                    <p>
+                                        Join our team today and make a positive difference in the world.
+                                        Reach out to us now. Together, we strive to promote
+                                        peace and harmony through impactful media initiatives.
+                                    </p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-item__icon feature-item__icon--green">
+                                        <i class="flaticon-solidarity"></i>
+                                    </div>
+                                    <h4><a href="cause-details.html">Quick Fundraising</a></h4>
+                                    <p>
+                                        Creating open source tutorials, resources, and plans for all aspects of sustainable living. Covering food, housing, energy, education, social architecture, stewardship,
+                                        and more. 100% Volunteer Nonprofit
+                                    </p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-item__icon feature-item__icon--yellow">
+                                        <i class="flaticon-donation"></i>
+                                    </div>
+                                    <h4><a href="cause-details.html">Start Donating</a></h4>
+                                    <p>
+                                        You don’t need to use a formula when it comes to crafting your donation requests. Veering away from
+                                        traditional formulas will make your fundraiser stand out.
+                                    </p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-item__icon"><i class="flaticon-help"></i></div>
+                                    <h4><a href="cause-details.html">Become an volunteer</a></h4>
+                                    <p>
+                                        Join our team today and make a positive difference in the world. Reach out to us now. Together, we strive to promote
+                                        peace and harmony through impactful media initiatives.
+                                    </p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-item__icon feature-item__icon--green">
+                                        <i class="flaticon-solidarity"></i>
+                                    </div>
+                                    <h4><a href="cause-details.html">Quick Fundraising</a></h4>
+                                    <p>
+                                        Quick and Easy Fundraising Ideas; Inexpensive and Free Fundraising Ideas; Creative and Fun Fundraising Ideas;
+                                    </p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-item__icon feature-item__icon--yellow">
+                                        <i class="flaticon-donation"></i>
+                                    </div>
+                                    <h4><a href="cause-details.html">Start Donating</a></h4>
+                                    <p>
+                                        it’s easy to set up automatic donations from your checking account or credit card. Some employers help you do this with payroll deductions, as well.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feature-shapes">
+        <img class="one right_image_bounce" src="asset/img/shapes/three-round-green.png" alt="Shape">
+    </div>
+</div>
+<!-- Features area end -->
+<!-- Our Event area start -->
+<div class="our-event-area pt-120 pb-95 rel z-1" id="Event">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8 col-md-10">
+                <div class="section-title text-center mb-65">
+                    <span class="section-title__subtitle mb-10">Our Event</span>
+                    <h3>Our <span> Event</span></h3>
+                    <p style="font:bold">
+                        <b>Congratulations on organizing an  event for a Needan Welfare Foundation®. Organizing events for a good cause can make a significant positive impact on the community and the people you aim to help.</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row events-active">
+            <div class="col-xl-4 col-md-6 item">
+                <div class="event-item">
+                    <img src="~/upload/@Model.event1" alt="Event">
+                    @*<div class="event-item__hover">
+                        <h4><a href="event-details.html">Free Medical Camping</a></h4>
+                        <ul>
+                            <li><i class="flaticon-time"></i> <span>Jan 18, 2013</span></li>
+                            <li><i class="flaticon-map"></i> <span>melbourne City</span></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 item">
+                <div class="event-item">
+                    <img src="~/upload/@Model.event2" alt="Event">
+                    @*<div class="event-item__hover">
+                        <h4><a href="event-details.html">Free Medical Camping</a></h4>
+                        <ul>
+                            <li><i class="flaticon-time"></i> <span>Jan 18, 2013</span></li>
+                            <li><i class="flaticon-map"></i> <span>melbourne City</span></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 item">
+                <div class="event-item">
+                    <img src="~/upload/@Model.event3" alt="Event">
+                    @*<div class="event-item__hover">
+                        <h4><a href="event-details.html">Free Medical Camping</a></h4>
+                        <ul>
+                            <li><i class="flaticon-time"></i> <span>Jan 18, 2013</span></li>
+                            <li><i class="flaticon-map"></i> <span>melbourne City</span></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 item">
+                <div class="event-item">
+                    <img src="~/upload/@Model.event4" alt="Event">
+                    @*<div class="event-item__hover">
+                        <h4><a href="event-details.html">Free Medical Camping</a></h4>
+                        <ul>
+                            <li><i class="flaticon-time"></i> <span>Jan 18, 2013</span></li>
+                            <li><i class="flaticon-map"></i> <span>melbourne City</span></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 item">
+                <div class="event-item">
+                    <img src="~/upload/@Model.event5" alt="Event">
+                    @*<div class="event-item__hover">
+                        <h4><a href="event-details.html">Free Medical Camping</a></h4>
+                        <ul>
+                            <li><i class="flaticon-time"></i> <span>Jan 18, 2013</span></li>
+                            <li><i class="flaticon-map"></i> <span>melbourne City</span></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 item">
+                <div class="event-item">
+                    <img src="~/upload/@Model.event6" alt="Event">
+                    @*<div class="event-item__hover">
+                        <h4><a href="event-details.html">Free Medical Camping</a></h4>
+                        <ul>
+                            <li><i class="flaticon-time"></i> <span>Jan 18, 2013</span></li>
+                            <li><i class="flaticon-map"></i> <span>melbourne City</span></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our Event area end -->
+<!-- Become Volunteer area start -->
+<div class="become-volunteer-area py-120 overflow-hidden rel z-1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="volunteer-image rmb-65">
+                    <img src="~/images/val.jpeg" alt="valunteer">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="volunteer-content form-style-one text-white">
+                    <div class="section-title mb-45">
+                        <span class="section-title__subtitle mb-10">Our Volunteer</span>
+                        <h3>Become a <span>volunteer</span></h3>
+                    </div>
+                    <form asp-action="register1" asp-controller="home" method="post" class="volunteer-form">
+                        <div class="row">
+                            <div class="col-xl-9 mb-10">
+                                <p>
+                                    Meeting with volunteers for the Needan Welfare Foundation®  sharing information, and building a strong team to support the organization's mission.
+                                    @*Here are some tips for a productive and successful meeting:*@
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" class="form-control" value=""
+                                           placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email">Your Email</label>
+                                    <input type="email" id="email" name="email" class="form-control" value=""
+                                           placeholder="Email Address" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="text" id="phone_number" name="Mobile" class="form-control"
+                                           value="" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            @*<div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="birth-day">Date Of Birth</label>
+                                        <input type="date" id="birth-day" name="birth-day" class="form-control"
+                                               value="">
+                                    </div>
+                                </div>*@
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea name="address" id="message" class="form-control" rows="3"
+                                              placeholder="Write Your Messages" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group pt-10 mb-0">
+                                    <button type="submit" class="btn ml-5">Register Now </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="become-volunteer-shapes">
+        <img class="one" src="asset/img/valunteer/valunteer-bg.png" alt="Shape">
+        <img class="two" src="asset/img/valunteer/valunteer-bg.png" alt="Shape">
+    </div>
+</div>
+<!-- Become Volunteer area end -->
+<!-- Volunteer area start -->
+<div class="volunteer-area pt-120 pb-90 rel z-1" id="Volunteers">
+    <div class="container container-1170">
+        <div class="">
+            <div class="col-xl-12">
+                <div class="section-title text-center  mb-60">
+
+                    <h3>Total <span>Volunteers</span></h3>
+
+                    <div class="counter-item counter-text-wrap justify-content-center ">
+
+                        <div class="counter-item__content mb-10">
+
+                            <span class="count-text justify-content-center  " data-speed="3000" data-stop="@Model.RegDate">0</span>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="counter-item counter-text-wrap text-center">
+
+                                <div class="counter-item__content">
+                                    <span class="counter-title">Silver</span>
+                                    <span class="count-text " data-speed="3000" data-stop="@Model.Silver">0</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="counter-item counter-text-wrap text-center">
+
+                                <div class="counter-item__content">
+                                    <span class="counter-title">Gold</span>
+                                    <span class="count-text " data-speed="3000" data-stop="@Model.Gold">0</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="counter-item counter-text-wrap text-center">
+
+                                <div class="counter-item__content">
+                                    <span class="counter-title">Pearl</span>
+                                    <span class="count-text " data-speed="3000" data-stop="@Model.Pearl">0</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="counter-item counter-text-wrap text-center">
+
+                                <div class="counter-item__content">
+                                    <span class="counter-title">Topaz</span>
+                                    <span class="count-text " data-speed="3000" data-stop="0">0</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="counter-item counter-text-wrap text-center">
+
+                                <div class="counter-item__content">
+                                    <span class="counter-title">Diamond</span>
+                                    <span class="count-text " data-speed="3000" data-stop="0">0</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="section-title text-center  mb-60">
+                <span class="section-title__subtitle mb-10">Our Volunteers</span>
+            </div>
+            @if (Model == null)
+            {
+            }
+            else
+            {
+                int i = 0;
+
+                @foreach (var item in Model.reglist)
+                {
+                    i++;
+                    <div class="col-xl-4 col-sm-6">
+                        <div class="valunteer-item valunteer-item--green">
+                            <div class="valunteer-item__img">
+                                <img src="~/upload/@item.image">
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            }
+
+                </div>
+    </div>
+    <div class="valunteet-shapres">
+        <img class="one top_image_bounce" src="asset/img/shapes/hand-glass.png" alt="Shape">
+        <img class="two left_image_bounce" src="asset/img/shapes/circle-with-line-red.png" alt="Shape">
+        <img class="three right_image_bounce" src="asset/img/shapes/heart.png" alt="Shape">
+        <img class="four top_image_bounce" src="asset/img/shapes/house-heart.png" alt="Shape">
+    </div>
+</div>
+<!-- Volunteer area end -->
+<!-- Testimonials area start -->
+<div class="testimonials-area bgc-black bgs-cover py-120"
+     style="background-image: url(asset/img/testimonials/testimonial-bg.png);" id="desk">
+    <div class="container">
+        <div class="row gap-100 align-items-center">
+            <div class="col-lg-5">
+                <div class="testimonial-left-image rmb-65">
+                    <img src="~/images/manoj3.jpg" alt="Testimonials">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="testimonial-content-slider text-white">
+                    <div class="testimonial-content-item">
+                        <div class="icon"><i class="flaticon-quote"></i></div>
+                        <div class="text">
+                            ’At Needan Welfare Foundation, we are driven by a shared vision: a world where compassion knows no boundaries and every life is valued. With unwavering dedication, I Manoj Garg as a Trustee of Needan Welfare Foundation is committed to creating positive change in our communities and beyond. Together, we strive to empower the marginalized, protect the environment, and promote education and equality. Our journey is fuelled by the belief that even the smallest actions can ignite significant transformations. Join us in making a difference, for together, we can build a brighter, more equitable future. Our work is not just a mission; it's a testament to the power of collective action. Through grassroots initiatives and global partnerships, we bridge gaps, spark innovation, and inspire hope. We believe that every act of kindness and every effort to uplift others ripples through society, leaving a lasting impact. Join hands with us today, and let's craft a legacy of compassion, sustainability, and social justice that future generations can be proud of. Together, we can build a more financially strong future.
+                        </div>
+                        <h4>Mr. Manoj Garg </h4>
+                        <span class="designation">Needan Welfare Foundation</span>
+                    </div>
+                    @*<div class="testimonial-content-item">
+                            <div class="icon"><i class="flaticon-quote"></i></div>
+                            <div class="text">
+                                You are going to use. Available, but the majority have suffered alteration
+                                soform, by injected humour, or randomised words whdon't look even htly believable.
+                            </div>
+                            <h4>Jesse Rayford</h4>
+                            <span class="designation">Doner, Canada</span>
+                        </div>
+                        <div class="testimonial-content-item">
+                            <div class="icon"><i class="flaticon-quote"></i></div>
+                            <div class="text">
+                                Randomised words whdon't look even htly believable Available, but the
+                                majority have suffered alteration soform, by injected humour, or you are going to use.
+                            </div>
+                            <h4>Ralph Alfred</h4>
+                            <span class="designation">Doner, Canada</span>
+                        </div>*@
+                </div>
+                <div class="testimonial-thumb-slider">
+                    <div class="testimonial-thumb-item">
+                        <img src="~/images/manoj1.jpg" alt="Author">
+                    </div>
+                    @*<div class="testimonial-thumb-item">
+                            <img src="asset/img/testimonials/testi-thumb2.jpg" alt="Author">
+                        </div>
+                        <div class="testimonial-thumb-item">
+                            <img src="asset/img/testimonials/testi-thumb3.jpg" alt="Author">
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonials area end -->
+<!-- FAQ area start -->
+<div class="faq-area py-120" hidden>
+    <div class="container ">
+        <div class="row gap-100">
+            <div class="col-lg-6">
+                <div class="faq-image-part">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="image">
+                                <img src="asset/img/about/about1.jpg" alt="About">
+                                <img class="shape one top_image_bounce"
+                                     src="asset/img/shapes/three-round-green.png" alt="Shape">
+                            </div>
+                            <div class="image">
+                                <img src="asset/img/about/about3.jpg" alt="About">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="image">
+                                <img src="asset/img/about/about2.jpg" alt="About">
+                            </div>
+                            <div class="image">
+                                <img src="asset/img/about/about3.jpg" alt="About">
+                                <img class="shape two right_image_bounce"
+                                     src="asset/img/shapes/three-round-red.png" alt="Shape">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" id="Faq">
+                <div class="faq-content-part rmt-65 rel z-2">
+                    <div class="section-title mb-45 for-hide-summary">
+                        <span class="section-title__subtitle mb-10">Faq</span>
+                        <h2>How can we <span>help you?</span></h2>
+                        <p>
+                            Global Reach, Local Impact: Our platform transcends borders, enabling people from around the world to contribute to causes that resonate with them. We believe that even the smallest contribution can create a ripple effect of change, bringing tangible benefits to communities in need.
+                        </p>
+                    </div>
+                    <div class="faq-accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingOne">
+                                <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                    How can i get help?
+                                </button>
+                            </h4>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                 aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Trust and Transparency: At Needan Welfare Foundation®, we prioritize trust and transparency. Each campaign undergoes a thorough verification process to ensure the legitimacy of the cause and its beneficiaries.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingTwo">
+                                <button class="collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What’s Service We Provided?
+                                </button>
+                            </h4>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                 data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our platform is designed with the highest standards of security to protect sensitive information. We offer a variety of payment options, making it convenient for donors to contribute without any hassle.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingThree">
+                                <button class="collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                    How can i get help by<br /> KBC40?
+                                </button>
+                            </h4>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                 aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    At Needan Welfare Foundation®, we prioritize trust and transparency. Each campaign undergoes a thorough verification process to ensure the legitimacy of the cause and its beneficiaries. Our commitment to transparency ensures that every donor can see how their contribution is making a difference.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAQ area end -->
+<!-- Call to action area start -->
+<div class="cta-area overlay bgs-cover pt-110 rpt-120 pb-120"
+     style="background-image: url(asset/img/background/cta.jpg);">
+    <div class="container container-1170">
+        <div class=" justify-content-center">
+            <div class="">
+                <div class="section-title text-center text-white">
+                    <h2>Bank  <span>Details</span></h2>
+                </div>
+                <div class="row">
+
+                    <div class="section-title  text-white col-md-6">
+
+                        <img src="../upload/dss.jpg" style="height:600px;width:500px" />
+                    </div>
+                    <div class="section-title mt-5 ml-4 text-white col-md-4">
+
+                        <p>A/C Holder  name:NEEDAN WELFARE FOUNDATION</p><br />
+                        <p>Account number: 10152420494</p><br />
+                        <p>IFSC: IDFB0020148</p><br />
+                        <p>A/C Type :- SAVING ACCOUNT </p><br />
+                        <p>Bank name: IDFC FIRST BANK</p><br />
+                        <p>Branch: VIKAS MARG BRANCH</p><br />
+                        <a class="btn mt-30" href="#">Donate Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call to action area end -->
+<!-- Blog area start -->
+<div class="blog-area pt-120 pb-90 rel z-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-x col-lg-8 col-md-10">
+                <div class="section-title text-center mb-60">
+                    @*<span class="section-title__subtitle mb-10">Our Blog Post</span>*@
+                    <h2>Our  <span>Portfolio </span></h2>
+                    <p>
+                        To get the most recent news and updates about the Needan Welfare Foundation®, I recommend visiting their official website and social media pages. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @if (Model == null)
+            {
+            }
+            else
+            {
+                int i = 0;
+
+                @foreach (var item in Model.reglists)
+                {
+                    i++;
+                    <div class="col-xl-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-item__img">
+                                <img src="~/upload/@item.image" alt="">
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            }
+                </div>
+    </div>
+    <img class="blog-shape-one top_image_bounce" src="asset/img/shapes/three-round-yellow.png" alt="Shape">
+</div>
+<!-- Blog area end -->

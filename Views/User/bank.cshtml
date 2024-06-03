@@ -1,0 +1,483 @@
+﻿@model forex.Models.kycmodel;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    .radi {
+        border-radius: 20px;
+    }
+
+    #verifyButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        #verifyButton.verified {
+            background-color: green;
+            color: white;
+        }
+
+    #panverify {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        #panverify.verified {
+            background-color: green;
+            color: white;
+        }
+
+    #adhverify {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        #adhverify.verified {
+            background-color: green;
+            color: white;
+        }
+
+
+   
+
+    /* The Close Button */
+   
+</style>
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card-box">
+                    <span class="header-title m-t-0" id="result" runat="server" style="color:#017627;"></span>
+                    <br />
+                    <div>
+                        <div>
+                            <div class="card-box">
+                                <form id="verificationForm" asp-action="bank" asp-controller="user" method="post" enctype="multipart/form-data">
+                                    <h4 class="header-title mb-4">Bank Information</h4>
+                                    <p class="header-title mb-4" style="color:red;">@ViewBag.error</p>
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account No</label>
+                                            <input class="form-control radi" type="text" id="accountno" name="accountno" value="@Model.accountno" required />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="ifsc">IFSC</label>
+                                            <input class="form-control radi" type="text" id="ifsc" name="ifsc" value="@Model.ifsc" required />
+
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <button id="verifyButton">Account No Verify</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account Holder Name</label>
+                                            <input class="form-control radi" type="text" id="accountno" name="AccountHolderName" value="@Model.AccountHolderName" required />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="bankname">Bank Name</label>
+                                            <input class="form-control radi" type="text" id="bankname" name="bankname" value="@Model.bankname" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="branch">Branch</label>
+                                            <input class="form-control radi" type="text" id="branch" name="branch" value="@Model.branch" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="bankname">City</label>
+                                            <input class="form-control radi" type="text" id="bankname" name="city" value="@Model.city" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="branch">State</label>
+                                            <input class="form-control radi" type="text" name="state" value="@Model.state" required />
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Pan Card</label>
+                                            <input type="file" id="panup" name="file1" value="@Model.pancard" required />
+                                            <img src="@Model.pancard" style="height: 260px;" />
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <button id="panverify">Pancard Verify</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Pan Card No</label>
+                                            <input class="form-control radi" type="text" id="pan" name="pannumbr" value="@Model.pannumbr" required />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Adhaar Front upload</label>
+                                            <input type="file" id="adhf" name="file2" value="@Model.adharfront" required />
+                                            <img src="@Model.adharfront" style="height: 260px;" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Adhaar Back upload</label>
+                                            <input type="file" id="adhb" name="file3" value="@Model.adharback" required />
+                                            <img src="@Model.adharback" style="height: 260px;" />
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <button id="adhverify">Adhaar Card Verify</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Passbook/Cheque</label>
+                                            <input type="file" id="uploadadhar" name="files" value="@Model.bank" required />
+                                            <img src="@Model.bank" style="height: 260px;" />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Adhaar Card No</label>
+                                            <input class="form-control radi" type="text" id="" name="adharnumber" value="@Model.adharnumber" required />
+                                        </div>
+
+                                        <div class="form-group text-right m-b-0">
+                                            <input type="submit" value="submit" class="btn btn-primary "  />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div  id="myModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #adc3da !important;">
+            <div class="modal-header">
+                <h5 class="modal-title">Account Verification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+                <p id="accountName"></p>
+                <p id="bankName"></p>
+                <p id="branch"></p>
+                <p id="city"></p>
+                
+            </div>
+           
+        </div>
+    </div>
+</div>
+<div id="myModals" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #adc3da !important;">
+            <div class="modal-header">
+                <h5 class="modal-title">Pan Card Verification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Age: <span id="age"></span></p>
+                <p>Date of Birth: <span id="dob"></span></p>
+                <p>Father's Name: <span id="father"></span></p>
+                <p>Message: <span id="message"></span></p>
+                <p>Name: <span id="name"></span></p>
+                <p>PAN: <span id="pan"></span></p>
+                <p>PAN Type: <span id="pan_type"></span></p>
+                <p>Reference ID: <span id="reference_id"></span></p>
+                <p>Status: <span id="status"></span></p>
+                <p>Valid: <span id="valid"></span></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="myModales" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #adc3da !important;">
+            <div class="modal-header">
+                <h5 class="modal-title">Adhaar Card Verification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Name: <span id="names"></span></p>
+                <p>Address: <span id="address"></span></p>
+                <p>Gender: <span id="gender"></span></p>
+                <p>Message: <span id="messages"></span></p>
+                <p>Pincode: <span id="pincode"></span></p>
+              
+                <p>State: <span id="state"></span></p>
+                <p>Status: <span id="statuss"></span></p>
+                <p>UID: <span id="uid"></span></p>
+                <p>Valid: <span id="valids"></span></p>
+                <p>Year of Birth: <span id="yob"></span></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var isAccountVerified = false;
+        var isPanVerified = false;
+        var isAdhaarVerified = false;
+
+        function checkAndSubmitForm() {
+            if (isAccountVerified && isPanVerified && isAdhaarVerified) {
+                var submitButton = document.querySelector("input[type='submit']");
+                submitButton.classList.remove("btn-disabled");
+                submitButton.disabled = false;
+            }
+        }
+        //$(".btn ").click(function () {
+        $('#panverify').click(function () {
+            var formData = new FormData();
+
+            // Get the file from the input element
+            var fileInput = document.getElementById('panup');
+            var file = fileInput.files[0];
+
+            // Append the file and other data to the FormData object
+            formData.append('file1', file);
+            $.ajax({
+                type: "POST",
+                url: "../user/pancardverify",
+                data: formData,
+                processData: false, // Prevent jQuery from automatically transforming the data into a query string
+                contentType: false, // Prevent jQuery from overriding the Content-Type header
+
+                success: function (response) {
+                    console.log(response);
+                    $('#age').text(response.age);
+                    $('#dob').text(response.dob);
+                    $('#father').text(response.father);
+                    $('#message').text(response.message);
+                    $('#name').text(response.name);
+                    $('#pan').text(response.pan);
+                    $('#pan_type').text(response.pan_type);
+                    $('#reference_id').text(response.reference_id);
+                    $('#status').text(response.status);
+                    $('#valid').text(response.valid);
+                    var f = response.status; 
+                    if (f == "VALID") {
+                        var button = document.getElementById("panverify");
+                        button.classList.add("verified");
+                        button.textContent = "Verified";
+                        checkAndSubmitForm()
+                    }
+                    var modal = document.getElementById("myModals");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // Open the modal
+                    modal.style.display = "block";
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                },
+
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        var isAccountVerified = false;
+        var isPanVerified = false;
+        var isAdhaarVerified = false;
+
+        function checkAndSubmitForm() {
+            if (isAccountVerified && isPanVerified && isAdhaarVerified) {
+                var submitButton = document.querySelector("input[type='submit']");
+                submitButton.classList.remove("btn-disabled");
+                submitButton.disabled = false;
+            }
+        }
+        //$(".btn ").click(function () {
+        $('#adhverify').click(function () {
+            var formData = new FormData();
+
+            // Get the file from the input element
+            var fileInput = document.getElementById('adhf');
+            var fileInputs = document.getElementById('adhb');
+             var file = fileInput.files[0];
+             var files = fileInputs.files[0];
+
+            // Append the file and other data to the FormData object
+            formData.append('file2', file);
+            formData.append('file3', files);
+            $.ajax({
+                type: "POST",
+                url: "../user/adhaarcardverify",
+                data: formData,
+                processData: false, // Prevent jQuery from automatically transforming the data into a query string
+                contentType: false, // Prevent jQuery from overriding the Content-Type header
+
+                success: function (response) {
+                    console.log(response);
+                    $('#names').text(response.name);
+                    $('#address').text(response.address);
+                    $('#gender').text(response.gender);
+                    $('#messages').text(response.message);
+                    $('#pincode').text(response.pincode);
+                   
+                    $('#state').text(response.state);
+                    $('#statuss').text(response.status);
+                    $('#uid').text(response.uid);
+                    $('#valids').text(response.valid);
+                    $('#yob').text(response.yob);
+                    var f = response.status;
+                    if (f == "VALID") {
+                        var button = document.getElementById("adhverify");
+                        button.classList.add("verified");
+                        button.textContent = "Verified";
+                        checkAndSubmitForm();
+                    }
+                    var modal = document.getElementById("myModales");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // Open the modal
+                    modal.style.display = "block";
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                },
+
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        var isAccountVerified = false;
+        var isPanVerified = false;
+        var isAdhaarVerified = false;
+
+        function checkAndSubmitForm() {
+            if (isAccountVerified && isPanVerified && isAdhaarVerified) {
+                var submitButton = document.querySelector("input[type='submit']");
+                submitButton.classList.remove("btn-disabled");
+                submitButton.disabled = false;
+            }
+        }
+
+        $('#verifyButton').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "../user/accountverify",
+                data: {
+                    "accountno": $("#accountno").val(),
+                    "ifsc": $("#ifsc").val()
+                },
+                success: function (response) {
+                    console.log(response);
+                    const nameAtBank = response.data.nameAtBank;
+                    const bankName = response.data.bankName;
+                    const branch = response.data.branch;
+                    const city = response.data.city;
+
+                    const message = response.message;
+
+                    // Display the extracted values in the modal
+                    document.getElementById('modalMessage').textContent = message;
+                    document.getElementById('accountName').textContent = `Account Holder: ${nameAtBank}`;
+                    document.getElementById('bankName').textContent = `Bank Name: ${bankName}`;
+                    document.getElementById('branch').textContent = `Branch: ${branch}`;
+                    document.getElementById('city').textContent = `City: ${city}`;
+                    var f = response.accountStatus;
+                    if (f == "VALID") {
+                        var button = document.getElementById("verifyButton");
+                        button.classList.add("verified");
+                        button.textContent = "Verified";
+                        isAccountVerified = true;
+                        checkAndSubmitForm();
+                    }
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // Open the modal
+                    modal.style.display = "block";
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>

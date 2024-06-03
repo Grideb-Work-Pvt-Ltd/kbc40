@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Donetionslip";
+    Layout = "~/views/Shared/_Layoutuser.cshtml";
+}
+@model forex.Models.IncomeWallet;
+@using Microsoft.AspNetCore.Http;
+
+<style>
+    .card {
+        background-color: white !important;
+    }
+</style>
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <section class="content">
+       
+        <div class="container">
+            <div class="card">
+               
+                <div class="card-body">
+                   
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped">
+                            <thead class="bg-blue-200 text-white">
+                                <tr>
+                                    <th class="center">#</th>
+                                    <th>Invoice Id</th>
+                                    <th>Invoice Date</th>
+                                    <th class="right">Amount</th>
+                                    <th class="right">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.Incomewall)
+                                {
+                                    i++;
+                                    <tr>
+                                        <th scope="row">@i</th>
+                                        <td>@item.Index</td>
+                                        <td>@item.Date</td>
+                                        <td class="center"><i class="fas fa-rupee-sign"></i>@item.amount</td>
+                                        <td>
+                                            <form asp-action="Donetionrecipt" asp-controller="user">
+                                             <input type="text" name="id" value="@item.Index" hidden/>
+                                                <button type="submit" class="btn btn-primary">Recipt</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+
+
+
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                  
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+

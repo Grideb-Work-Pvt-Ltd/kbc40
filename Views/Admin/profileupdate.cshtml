@@ -1,0 +1,136 @@
+﻿
+@model forex.Models.userlistModel
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">User List</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Update Profile</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+
+
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card-box">
+                        <h4 class="header-title mb-4">User Information</h4>
+                        <span class="header-title m-t-0" id="result" runat="server" style="color:#017627;"></span>
+                        <br />
+                        <div>
+                            <div>
+                                <div class="card-box">
+                                    <form asp-controller="admin" asp-action="pass" method="post">
+                                        <div class="form-row">
+
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="name">name</label>
+                                                <input class="form-control" type="text" id="name" name="name" value="@Model.name" />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="email">email</label>
+                                                <input class="form-control" type="text" id="email" name="email" value="@Model.emailaddress" />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="mobile">mobile</label>
+                                                <input class="form-control" type="text" id="mobile" name="mobile" value="@Model.Mobile" />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="mobile" data-valmsg-replace="true"></span>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="sponsor">User Id</label>
+                                                <input class="form-control" type="text" id="sponsor" name="userid" value="@Model.userid" readonly />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="sponsor" data-valmsg-replace="true" readonly></span>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="sponsor">Password</label>
+                                                <input class="form-control" type="text" id="password" name="password" value="@Model.password" />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="sponsor" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="sponsor">City</label>
+                                                <input class="form-control" type="text" id="password" name="city" value="@Model.City" />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="sponsor" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="control-label" for="sponsor">Plan Name</label>
+                                                <input class="form-control" type="text" id="password" name="planename" value="@Model.planename" />
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="sponsor" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                 </div>
+                                            <div class="form-group">
+
+                                                <button type="submit" class="btn btn" id="formGroupExampleInput2" style="background-image: linear-gradient(150deg, #8e8ebf 80%, #191951);"><i class="nav-icon fa fa-edit"></i> Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="form-row" id="kyc">
+                                        <form enctype="multipart/form-data" asp-controller="admin" asp-action="kyc" method="post">
+                                            @*<div class="container">
+                                                    <h4 class="header-title mb-4">Update KYC</h4>
+                                                    <div class="row">
+                                                        <div class="form-control col-md-3 df">
+                                                            <label class="control-label" for="uploadAdhar">Pan Number</label>
+                                                            <input type="text" id="uploadAdhar" name="pannumber" />
+                                                        </div>
+                                                        <div class="form-control col-md-3 df">
+                                                            <label class="control-label" for="uploadAdhar">Upload Pancard</label>
+                                                            <input type="file" id="uploadAdhar" name="pancard" />
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="form-control col-md-3 df">
+                                                            <label class="control-label" for="uploadimg">Aadhar Number</label>
+                                                            <input type="text" id="uploadimg" name="adharnumber" />
+                                                        </div>
+                                                        <div class="form-control col-md-3 df">
+                                                            <label class="control-label" for="uploadimg">Aadhar Front</label>
+                                                            <input type="file" id="uploadimg" name="adharfront" />
+
+                                                        </div>
+                                                        <div class="form-control col-md-3 df">
+                                                            <label class="control-label" for="uploadpan">Aadhar Back</label>
+                                                            <input type="file" id="uploadpan" name="adharback" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group text-center m-b-0 col-12 mt-3">
+                                                    <input type="submit" value="Submit" class="btn btn-primary" />
+                                                </div>*@
+                                            @*<div class="form-group text-center m-b-0 col-12 mt-3">
+                                                    <a href="~/user/Userlist" class="btn btn-primary">Click for Update bank details</a>
+                                                </div>*@
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

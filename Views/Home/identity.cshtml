@@ -1,0 +1,55 @@
+﻿@model forex.Models.dashboardmodel
+@{
+    ViewData["Title"] = "Home Page";
+    //Layout = "~/Views/Shared/_Layoutqr.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using Microsoft.AspNetCore.Http;
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-md-6">
+
+                    Userid : @ViewBag.sid <br />
+                    Name : @ViewBag.sname  <br />
+                    Status : @ViewBag.status  <br />
+                    Rank : @ViewBag.rank <br />
+                    DOA : @ViewBag.result
+                </div>
+                <div class="col-md-6">
+                    <img src="~/@ViewBag.img" class="" style="width:150px" />
+
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="~/boxicons/pngimg.com - tree_PNG92782.png" class="img-fluid animated" style="max-width:100%;" alt="">
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero -->
+
+<script src="~/iotjs/aos.js"></script>
+<script src="~/iotjs/bootstrap.bundle.min.js"></script>
+<script src="~/iotjs/glightbox.min.js"></script>
+<script src="~/iotjs/isotope.pkgd.min.js"></script>
+<script src="~/iotjs/swiper-bundle.min.js"></script>
+<script src="~/iotjs/noframework.waypoints.js"></script>
+<script src="~/iotjs/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="~/iotjs/main.js"></script>
+
+<link href="~/iotcss/aos.css" rel="stylesheet">
+<link href="~/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="~/iotcss/glightbox.min.css" rel="stylesheet">
+<link href="~/remixicon/remixicon.css" rel="stylesheet">
+<link href="~/iotcss/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="~/iotcss/style.css" rel="stylesheet">
+

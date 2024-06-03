@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewData["Title"] = "payment";
+    Layout = "~/views/Shared/_Layout2.cshtml";
+}
+
+
+<div class="container" style="margin-top:95px;">
+    <div class="row">
+
+        <div class="col-md-6 card p-4" style="border:dashed 1px solid green;">
+            <center>
+                <div>
+                    <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
+                    <lord-icon src="https://cdn.lordicon.com/vlupvdhl.json"
+                               trigger="hover"
+                               colors="primary:#7166ee,secondary:#a866ee"
+                               style="width:250px;height:250px">
+                    </lord-icon>
+                </div>
+                <br />
+                <div>
+                    @*<a class="btn btn-primary text-white" id="btnPayment">Pay with PhonePay</a>*@
+
+                    <button class="btn btn-primary" id="btnPayment" style="display: inline-block;">
+                        Pay with PhonePay
+                        <span class="spinner" style="display: none"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+
+                    <a href="~/home/Registers">Back to Home</a>
+
+                </div>
+            </center>
+
+        </div>
+        <div class="col-md-6">
+            <center>
+                <img src="~/video/6617-removebg-preview.png" />
+
+            </center>
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script>
+    $(document).ready(function () {
+       /* $("#btnPayment").click(function () {*/
+            var intervalId; // Declare the intervalId variable to control the intervals
+            var intervalCount = 0;
+            $('#btnPayment').text('Processing Payment...');
+
+            $.ajax({
+                url: "/Home/GeneratePaymentLink", // Replace with your controller and action names
+                type: "POST", // Change to POST to send data in the request body
+                dataType: "json",
+
+                contentType: "application/json", // Set the content type
+                success: function (data) {
+                   
+                    let phonepeResponse = JSON.parse(data.phonepeResponse);
+                    
+                    var url = phonepeResponse.data.instrumentResponse.redirectInfo.url;
+
+                    window.open(url);
+                    //window.location=(url);
+                    scheduleStatusChecks();
+                    // Handle the data received from the server
+                },
+                error: function (error) {
+                    // Handle errors, if any
+                    console.error(error);
+                }
+            });
+
+
+        /*});*/
+
+        function scheduleStatusChecks() {
+            // Initial check after 20-25 seconds
+            setTimeout(function () {
+                $('#btnPayment').text('Checking Payment Status...');
+
+                checkPhonePeStatus();
+
+                // Schedule checks "Every 3 seconds once for the next 30 seconds"
+                //var intervalCount = 0;
+                intervalId = setInterval(function () {
+                    checkPhonePeStatus();
+                    intervalCount++;
+
+                    if (intervalCount >= 10) {
+                        clearInterval(intervalId); // Stop after 30 seconds (10 intervals)
+                    }
+                }, 3000);
+            }, 20000 + Math.random() * 5000); // Random delay within the specified range
+        }
+
+        function checkPhonePeStatus() {
+
+
+            $.ajax({
+                url: "/Home/CheckPaymentStatus", // Replace with your controller and action names
+                type: "POST", // Change to POST to send data in the request body
+                dataType: "json",
+                // Convert the object to JSON
+                contentType: "application/json", // Set the content type
+                success: function (res) {
+                  
+                    if (res == 'Your payment is successful.') {
+                        clearInterval(intervalId);
+                        $.ajax({
+                            type: "POST",
+                            url: "../Home/paymentsuccess",
+                            data: {
+                                
+                                
+                            },
+                           
+                            success: function (response) {
+                               
+                                window.location.href = "/home/registerSee";
+                                //window.location.href = 'https://www.kbc40.com';
+                       
+                            }
+                        });
+                        
+                    }
+                    else if (res.message == 'Verification failed') {
+                        alert('PAYMENT ERROR');
+                    }
+
+
+                },
+                error: function (error) {
+                    // Handle errors, if any
+                    console.error(error);
+                }
+            });
+        }
+    });
+
+
+</script>

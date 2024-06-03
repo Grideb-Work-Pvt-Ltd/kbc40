@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Coupon";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <form asp-action="Coupon" asp-controller="admin" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Prize</label>
+                            <input type="text" class="form-control" name="value" />
+                        </div>
+                        <div class="form-group"hidden>
+                            <label>Prize Type</label>
+
+                            <select class="form-control" name="type">
+                                @*<option value="prize">prize</option>*@
+                                <option value="number">number</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Gap</label>
+
+                            <input type="text" class="form-control" name="gap" />
+                        </div>
+                        <div class="form-group">
+                            <label>Quntity</label>
+
+                            <input type="text" class="form-control" name="qty" />
+                        </div>
+                        <div class="form-group">
+                            <label>Prize Image</label>
+                            <input type="file" name="file" class="form-control" id="customFile">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="date" class="form-control" name="sdate" />
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="date" class="form-control" name="edate" />
+                        </div>
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="date" class="form-control" name="exdate" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">save</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+

@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-noty pos-noty">
+            <form action="">
+                <div class="container row-noty">
+                    <div class="col-12-noty">
+                        <h1 class="h1-noty" style="text-align: center;">Add Product</h1>
+                        <h1 class="h1-noty" style="text-align: center; color:red;">@ViewBag.data</h1>
+                    </div>
+                </div>
+                <hr>
+            </form>
+        </div>
+        <div class="container">
+            <form asp-action="ProductAdd" asp-controller="admin" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                        <div class="form-group col-6">
+                            <label for="">Product Name</label>
+                            <input type="text" class="form-control" name="name" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                        <div class="form-group col-6">
+                            <label for="">Product Description </label>
+                            <textarea  class="form-control" rows="3" name="discription" value=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                        <div class="form-group col-6">
+                            <label for="">Product Price</label>
+                            <input type="text" class="form-control" name="price" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                        <div class="form-group col-6">
+                            <label for="">₹ Product Discount</label>
+                            <input type="text" class="form-control" name="discount">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group col-6">
+                            <label for="">Product Quantity</label>
+                            <input type="text" class="form-control" name="quantity">
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control" name="file" style="width: 53%;" required>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-left:0px;">
+                    <button type="submit" class="btn btn-primary pl-5 pr-5" onclick="myFunction" style="font-size: 16px;height: 50px;">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+
+        
+    </section>
+</div>

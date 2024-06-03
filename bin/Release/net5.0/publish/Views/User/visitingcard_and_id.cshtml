@@ -1,0 +1,121 @@
+﻿@model forex.Models.userlistModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    .icard {
+        background-image: url("/img/icard.jpg");
+        background-repeat: no-repeat;
+        height: 500px;
+    }
+    .infor {
+       
+        color: #121110;
+        text-align:right;
+    }
+</style>
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Visiting Card And ID</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="">
+                        <div class="card-design" id="maincart">
+
+                            <div class="text-center">
+                                <table class="id-card-design">
+                                    <tbody style="border: 1px solid #f26522; box-shadow: 0px 0px 5px rgb(0 0 0 / 50%);">
+                                        <tr>
+                                            <td style="height: 5px; display: inline-block;">
+                                                <img src="../images/kbc-logo.png" style="width: 85%;">
+                                            </td>
+                                        </tr>
+                                        @*<tr>
+                                            <td style="height: 38px; font-size: 23px; padding-top: 65px;"><span style="color: #017e3c">NEEDAN</span> <span style="color: #db241e">WELFARE</span> <span style="color: #e98a19">FOUNDATION<span></span></span></td>
+                                        </tr>*@
+                                        <tr>
+                                            <td height="10"></td>
+                                        </tr>
+                                        <tr style="background: #f26522;">
+                                            <td height="3" style="color: #fff; font-size: 38px;">VOLUNTEER</td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10">
+                                                <div class="pull-left" style="width: 43%; background: #fff; padding: 15px;">
+                                                    <img src="~/image/male.png" />
+                                                </div>
+                                                <div class="pull-left" style="width: 45%;">
+                                                    <h2 id="ContentPlaceHolder1_name" style="font-weight: normal;">@Model.name</h2>
+                                                    <h1 id="ContentPlaceHolder1_rank" style="background: #f26522; color: #fff;">@Model.designation</h1>
+
+                                                    <p style="position: relative; top: 30px; font-size: 24px; color: #f26522; line-height: 43px; display: initial;">
+                                                        KEEP BELIEVING<br>
+                                                        IN CHARITY
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4 style="color: #DB241E; font-weight: bold; font-size: 20px; margin-top: 4px;">www.KBC40.com</h4>
+                                            </td>
+                                        </tr>
+                                        <tr style="display: inline-block">
+                                            <td>
+                                                <img src="../images/barcode-1.png">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 icard">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="~/boxicons/logo.png" style="width:200px;"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 infor">
+                            <span> <span style="color: #e98a19">Name</span>@Model.name</span> <br>
+                            <span> <span style="color: #e98a19">ICard No</span>@Model.userid</span> <br>
+                            <span> <span style="color: #e98a19">Email</span>@Model.emailaddress</span><br>
+                            <span> <span style="color: #e98a19">Mobile</span>@Model.Mobile</span><br>
+                            <span> <span style="color: #e98a19">DOA</span>@Model.ActiveDate</span><br>
+                            <span> <span style="color: #e98a19">Designation</span>@Model.designation</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+

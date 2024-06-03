@@ -1,0 +1,358 @@
+﻿@model forex.Models.TreeView
+
+@{
+    ViewData["Title"] = "Binary Tree";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="~/atm.css" rel="stylesheet" />
+<style>
+    table th, td {
+        text-align: center;
+    }
+
+    .box-title {
+        margin: 2% !important;
+    }
+    a {
+        color: #120901 !important;
+    }
+    @@media only screen and (min-width:320px) and (max-width:991px) {
+        .div2 .hr2 {
+            margin: 1rem 6rem;
+        }
+
+        .div_lfthr2 .hr2 {
+            margin: 1rem 3rem;
+        }
+
+        .div_rgthr2 .hr2 {
+            margin: 1rem 2rem;
+        }
+
+        .asd, .qwe {
+            display: none;
+        }
+    }
+
+    .hr2 {
+        border-style: dotted;
+    }
+    /*...hover*/
+    .cart-button {
+        position: relative;
+        display: inline-block;
+    }
+
+    .cart-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #efdccb !important;
+        width: max-content;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        top: -80px;
+        left: 50px;
+        color: white !important;
+    }
+
+    .cart-button:hover .cart-dropdown {
+        display: block;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+    img{
+        width:60px !important;
+    }
+    .table > tbody > tr > td {
+        /* vertical-align: middle; */
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+</style>
+<div id="content" class="main-content">
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="">
+                            <br />
+                            <div class="form-group col-6  col-offset-6">
+                                <input type="text" name="txtsearch" id="txtsearch" />
+                                <button type="button" for="exampleFormControlSelect1" style="color: white; background-color: #ffc107;" onclick="mychange();">Search</button>
+                            </div>
+                            @*<div class="box-header with-border">
+            <h4 class="box-title" style="text-transform:uppercase;">Tree Structure</h4>
+        </div>*@
+                            <hr />
+                            <div class="">
+                                <div class="card-box">
+
+                                    <center>
+                                        @*<div class="noder" style="overflow-x:scroll;width:1000px;height:650px; overflow-y:auto;">*@
+                                        <div class="container">
+
+
+                                            @*<div class="row" style="overflow-x:scroll;">*@
+                                            <div class="row">
+                                                <div class="div1">
+
+                                                    @*<div style="overflow-x:scroll;">
+                                <div class="row">*@
+
+                                                    <div class="col-12">
+
+
+                                                        <br /><br />
+
+                                                        <div id="node1" runat="server" class="cart-button">
+                                                            <div class="cart-dropdown">
+                                                                @Html.Raw(ViewBag.data1)
+                                                            </div>
+                                                            <a href="Treejoing?id=@ViewBag.id1">
+                                                                @Html.Raw(ViewBag.img1)<br />
+                                                                @Html.Raw(@ViewBag.id1)  <br /><small>  @Html.Raw(@ViewBag.name1) </small>
+                                                            </a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="div2">
+                                                    <hr class="hr2" />
+                                                    <div class="div_imgLft">
+
+                                                        <div id="node2" runat="server" class="nodeclass cart-button">
+                                                            <div class="cart-dropdown">
+                                                                @Html.Raw(ViewBag.data2)
+                                                            </div>
+
+                                                            <a href="Treejoing?id=@ViewBag.id2">
+                                                                @Html.Raw(ViewBag.img2) <br />
+                                                                @Html.Raw(@ViewBag.id2)<br/><small>  @Html.Raw(@ViewBag.name2) </small>
+                                                            </a>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="div_imgRgt">
+                                                        <div id="node3" runat="server" class="nodeclass cart-button">
+                                                            <div class="cart-dropdown">
+                                                                @Html.Raw(ViewBag.data3)
+                                                            </div>
+                                                            <a href="Treejoing?id=@ViewBag.id3">
+                                                                @Html.Raw(ViewBag.img3)<br />
+                                                                @Html.Raw(@ViewBag.id3)  <br /><small>  @Html.Raw(@ViewBag.name3) </small>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                    <br /> <br />
+                                                </div>
+
+                                                <div class="div2">
+                                                    <div class="div_lfthr2">
+                                                        <hr class="hr2" />
+                                                        <div class="div_imgLft">
+                                                            <div id="node4" runat="server" class="nodeclass cart-button">
+                                                                <div class="cart-dropdown">
+                                                                    @Html.Raw(ViewBag.data4)
+                                                                </div>
+                                                                <a href="Treejoing?id=@ViewBag.id4">
+                                                                    @Html.Raw(ViewBag.img4)<br />
+                                                                    @Html.Raw(@ViewBag.id4)  <br /><small>  @Html.Raw(@ViewBag.name4) </small>
+                                                                </a>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="div_imgRgt">
+                                                            <div id="node5" runat="server" class="nodeclass cart-button">
+                                                                <div class="cart-dropdown">
+                                                                    @Html.Raw(ViewBag.data5)
+                                                                </div>
+                                                                <a href="Treejoing?id=@ViewBag.id5">
+                                                                    @Html.Raw(ViewBag.img5)<br />
+                                                                    @Html.Raw(@ViewBag.id5) <br /> <small>  @Html.Raw(@ViewBag.name5) </small>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div_rgthr2">
+                                                        <hr class="hr2" />
+                                                        <div class="div_imgLft">
+                                                            <div id="node6" runat="server" class="nodeclass cart-button">
+                                                                <div class="cart-dropdown">
+                                                                    @Html.Raw(ViewBag.data6)
+                                                                </div>
+                                                                <a href="Treejoing?id=@ViewBag.id6">
+                                                                    @Html.Raw(ViewBag.img6)<br />
+                                                                    @Html.Raw(@ViewBag.id6) <br /> <small>  @Html.Raw(@ViewBag.name6) </small>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="div_imgRgt">
+                                                            <div id="node7" runat="server" class="nodeclass cart-button">
+                                                                <div class="cart-dropdown">
+                                                                    @Html.Raw(ViewBag.data7)
+                                                                </div>
+                                                                <a href="Treejoing?id=@ViewBag.id7">
+                                                                    @Html.Raw(ViewBag.img7)<br />
+                                                                    @Html.Raw(@ViewBag.id7) <br />  <small>  @Html.Raw(@ViewBag.name7) </small>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br /> <br /><br /><br />
+                                                </div>
+
+                                                <div class="div2 asd">
+                                                    <div class="div2_lft ">
+                                                        <div class="div_lfthr2">
+                                                            <hr class="hr2" />
+                                                            <div class="div_imgLft">
+                                                                <div id="node8" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data8)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id8">
+                                                                        @Html.Raw(ViewBag.img8)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id8)  <br /> <small>  @Html.Raw(@ViewBag.name8) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="div_imgRgt">
+                                                                <div id="node9" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data9)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id9">
+                                                                        @Html.Raw(ViewBag.img9)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id9)  <br /> <small>  @Html.Raw(@ViewBag.name9) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="div_rgthr2 ">
+                                                            <hr class="hr2" />
+                                                            <div class="div_imgLft">
+                                                                <div id="node10" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data10)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id10">
+                                                                        @Html.Raw(ViewBag.img10)
+                                                                        <br /><br />
+                                                                        @Html.Raw(@ViewBag.id10)  <br /> <small>  @Html.Raw(@ViewBag.name10) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="div_imgRgt">
+                                                                <div id="node11" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data11)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id11">
+                                                                        @Html.Raw(ViewBag.img11)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id11)  <br /> <small>  @Html.Raw(@ViewBag.name11) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div2_rgt">
+                                                        <div class="div_lfthr2">
+                                                            <hr class="hr2" />
+                                                            <div class="div_imgLft">
+                                                                <div id="node12" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data12)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id12">
+                                                                        @Html.Raw(ViewBag.img12)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id12)   <br /><small>  @Html.Raw(@ViewBag.name12) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="div_imgRgt">
+                                                                <div id="node13" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data13)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id13">
+                                                                        @Html.Raw(ViewBag.img13)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id13)   <br /> <small>  @Html.Raw(@ViewBag.name13) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="div_rgthr2">
+                                                            <hr class="hr2" />
+                                                            <div class="div_imgLft">
+                                                                <div id="node14" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @*Cart dropdown content*@
+                                                                        @Html.Raw(ViewBag.data14)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id14">
+                                                                        @Html.Raw(ViewBag.img14)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id14)  <br /> <small>  @Html.Raw(@ViewBag.name14) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="div_imgRgt">
+                                                                <div id="node15" runat="server" class="nodeclass cart-button">
+                                                                    <div class="cart-dropdown">
+                                                                        @Html.Raw(ViewBag.data15)
+                                                                    </div>
+                                                                    <a href="Treejoing?id=@ViewBag.id15">
+                                                                        @Html.Raw(ViewBag.img15)<br /><br />
+                                                                        @Html.Raw(@ViewBag.id15) <br /> <small>  @Html.Raw(@ViewBag.name15) </small>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br /> <br />
+                                                </div>
+
+                                                <div style="clear:both;"></div>
+
+                                            </div>
+                                        </div>
+                                    </center>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+    function mychange() {
+        var a = document.getElementById("txtsearch").value;
+        window.location.href = "Treejoing?id=" + a;
+
+    };
+</script>
+

@@ -1,0 +1,61 @@
+﻿@model forex.Models.IncomeWallet;
+
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <section class="content">
+
+        <section>
+            <h1 class="h1-12"></h1>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <div id="name" style="color:red;"></div>
+                <table class="table table-responsive-sm" cellpadding="0" cellspacing="0" border="0">
+                    <thead class="bg-default">
+                        <tr>
+                            <th>Index</th>
+                            <th>Coupon</th>
+                            <th>Type</th>
+                            <th>Image</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Expiry Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.Incomewall)
+                        {
+                            i++;
+                            <tr>
+                                <th class="row-incom">@i</th>
+                                <td>@item.value</td>
+                                <td>@item.type</td>
+                                <td><a href="@item.img" target="_blank"><img src="@item.img" style="width:100px;" /></a></td>
+                                <td>@item.sdate</td>
+                                <td>@item.edate</td>
+                                <td>@item.exdate</td>
+                                <td>
+                                    <form asp-action="deletecoupon" asp-controller="admin" method="post">
+                                        <input type="text" value="@item.Index" name="id" hidden />
+                                        <button class="btn btn-primary">Delete</button>
+                                    </form>
+                                </td>
+                                @*<td><button type="button" onclick="myFunction()" class="btn btn-info"> Submit </button></td>*@
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+

@@ -1,0 +1,54 @@
+﻿@model forex.Models.income;
+
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+
+        <section>
+            <h1 class="h1-12"></h1>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <div id="name" style="color:red;"></div>
+                <table class="table table-responsive-sm" cellpadding="0" cellspacing="0" border="0">
+                    <thead class="bg-dark" style=" color:#fff;">
+                        <tr>
+                            <th>S.no</th>
+                            <th>Userid</th>
+                            <th>Name</th>
+                            <th>Sponsorid</th>
+                            <th>mobile</th>
+                            <th>Detail</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.incomelist)
+                        {
+                            i++;
+                            <tr>
+                                <th class="row-incom">@i</th>
+                                <td id="Userid">@item.Userid</td>
+                                <td id="amount">@item.Name</td>
+                                <td id="transection">@item.bankname</td>
+                                <td id="transection">@item.mobile</td>
+                                <td id="transection">@item.Detail</td>
+                                <td id="transection">@item.amount1</td>
+                                <td id="transection">@item.tDate</td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>

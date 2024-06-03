@@ -1,0 +1,102 @@
+﻿@model forex.Models.directlist
+@{
+    ViewData["Title"] = "DirectReferral";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    /*table.dataTable tbody tr {
+        background-color: #834507;
+    }
+
+    label {
+        color: #fff;
+    }*/
+
+    /*div#mytable_info {
+        color: #000;
+    }
+
+    a#mytable_previous {
+        color: #000 !important;
+    }
+
+    a#mytable_next {
+        color: #000 !important;
+    }
+
+    input[type="search"] {
+        color: #000;
+    }*/
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Direct Referral</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 mt-3">
+                    <div class="table-responsive table-rounds">
+                        <table id="mytable" class="table table-hover table-striped table-border-whole table-bordered table-responsive-sm">
+                            <thead class="table-light-head">
+                                <tr class="table-border">
+                                    <th scope="col" class="table-border">S.no</th>
+                                    <th scope="col" class="table-border">User id</th>
+                                    <th scope="col" class="table-border">Name</th>
+                                    <th scope="col" class="table-border" hidden>Email</th>
+                                    <th scope="col" class="table-border" hidden>Mobile</th>
+                                    <th scope="col" class="table-border">Team Business</th>
+                                    <th scope="col" class="table-border">Package</th>
+                                    <th scope="col" class="table-border">D.O.A</th>
+                                    <th scope="col" class="table-border">D.O.J</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-details">
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.directtotal)
+                                {
+                                    i++;
+                                    <tr>
+                                        <th scope="row">@i</th>
+                                        <td>@item.UserId</td>
+                                        <td>@item.Name</td>
+                                        <td hidden>@item.Email</td>
+                                        <td hidden>@item.Mobile</td>
+                                        <td>@item.TotalBusiness</td>
+                                        <td>@item.Package</td>
+                                        <td>@item.ActiveDate</td>
+                                        <td>@item.RegDate</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

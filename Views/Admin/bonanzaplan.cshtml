@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Bonanza plane</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Direct Referral</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-6">
+                    <form asp-action="bonanzaplan" asp-controller="admin" method="post">
+                        <h4 style="color:red">@ViewBag.bag</h4>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Start Date</label>
+                            <input type="date" class="form-control" name="startdate" id="formGroupExampleInput" >
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">End Date</label>
+                            <input type="date" class="form-control" id="formGroupExampleInput2"  name="enddate">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Rank</label>
+                            <input type="number" class="form-control" name="rank">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Direct</label>
+                            <input type="number" class="form-control" name="direct">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Hours</label>
+                            <input type="number" class="form-control" name="hours">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Coupon</label>
+                            <input type="number" class="form-control" name="coupon">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Price</label>
+                            <input type="number" class="form-control" name="price">
+                        </div>
+                       
+                        <div class="form-group">
+
+                            <button type="submit"  class="btn btn" id="formGroupExampleInput2" style="background-image: linear-gradient(150deg, #8e8ebf 80%, #191951);"><i class="nav-icon fa fa-edit"></i>Save</button>
+                        </div>
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+

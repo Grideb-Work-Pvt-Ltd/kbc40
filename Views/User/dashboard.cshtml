@@ -1,0 +1,535 @@
+﻿@using Microsoft.AspNetCore.Http
+@model forex.Models.dashboardmodel;
+@{
+    ViewData["Title"] = "admin";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+<style>
+    .counter-style {
+        font-size: 50px;
+        text-align: center;
+        background-image: linear-gradient(to right, #ffe558, #ffe558, #ffe558);
+    }
+
+    .counter-plus {
+        background-image: linear-gradient(to right, #ffe558, #ffe558, #ffe558);
+    }
+    .abc {
+        background-color: #0756ab;
+        color: #fff;
+    }
+    .bcd {
+        box-shadow: 0px 5px #0756ab;
+        border-radius: 0px 0px 30px 50px;
+        background-image: linear-gradient(to right, #ffe558, #ffe558, #ffe558);
+        /*background-color: #ffc107;*/
+        color: #fff;
+    }
+    .cde {
+        text-align:center;
+    }
+    .iconn{
+        color:white;
+    }
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Dashboard</h1>
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                @if (Model.idcard == "ID CARD")
+                {
+                    <div class="col-sm-4">
+                        <!-- small box -->
+                        <div class="card-header abc">
+                            <h5> <i class="nav-icon fa fa-table iconn"></i>ID CARD</h5>
+
+                        </div>
+                        <div class="small-box bcd">
+                            <div class="inner p-4">
+
+                                <h2 style="color:red;font-size:20px;">Please Update your Profile</h2>
+                                <a href="~/user/profile"> Click here</a>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add iconn"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                <!-- ./col -->
+
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-table iconn"></i> Needan Wallet</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2> @Model.total</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add iconn"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-image iconn"></i>Crowd Wallet</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2> @Model.crowdwallet</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-image"></i>Volunteer Matching Fund</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2 id="counter-dashboard2">@Model.matching</h2>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i>Charity Wallet </h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.charityw</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> Volunteer Welfare Fund</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.vol </h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-chart-pie"></i> Referral</h5>
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+                            <h2>@Model.direct </h2>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add iconn"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> Downline</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.Downline</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> Donation Fund</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.charity</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-table iconn"></i> REFERAL LINK</h5>
+                        <a href="#" data-toggle="card-expand" class="text-inverse text-opacity-50 text-decoration-none"><i class="bi bi-fullscreen"></i></a>
+                    </div>
+                    <!-- small box -->
+
+
+                    <div class="small-box bcd">
+                        <div class="row">
+                            <div class="col-sm-7 inner p-4">
+                                <input type="text" class="form-control" style="border-block: none; background: transparent; color: black; " value="https://kbc40.com/home/register/@Context.Session.GetString("UserId")" id="myInput">
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" onclick="myFunction() " style="margin-bottom: 5px; margin-top: 22px;  margin-left: 50px;">Copy text</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4" hidden>
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> Charity capping</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.charitycapping</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> Travel Fund</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.travral</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> House Fund</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.house</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i> Car Fund</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.car</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                @if (Model.franchise == "1")
+                {
+                    <div class="col-sm-4">
+                        <!-- small box -->
+                        <div class="card-header abc">
+                            <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
+
+                        </div>
+                        <div class="small-box bcd">
+                            <div class="inner p-4">
+
+                                <h2>@Model.franchiseamountunt</h2>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <div class="inner p-4">
+
+                                <a href="~/user/fundtranstofranchisetoNeedan">Send Amount IN Needan Wallet</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                @if (Model.franchise == "1")
+                {
+                    <div class="col-sm-4">
+                        <!-- small box -->
+                        <div class="card-header abc">
+                            <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
+
+                        </div>
+                        <div class="small-box bcd">
+                            <div class="inner p-4">
+
+                                <div class="inner p-4">
+
+                                    <a href="~/user/PaymentRequestfranchise">Payment Request</a>
+
+                                </div>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+                }
+                @if (Model.franchise == "1")
+                {
+                    <div class="col-sm-4">
+                        <!-- small box -->
+                        <div class="card-header abc">
+                            <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
+
+                        </div>
+                        <div class="small-box bcd">
+                            <div class="inner p-4">
+
+                                <div class="inner p-4">
+
+                                    <a href="~/user/requestforwallet">Fund Request</a>
+
+                                </div>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+                }
+
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-chart-pie"></i>Follow us on</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+                            <a href="https://www.youtube.com/NEEDANEkSamadhan" class="btn" target="_blank">
+                                <img src="~/img/you.png" />
+                            </a>
+                            <a href="https://www.facebook.com/NeedanwelfarefoundationKBC40" class="btn " target="_blank">
+                                <img src="~/img/face.png" />
+                            </a>
+                            <a href="#" class="btn" target="_blank">
+                                <img src="~/img/twitter.png" />
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ./col -->
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-edit"></i> User Info</h5>
+                    </div>
+                    <div class="small-box bcd cde">
+                        <div>
+                            <label>Name :@Model.Name </label>
+                        </div>
+                        <div>
+                            <label>Code :@Model.UserId </label>
+                        </div>
+                        <div>
+                            <label>Donation :@Model.package </label>
+                        </div>
+                        <div>
+                            <label>D.O.A :@Model.activedate </label>
+                        </div>
+                        <div>
+                            <label>Rank :@Model.rank </label>
+                        </div>
+                        <div>
+                            <label>Plan Name :@Model.planname </label>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4" hidden>
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-image"></i>Payment Request</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2 id="counter-dashboard"> @Model.paymentrequest </h2>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <!-- ./col -->
+            </div>
+          
+        </div>
+    </section>
+
+    <div class="row" hidden>      
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="background-color: #ffc107 !important; color: black !important;" value="http://kbc40/home/register/?id=@Context.Session.GetString("UserId")" id="myInput">
+                <div class="input-group-append">
+                    <span onclick="myFunction()" class="input-group-text" id="basic-addon2" style="color: white; background-color: #0756ab;">Copy Link</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row (main row) -->
+</div><!-- /.container-fluid -->
+    
+
+<script>
+    //function myFunction() {
+    //    // Get the text field
+    //    var copyText = document.getElementById("myInput");
+
+    //    // Select the text field
+    //    copyText.select();
+    //    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+    //    // Copy the text inside the text field
+    //    navigator.clipboard.writeText(copyText.value);
+
+    //    // Alert the copied text
+    //    alert("Copied the text: " + copyText.value);
+    //}
+    function myFunction() {
+        // Get the text field
+        var copyText = document.getElementById("myInput");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        try {
+            // Execute the copy command
+            var successful = document.execCommand('copy');
+
+            // Display a success/fail message
+            var msg = successful ? 'Copied the text:  '+ copyText.value : 'Oops, unable to copy!';
+            alert(msg);
+        } catch (err) {
+            // Fallback for browsers that don't support execCommand
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+
+            // Display a success/fail message
+            var msg = successful ? 'Copied the text:  ' + copyText.value : 'Oops, unable to copy!';
+            alert(msg);
+        }
+    }
+
+</script>
+

@@ -1,0 +1,109 @@
+﻿@model forex.Models.kycmodellist;
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <input type="text" id="myInput" onkeyup="mysearch()" placeholder="Search for names..">
+        <table id="tbl_exporttable_to_xls" class="table table-bordered" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; background-color:#6e75784a;">
+            <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+            <thead style=" background-color: #077bbf!important; color:#fff;">
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Name</th>
+
+                    <th scope="col">Bank </th>
+                    <th scope="col">Pancard </th>
+                    <th scope="col">Adhaar</th>
+                    <th scope="col"></th>
+                    <th scope="col">
+                        Kyc
+
+
+                    </th>
+                    <th scope="col">
+                        Action
+
+
+                    </th>
+                    <th scope="col">
+                        Action
+
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model.kyclist)
+                {
+                    i++;
+                <tr>
+                    <td scope="row">@i</td>
+                    <td>@item.Userid</td>
+
+                    <td>@item.AccountHolderName</td>
+
+                    <td>
+                        Account NO : @item.accountno<br />
+                        IFSC : @item.ifsc <br />
+                        BANK NAME : @item.branch <br />
+                        <img src="@item.bank" width="100px" />
+
+                    </td>
+                    <td>
+                        PanNO : @item.pannumbr<br />
+                        <img src="@item.pancard" width="100px" />
+                    </td>
+                    <td>
+                        Adhaar No : @item.adharnumber<br />
+                        <img src="@item.adharfront" width="100px" />
+                    </td>
+                    <td>
+                       
+                        <img src="@item.adharback" width="100px" />
+                    </td>
+
+                    <td>
+                        <form asp-action="updatekyc" asp-controller="admin">
+                            <input type="text" name="userid" value="@item.Userid" hidden/>
+                            <button class="btn btn-danger" type="submit">Active</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form asp-action="rejectkyc" asp-controller="admin">
+                            <input type="text" name="userid" value="@item.Userid" hidden/>
+                            <button class="btn btn-danger" type="submit">Reject</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="~/admin/bank?userid=@item.Userid"class="btn btn-danger">Edit</a>
+                        @*<form asp-action="bank" asp-controller="admin">
+                            <input type="text" name="userid" id="userid" value="@item.Userid" />
+                            <button type="submit" class="btn btn-danger">Edit</button>
+                        </form>*@
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </section>
+</div>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('tbl_exporttable_to_xls');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>

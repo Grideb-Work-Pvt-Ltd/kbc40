@@ -1,0 +1,67 @@
+﻿@model forex.Models.ProductAddModelList;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-noty pos-noty">
+            <form action="">
+                <div class="container row-noty">
+                    <div class="col-12-noty">
+                        <h1 class="h1-noty" style="text-align: center;">Product list</h1>
+                        <h1 class="h1-noty" style="text-align: center; color:red;">@ViewBag.data</h1>
+                    </div>
+                </div>
+                <hr>
+            </form>
+        </div>
+       
+
+
+
+        <div style="overflow:auto;">
+
+            <table class="table table-bordered" style="background-color:#6e75784a;">
+                <thead style="background-color: #2e7597; color: #ffff;">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>product</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+
+                        <th>Image</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 0;
+                    }
+                    @foreach (var item in Model.ProductAddModelVarriable)
+                    {
+                        i++;
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@item.name</td>
+                            <td>@item.price</td>
+                            <td>@item.discount</td>
+                            <td><img src="@item.image" style="width:100px;" /></td>
+
+
+                            <td>
+                                <form asp-action="delimg" asp-controller="admin">
+                                    <input type="text" name="id" value="@item.indexid" hidden />
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

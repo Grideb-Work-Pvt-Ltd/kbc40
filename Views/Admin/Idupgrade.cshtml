@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Idupgrade";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<style>
+    .radi {
+        border-radius: 20px;
+    }
+
+    img {
+        height: 260px;
+    }
+</style>
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="col-md-4 ml-2">
+            <h4 style="color:red;">@TempData["tp1"]</h4>
+            <form asp-action="idupgrade" asp-controller="admin" method="post">
+                <div class="form-group">
+                    <label>Userid</label>
+                    <input type="text" class="form-control" name="uid"id="userid" placeholder="user id" onchange="myFunction()" />
+                </div>
+                <div class="form-group">
+                    <label>name</label>
+                    <input type="text" class="form-control" readonly name="name"id="name" />
+                </div>
+                <button class="btn btn-primary">Upgrade</button>
+            </form>
+        </div>
+
+    </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").value = data.name
+                myFunctions();
+            }
+        });
+    };
+</script>

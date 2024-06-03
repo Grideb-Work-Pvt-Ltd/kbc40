@@ -1,0 +1,64 @@
+﻿@model forex.Models.IncomeWallet;
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "~/views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        
+
+        <section>
+            <h1 class="h1-12">Club Reservation</h1>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+                <table id="tbl_exporttable_to_xls" class="table" cellpadding="0" cellspacing="0" border="0">
+                    <thead style=" background-color: #000 !important; color:#fff;">
+                        <tr>
+                            <th>Index</th>
+                            <th>Userid</th>
+                            <th>Amount</th>
+                            <th>Details</th>
+                            <th>Cr Dr</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.Incomewall)
+
+                        {
+                            i++;
+                            <tr>
+                                <th class="row-incom">@i</th>
+                                <td>@item.userid</td>
+                                <td>@item.amount</td>
+                                <td>@item.details</td>
+                                <td>@item.inout</td>
+                                <td>@item.Date</td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+        }
+
+</script>

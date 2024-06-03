@@ -1,0 +1,150 @@
+﻿@model forex.Models.userlistModel
+@{
+    ViewData["Title"] = "Recipt";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+<style>
+
+    .table {
+        line-height: 0.6 !important;
+    }
+
+    .a {
+        margin-top: 129px;
+        margin-left: 108px;
+        font-size: 24px;
+    }
+
+    .b {
+        margin-top: 142px;
+        font-size: 24px;
+    }
+
+    .c {
+        margin-top: 34px;
+        margin-left: 547px;
+        font-size: 24px;
+    }
+
+    .d {
+        margin-top: -52px;
+        margin-right: 107px;
+        font-size: 24px;
+    }
+    /*@@media screen and (max-width: 800px)*/
+    @@media screen and (min-width: 320px) and (max-width: 768px) {
+        .a {
+            margin-top: 30px;
+            margin-left: 23px;
+            font-size: 10px;
+        }
+
+        .b {
+            margin-top: 50px;
+            font-size: 10px;
+        }
+
+        .c {
+            margin-top: -20px;
+            margin-left: 492px;
+            font-size: 10px;
+        }
+
+        .d {
+            margin-top: -31px;
+            margin-right: 22px;
+            font-size: 10px;
+        }
+    }
+</style>
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="text-align:end;">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <button onclick="downloadImage()">Download</button>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <center>
+                <h1 class="m-3">
+                    NEEDAN WELFARE FOUNDATION <br />
+                    <small> DONATION RECIEPT</small>
+                </h1>
+            </center>
+           
+            <div class="card bg-dark text-white" id="htmlContent">
+                <img id="myImage" src="~/images/yash1.jpg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+
+
+
+
+
+                    <p class="card-text a">@Model.userid</p>
+                    <p class="card-text text-center b">@Model.name</p>
+
+                    <p class="card-text text-center c">@Model.accountno</p>
+                   
+                </div>
+            </div>
+
+
+            <br><br><br>
+            <div class="row">
+                <div class="col-2" style="text-align:center;">
+
+                </div>
+                <div class="col-6">
+
+
+                    <div class="row">
+
+                        <small>
+                            It is System Generated Reciept.
+                            No signature Required.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-3" style="text-align:center;">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    function downloadImage() {
+        html2canvas(document.querySelector("#htmlContent")).then(canvas => {
+            // Convert canvas to image and download
+            let link = document.createElement("a");
+            document.body.appendChild(link);
+            link.download = "receipt.png";
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    }
+</script>

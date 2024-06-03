@@ -1,0 +1,82 @@
+﻿@model forex.Models.IncomeWallet;
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "~/views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                    <form asp-action="greenid" asp-controller="admin" method="post">
+                        <div class="form-group col-6">
+                            <label for="">User Id</label>
+                            <input type="text" class="form-control" name="uid" placeholder="user id">
+                        </div>
+                        @*<div class="form-group col-6">
+                                <label for="">Package</label>
+                                <input type="text" class="form-control" name="package">
+                            </div>*@
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary pl-5 pr-5">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <h1 class="h1-12">Green Wallet</h1>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+                <table id="tbl_exporttable_to_xls" class="table" cellpadding="0" cellspacing="0" border="0">
+                    <thead style=" background-color: #000 !important; color:#fff;">
+                        <tr>
+                            <th>Index</th>
+                            <th>Userid</th>
+                            <th>Amount</th>
+                            <th>Details</th>
+                            <th>Cr Dr</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.Incomewall)
+
+                        {
+                            i++;
+                            <tr>
+                                <th class="row-incom">@i</th>
+                                <td>@item.userid</td>
+                                <td>@item.amount</td>
+                                <td>@item.details</td>
+                                <td>@item.inout</td>
+                                <td>@item.Date</td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+        }
+
+</script>

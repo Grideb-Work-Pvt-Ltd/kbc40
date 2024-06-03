@@ -1,0 +1,86 @@
+﻿@model forex.Models.user
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <input type="text" id="myInput" onkeyup="mysearch()" placeholder="Search for names..">
+        <table  id="tbl_exporttable_to_xls"class="table table-bordered" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; background-color:#6e75784a;">
+            <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+            <thead style=" background-color: #077bbf!important; color:#fff;">
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Stack</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+
+                    <th scope="col">RegDate</th>
+                    <th scope="col">ActiveDate</th>
+                    <th scope="col">Sponsored ID</th>
+
+
+                    <th scope="col">
+                        Block/Unblock
+
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model.reglist)
+                {
+                    i++;
+                <tr>
+                    <td scope="row">@i</td>
+                    <td><a href="bankinfo/?uid=@item.userid" style="color: #49bd82!important;">@item.userid</a></td>
+                    <td><a href="index/?uid=@item.userid" style="color: #49bd82!important;">Stack Summery</a></td>
+                    <td>@item.name</td>
+                    <td>@item.password</td>
+                    <td>@item.status</td>
+                    <td>@item.emailaddress</td>
+                    <td>@item.Mobile</td>
+                    @*<td>@item.city</td>*@
+                    <td>@item.RegDate</td>
+                    <td>@item.ActiveDate</td>
+                    <td>@item.Sponsorid</td>
+
+
+                    <td>
+                        <form asp-action="block" asp-controller="admin">
+                            <select type="text" name="block">
+                                <option value="">Select</option>
+                                <option value="0">BlockID</option>
+                                <option value="1">UnblockID</option>
+                            </select>
+                            <input name="userid" value="@item.userid" hidden>
+                            <button class="btn btn-danger" type="submit">Submit</button>
+                        </form>
+                    </td>
+
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </section>
+</div>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('tbl_exporttable_to_xls');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>

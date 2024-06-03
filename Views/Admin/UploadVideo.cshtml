@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "UploadImage";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Upload URL</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Direct Referral</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <section class="content">
+
+        <div class="container">
+            <div class="col-md-6">
+                <form asp-action="UploadVideo" asp-controller="admin" method="post">
+                    <div class="form-group">
+                        <label>Video URL</label>
+                        <input type="text" name="url" class="form-control"/>
+                    </div>
+                    <button type="submit" class="btn btn-success">save</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</div>

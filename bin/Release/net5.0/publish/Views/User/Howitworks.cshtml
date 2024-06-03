@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewData["Title"] = "AddFund";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">How it works</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <style>
+            * {
+                color: #181515 !important;
+            }
+        </style>
+
+        <div class="">
+            <div class="container-noty pos-noty">
+                <form action="">
+                    <div class="container row-noty">
+                        <div class="col-lg-12">
+                            <h4 class="h1-noty" style="text-align: center;">-How its work</h4>
+                            <h4 class="h1-noty" style="text-align: center;">Services</h4>
+                            <h1 class="h1-noty" style="text-align: center; color:red;">@ViewBag.data</h1>
+                        </div>
+                    </div>
+                    <hr>
+                </form>
+            </div>
+            <div class="container">
+                <form asp-action="AddfundBNB" asp-controller="User" method="post" enctype="multipart/form-data">
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <img class="logo1.png" src="~/images/newplan.jpg" style="width: 100%;" />
+
+                        </div>                     
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>
+                                It's 2x7 forced matrix plan. It will fill automatically. Means anyone can get Unlimited Donation from this plan. In this system you have to donate 1000/- only and after that you will get lifetime earning opportunity. So you can see the life time earning opportunity chance to earn Approx. Rs.40 Cr. or more. Let us Explain the “KBC40 Concept” More Clearly:
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                THIS IS BASED ON EVERYONE JUST GETTING 2 participants (if you have more than 2 you can get 500/- and help you down line by placing these people under them)
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                This is your business so you are free to manage it in whatever manner you choose.
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                Associate: You join as an associate to join 2 Persons who was your 1st down line. You will get Donation Rs.1000/- each from that 2 persons (Rs.1000/- x 2 = Rs.2000/-). And system will donate to your bronze up line Rs.1000/-And now you upgraded by Bronze Now your income is Rs.2000/- Rs.1000/- = Rs.1000/-. if you have more than 2 you can get 500/- and help you downline by placing these people under them and you downline get Rs. 500/-.
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                Bronze: After being Bronze now 4 donors of your 2nd down line will upgrade their ID (means after entering 8 in their down line, they will upgrade toBronze), you will get Rs. 1000/- from each 4 persons (Rs.1000/- x 4 = Rs.4,000/-). And system will pay to your any upline Rs.2000/- And now you upgraded by SilverNow your income is Rs.4000/- Rs.2000/- = Rs.2000/-
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                Silver: After being Silver now 8 members of your 3rd down line will upgrade their ID (means after entering 8 in their down line, they will upgrade to Silver), you will get Rs.2000/- from each 8persons (Rs.2000/- x 8 = Rs.16,000/-). And system will pay to your any up line Rs.8000/- And now you upgraded by Gold now your income is Rs.16,000/- Rs.8,000/- = Rs.8000/-.
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                Gold: After being Gold now 16 members of your 4th down line will upgrade their ID (means after entering 16 in their down line, they will upgrade to Gold), you will get Rs.8000/- from each 16persons (Rs.8,000/- x 16 = Rs.1,28,000/-). And system will pay to your any up line Rs.28000/- And now you upgraded by Pearl now your income is Rs.1,28,000/- Rs.28,000/- = Rs.1,00,000/-
+                            </p>
+                        </div>
+
+                        <div class="col-12">
+                            <p>
+                                Pearl: After being Pearl now 32 members of your 5th down line will upgrade their ID (means after entering 32 in their down line, they will upgrade to Pearl), you will get Rs. 28000/- from each 32persons (Rs.28,000/- x 32 = Rs.8,96,000/-). And system will pay to your any up line Rs. 300000/- And now you upgraded by Ruby now your income is Rs.8,96,000/- Rs.3,00000/- = Rs.5,96,000/-.
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                Ruby: After being Ruby now 64 members of your 6th down line will upgrade their ID (means after entering 64 in their down line, they will upgrade to Ruby), you will get Rs. 300000/- from each 64persons (Rs.3,00000/- x 64 = Rs.1,92,00000/-). And system will pay to your any up line Rs. 30,00000/- And now you upgraded by Diamond now your income is Rs.1,92,00000/- Rs.30,00000/- = Rs.1,62,00000/-.
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                Diamond: After being Diamond now 128 members of your 8th down line will upgrade their ID (means after entering 128 in their down line, they will upgrade to Diamond), you will get Rs.3000000/- from each 128 persons (Rs.30,00000/- x 128 = Rs.38,40,00000/-). Now from that Rs.38,40,00000/- you don't have to pay to anybody. Now your total income is Rs.38,40,00000/-Rs. 0/- = Rs.38,40,00000/- (Net Profit).
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p>
+                                NOTE : <b> Platform Charge : 10% </b>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            function myFunction() {
+                alert("Are you confirm add amount");
+            }
+        </script>
+
+    </section>
+</div>
+
+
+
+
+

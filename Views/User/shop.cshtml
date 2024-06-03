@@ -1,0 +1,240 @@
+﻿@model forex.Models.ProductAddModelList;
+@{
+    ViewData["Title"] = "shop";
+    Layout = "~/views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .loty {
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        display: flex;
+    }
+
+    .product-grid {
+        text-align: center;
+        padding: 0 0 72px;
+        border: 1px solid rgba(0,0,0,.1);
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 3px 20px rgba(0,0,0,0.08);
+    }
+
+        .product-grid .product-image {
+            position: relative;
+            transition: all .3s ease 0s
+        }
+
+            .product-grid .product-image a {
+                display: block
+            }
+
+            .product-grid .product-image img {
+                width: 100%;
+                height: auto;
+                margin-bottom:20px;
+                  
+            }
+
+        .product-grid .pic-1 {
+            opacity: 1;
+            transition: all .3s ease-out 0s
+        }
+
+        .product-grid:hover .pic-1 {
+            opacity: 1
+        }
+
+
+      
+        .product-grid .product-discount-label,
+        .product-grid .product-new-label {
+            color: #fff;
+            background-color: #ef5777;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            display: block;
+            position: absolute;
+            top: 10px;
+            left: 0
+        }
+
+        .product-grid .product-discount-label {
+            background-color: #333;
+            left: auto;
+            right: 0
+        }
+
+        
+        .product-grid .product-content {
+            background-color: #fff;
+            text-align: center;
+           
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -37px;
+            z-index: 1;
+            transition: all .3s
+        }
+
+        .product-grid:hover .product-content {
+            bottom: 0
+        }
+
+        .product-grid .title {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: .5px;
+            text-transform: capitalize;
+            margin: 0 0 10px;
+            transition: all .3s ease 0s
+        }
+
+            .product-grid .title a {
+                color: #828282
+            }
+
+                .product-grid .title a:hover,
+                .product-grid:hover .title a {
+                    color: #ef5777
+                }
+
+        .product-grid .price {
+            color: #333;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: .6px;
+            margin-bottom: 8px;
+            text-align: center;
+            transition: all .3s
+        }
+
+            .product-grid .price span {
+                color: #999;
+                font-size: 13px;
+                font-weight: 400;
+                text-decoration: line-through;
+                margin-left: 3px;
+                display: inline-block
+            }
+
+        .product-grid .add-to-cart {
+            color: #000;
+            font-size: 13px;
+            font-weight: 600
+        }
+
+    @@media only screen and (max-width:990px) {
+        .product-grid {
+            margin-bottom: 30px
+        }
+    }
+</style>
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="../User/cardlist">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+
+                                <span id="productCountBadge" class="badge badge-pill badge-danger" style="font-size: 20px;">0</span>
+
+                                
+                            </a>
+                        </li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container-fluid">
+            <div class="row loty">
+
+
+                @foreach (var item in Model.ProductAddModelVarriable)
+                {
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <img decoding="async" class="pic-1" src="@item.image">
+                                <span class="product-new-label">Sale</span>
+                                <span class="product-discount-label">@item.discount%</span>
+                            </div>
+                            <div class="product-content">
+                                <h1 class="title" style="font-size:20px">@item.name</h1>
+                                <h2 class="title" style="font-size:20px">@item.discription</h2>
+                                <div class="price">
+                                    @item.price
+                                    <span>@item.walletamount</span>
+                                </div>
+                                <a class="add-to-cart btn btn-primary" onclick="save('@item.pid')">+ Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    function save(val) {
+        $.ajax({
+            type: "POST",
+            url: "../user/card",
+            data: { "id": val },
+            success: function (response) {
+               
+                updateProductCount(); // Update product count in the badge
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+    
+
+    function updateProductCount() {
+        var productCount = parseInt(document.getElementById('productCountBadge').innerText) || 0;
+        document.getElementById('productCountBadge').innerText = productCount + 1;
+    }
+</script>
+
+<script>
+    var productCount = 0; // Replace this with the actual count
+    document.getElementById('productCountBadge').innerText = productCount;
+</script>
+
+
+
+

@@ -1,0 +1,220 @@
+﻿@model forex.Models.treelist
+ @{
+    ViewData["Title"] = "tree";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    table.dataTable tbody tr {
+        background-color: #217788;
+    }
+
+    label {
+        color: #fff;
+    }
+
+    div#mytable_info {
+        color: #fff;
+    }
+
+    a#mytable_previous {
+        color: #fff !important;
+    }
+
+    a#mytable_next {
+        color: #fff !important;
+    }
+
+    input[type="search"] {
+        color: #fff;
+    }
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Upgrade</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+
+        <div class="container">
+            <div class="container" hidden>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form asp-action="tree" asp-controller="user" method="post">
+                            <p>Click Me For Upgrade</p>
+                            <div class="form-group">
+                                <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                            </div>
+                        </form>                      
+                    </div>
+                </div>
+            </div>
+            <section class="content con">           
+                <div class="content-area wallet-page">
+                    <div class="panel panel-default form-wrapper">                    
+                        <div class="panel-body">
+                            <section class="contentHolder wallet-pg-cls">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Upgrade </th>
+                                                <th> Sent OTP</th>
+                                                <th>Status</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int i = 0;
+                                            }
+                                            @foreach (var item in Model.treelistobj)
+                                           {
+                                               i++;
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>@item.RankName</td>
+                                                <td>
+                                                    <form asp-action="otp" asp-controller="user" method="post">
+                                                        <div class="form-group" @item.c2>                  
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #ffc107;">Send OTP:</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <span @item.c1>Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group" @item.c2>
+                                                            <input type="text" name="topenter" value=""> 
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #ffc107;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span @item.c3>NotAligible</span>
+                                                </td>
+                                            </tr>
+                                            }
+                                            @*<tr>
+                                                <td>2</td>
+                                                <td>Bronze</td>
+
+                                                <td>
+                                                    <span class="">Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group">
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span Model.c3>NotAligible</span>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Silver</td>
+
+                                                <td>
+                                                    <span class="">Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group">
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span Model.c3>NotAligible</span>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Gold</td>
+
+                                                <td>
+                                                    <span class="">Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group">
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span Model.c3>NotAligible</span>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Pearl</td>
+
+                                                <td>
+                                                    <span class="">Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group">
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span Model.c3>NotAligible</span>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Ruby</td>
+
+                                                <td>
+                                                    <span class="">Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group">
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span Model.c3>NotAligible</span>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Diamond</td>
+
+                                                <td>
+                                                    <span class="">Updated</span>
+                                                    <form asp-action="tree" asp-controller="user" method="post">
+                                                        <div class="form-group">
+                                                            <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #413d44;">Upgrade:</button>
+                                                        </div>
+                                                    </form>
+                                                    <span Model.c3>NotAligible</span>
+                                                </td>
+
+                                            </tr>*@
+                                        </tbody>
+                                    </table>
+                                </div>                            
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            </section>          
+        </div>
+    </section>
+</div>
+
+
+
+
+

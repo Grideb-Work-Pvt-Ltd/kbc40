@@ -1,0 +1,112 @@
+﻿@model forex.Models.kycmodellist;
+
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+@*<div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 pb-4" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                <h3 class="text-center" style="background:#338e93!important; color:#fff;">Green Wallet</h3>
+                <hr />
+                <form asp-action="greenwallet" asp-controller="admin">
+                    <div class="form-group col-md-4 mx-auto">
+                        <label for="formGroupExampleInput">User Id</label>
+                        <input type="text" class="form-control" name="userid" placeholder="user id">
+                    </div>
+                    <div class="form-group col-md-4 mx-auto">
+                        <label for="formGroupExampleInput2">Amount</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" name="amount" >
+                    </div>
+                    <div class="form-group col-md-4 mx-auto">
+                        <label for="formGroupExampleInput">Details</label>
+                        <input type="text" class="form-control" name="details">
+                    </div>
+
+                    <div class="form-group col-md-4 mx-auto">
+                        <label for="formGroupExampleInput2">Dr Cr</label>
+                        <input type="text" class="form-control" name="inout">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary pl-5 pr-5">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>*@
+
+<div class="content-wrapper">
+    <section class="content">
+
+        <section>
+            <h1 class="h1-12">KBC Request</h1>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <div id="name" style="color:red;"></div>
+                <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+                <table id="tbl_exporttable_to_xls" class="table table-responsive-sm" cellpadding="0" cellspacing="0" border="0">
+                    <thead class="bg-dark" style=" color:#fff;">
+                        <tr>
+                            <th>Index</th>
+                            <th>Userid</th>
+                            <th>Amount</th>
+                            <th>Cr/Dr</th>
+                            <th>Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.kyclist)
+                        {
+                            i++;
+                            <tr>
+                                <th class="row-incom">@i</th>
+                                <td id="Userid">@item.Userid</td>
+                                <td id="amount">@item.amount</td>
+                                <td id="transection">@item.transection</td>
+                                <td id="transection">@item.tdate</td>
+                                @*<td><a href="@item.bank"><img src="@item.bank" style="width:30px;"></a></td>*@
+                                @*<td><button type="button" onclick="myFunction()" class="btn btn-info"> Submit </button></td>*@
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        let Userid = document.getElementById("Userid").value
+        let amount = document.getElementById("amount").value
+
+        $.ajax({
+            url: '../Admin/greenwallet',
+            data: { userid: Userid, amount: amount, transection: transection },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").innerHTML = data.name
+            }
+        });
+    };
+</script>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('tbl_exporttable_to_xls');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>

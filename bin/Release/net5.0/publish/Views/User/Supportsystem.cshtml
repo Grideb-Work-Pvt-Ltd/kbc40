@@ -1,0 +1,65 @@
+﻿
+@{
+       ViewData["Title"] = "Supportsystem";
+       Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+        
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Support System</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+             
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+ 
+    <!-- Main content -->
+    <section class="content">
+    
+     <div class="container">
+        <div class="row">            
+            <div class="col-lg-3">  
+              	     
+            </div>
+             <div class="col-lg-6">  
+                 <form asp-action="Supportsystem" asp-controller="user">
+
+                     <div class="container row-fed">
+                         <div class=" col-25-fed">
+                             <h4 class="h1-noty" style="text-align: center; color: red;">@ViewBag.data </h4>
+                             <label for="lname"><b>Message</b></label>
+                         </div>
+                         <div class="col-75-fed">
+                             <textarea class="textarea-fed" name="message" id="textarea" cols="44" rows="6" placeholder="Give a message..."></textarea>
+                         </div>
+                     </div>
+                     <div style="padding-left:222px;">
+                         <input type="submit" value="Submit" class="btn mt-3" style="margin-top: 27px; background-color:#6c4d4d91!important;" />
+                     </div>
+
+                 </form>
+            </div>
+             <div class="col-lg-3">  
+              	     
+            </div>
+         </div>
+      </div>
+   </section> 
+</div>
+   
+        
+    
+ 
+
+    

@@ -1,0 +1,69 @@
+﻿@model forex.Models.ProductAddModelList;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-noty pos-noty">
+            <form action="">
+                <div class="container row-noty">
+                    <div class="col-12-noty">
+                        <h1 class="h1-noty" style="text-align: center;">Order list</h1>
+                        <h1 class="h1-noty" style="text-align: center; color:red;">@ViewBag.data</h1>
+                    </div>
+                </div>
+                <hr>
+            </form>
+        </div>
+
+
+
+
+        <div style="overflow:auto;">
+
+            <table class="table table-bordered" style="background-color:#6e75784a;">
+                <thead style="background-color: #2e7597; color: #ffff;">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Orderid</th>
+                        <th>Userid</th>
+                        <th>Name</th>
+
+                        <th>Total Price</th>
+                        <th>Date</th>
+                        <th>Detail</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 0;
+                    }
+                    @foreach (var item in Model.ProductAddModelVarriable)
+                    {
+                        i++;
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@item.orderid</td>
+                        <td>@item.userid</td>
+                        <td>@item.name</td>
+                        <td>@item.price</td>
+                        <td>@item.date</td>
+
+
+                        <td>
+                            <form asp-action="Allorderlist" asp-controller="admin">
+                                <input type="text" name="id" value="@item.orderid" hidden />
+                                <button class="btn btn-danger">All Order</button>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

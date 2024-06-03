@@ -1,0 +1,815 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="~/images/logo1.png">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../asset/css/fontawesome.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    @using Microsoft.AspNetCore.Http;
+    <style>
+        .nav-wrapper:hover {
+            background-image: linear-gradient(90deg, #ff0456, #780f0a 100%);
+            border-radius: 0 30px 30px 0;
+            /* border: none; */
+            border-right: 3px solid #e7c5d5;
+        }
+
+        .dashboard-fix {
+            border-radius: 0 30px 30px 0;
+            border-right: 3px solid #e7c5d5;
+        }
+
+        .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.show {
+            right: -80px !important;
+            background-image: linear-gradient(90deg, #8f4a74, #e7c5d5 100%);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            text-align: center;
+        }
+
+        .profile i {
+            border: 2px solid #fff;
+            background-image: linear-gradient(90deg, #8f4a74, #e7c5d5 100%);
+            border-radius: 20px;
+            padding: 5px;
+            color: #070727;
+            margin-top: -10px;
+        }
+
+        .dark-mode input:-webkit-autofill, .dark-mode input:-webkit-autofill:focus, .dark-mode input:-webkit-autofill:hover, .dark-mode select:-webkit-autofill, .dark-mode select:-webkit-autofill:focus, .dark-mode select:-webkit-autofill:hover, .dark-mode textarea:-webkit-autofill, .dark-mode textarea:-webkit-autofill:focus, .dark-mode textarea:-webkit-autofill:hover {
+            -webkit-text-fill-color: #0e0e0e !important;
+        }
+
+        .nav-pills .nav-link {
+            color: #090a0a !important;
+        }
+    </style>
+
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed dark-mode" data-panel-auto-height-mode="height" style="font-family:initial!important;">
+    <div class="">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-dark" style=" background-image: linear-gradient(to right, #ffe558, #ffe558, #ffe558); ">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+              
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link profile" data-toggle="dropdown" href="#">
+                        @*<i class="fa fa-user"></i>*@
+                        <img src="~/@Context.Session.GetString("photo")" class="rounded-circle"   style="width:20px"/>
+                        
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+                        <div class="dropdown-divider"></div>
+                        <a href="~/User/dashboard" class="dropdown-item" style="color:#fff!important;">
+                            <i class="nav-icon fa fa-tachometer-alt"></i> DashBoard
+
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="~/User/passwordchange" class="dropdown-item">
+                            <i class="fa fa-edit"></i> Password Change
+
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="~/User/profile" class="dropdown-item">
+                            <i class="fa fa-chart-pie"></i> Profile
+
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="~/User/Newuserlist" class="dropdown-item">
+                            <i class="fa fa-chart-pie"></i>Refrance user
+
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="~/User/bank" class="dropdown-item">
+                            <i class="fa fa-chart-pie"></i> Bank Detail
+
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <a href="~/home/logout" class="dropdown-item">
+                            <i class='fa fa-sign-out-alt'></i> Logout
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fa fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <!--   <i class="fa fa-th-large"></i> -->
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-image: linear-gradient(to right, #ffe558, #ffe558, #ffe558); ">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <img src="~/boxicons/logo.png" alt="Logo" class="" style="opacity: .8;width:240px!important;height:100px;">
+                @*<span class="brand-text font-weight-light">KBC 40 </span>*@
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li class="nav-item dashboard-fix">
+                            <a href="~/User/dashboard" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item dashboard-fix">
+                            <a href="~/User/addfundfranchise" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                   Add Fund
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item dashboard-fix">
+                            <a href="~/User/Howitworks" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    How it works
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item dashboard-fix">
+                            <a href="~/User/Legal" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    Legal
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    My Account
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/User/Profile" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>My Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/Newuserlist" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Referrals user</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/bank" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>KYC</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    Create Volunteer
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/User/register" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Autofill Joining</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/Treejoing" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Create ID(Tree)</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item nav-wrapper">
+                            <a href="~/User/viewpost" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>
+                                    Create Add
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item nav-wrapper">
+                            <a href="~/User/sendsms" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>
+                                    Send SMS
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/Topup" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Shopping
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/shop" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Shopping
+                                        </p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/orderlist" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Order</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/Topup" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Needan Wallet
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/fundtranstogreen" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Needan Wallet Transfer
+                                        </p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/greentogreen" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p> Needan To Crowd Transfer</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper" hidden>
+                                    <a href="~/User/fundtranstoCharity" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Donate to KBC Wallet
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/MainWalletSummery" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p> Needan Wallet Statement</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper" hidden>
+                                    <a href="~/User/charityWalletSummery" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p> KBC Wallet Statement</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item nav-wrapper dashboard-fix" hidden>
+                            <a href="~/User/Topup" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Green Wallet
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/TopupWallet" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Topup History</p>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    KBC Wallet
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item dashboard-fix">
+                                    <a href="~/User/charitywallet" class="nav-link">
+                                        <i class="nav-icon fa fa-users"></i>
+                                        <p>
+                                            Charity wallet
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item dashboard-fix">
+
+                                    <a href="~/User/fundtranstokbctokbc" class="nav-link">
+                                        <i class="nav-icon fa fa-users"></i>
+                                        <p>
+                                            KBC Wallet Transfer
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item dashboard-fix">
+
+                                    <a href="~/User/fundtranstokbctoNeedan" class="nav-link">
+                                        <i class="nav-icon fa fa-users"></i>
+                                        <p>
+                                            KBC Wallet TO Needan Wallet
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/charityWalletSummery" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p> KBC Wallet Statement</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/fundtransto2XWallet" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p> ADD Fund In 2X Wallet</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/Topup" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Crowd wallet
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/crowdwallet_statement" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Crowdwallet Statement
+                                        </p>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    My Community
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/User/DirectReferral" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Direct Referral List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/TeamReferral" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>My Downline List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/level" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Team Level
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/Couponwallet" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Coupons List
+                                        </p>
+                                    </a>
+
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/Topup" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    My Gratuity
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/tree" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            New Crowd
+                                        </p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/crowdrecieved" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Crowd Recieved
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/crowdgiven" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Crowd Given
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/ClubReservation" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Club Reservation
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix" hidden>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Reward and Report
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item nav-wrapper">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Member Promocode Reward</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Direct Member Reward</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Member Gratutity Reward</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Member Rank Reward</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Member Joining Reward</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Member Timing Reward</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/withdrawalRequest" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Withdrawal Request
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix" hidden>
+                            <a href="~/User/withdrawalRequestFranchise" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Franchise Withdrawal Request
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/withdrawalsummary" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Withdrawal Summary
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/AddFund" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Document
+                                    <i class="fa fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/visitingcard_and_id" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>Visting Card and ID</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper">
+                                    <a href="~/User/receipt" class="nav-link">
+                                        <i class="fa fa-circle nav-icon"></i>
+                                        <p>
+                                            Donation Recipt
+                                        </p>
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item nav-wrapper" hidden>
+                                    <a href="~/User/Donetionrecipts" class="nav-link">
+                                        <i class="nav-icon fa fa-users"></i>
+                                        <p>Charity Wallet receipt</p>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/User/Supportsystem" class="nav-link">
+                                <i class="nav-icon fa fa-edit"></i>
+                                <p>
+                                    Support System
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-wrapper dashboard-fix">
+                            <a href="~/home" class="nav-link">
+                                <i class='nav-icon fa fa-sign-out-alt'></i>
+                                <p>
+                                    Logout
+                                </p>
+                            </a>
+                        </li>
+
+
+                        @*<li class="nav-item nav-wrapper dashboard-fix">
+            <a href="~/User/AddFund" class="nav-link">
+                <i class="nav-icon fa fa-edit"></i>
+                <p>
+                    Add Fund
+                    <i class="fa fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item nav-wrapper">
+                    <a href="~/User/AddFund" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>AddFundINR</p>
+                    </a>
+                </li>
+            </ul>
+        </li>*@
+
+
+
+
+
+                        @*<li class="nav-item nav-wrapper dashboard-fix">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-table"></i>
+                <p>
+                    Income Wallet
+                    <i class="fa fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item" hidden>
+                    <a href="~/user/ProfitSharing" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Profit Sharing</p>
+                    </a>
+                </li>
+                <li class="nav-item nav-wrapper" hidden>
+                    <a href="~/user/IncomeOnProfitSharing" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Income On Profit Sharing</p>
+                    </a>
+                </li>
+                <li class="nav-item nav-wrapper">
+                    <a href="~/user/ReferralIncome" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Crowdfunding</p>
+                    </a>
+                </li>
+                <li class="nav-item nav-wrapper">
+                    <a href="~/user/TeamIncome" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Club Income</p>
+                    </a>
+                </li>
+
+                <li class="nav-item nav-wrapper" hidden>
+                    <a href="~/user/community" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Community Income</p>
+                    </a>
+                </li>
+                <li class="nav-item nav-wrapper" hidden>
+                    <a href="~/user/RewardsRoyalty" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Rewards & Royalty</p>
+                    </a>
+                </li>
+                <li class="nav-item nav-wrapper" hidden>
+                    <a href="~/user/Bonnanza" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>Bonnanza</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li class="nav-item nav-wrapper dashboard-fix">
+            <a href="~/User/IncomeSummary" class="nav-link">
+                <i class="nav-icon fa fa-edit"></i>
+                <p>
+                    Income Summary
+                </p>
+            </a>
+
+        </li>
+        <li class="nav-item nav-wrapper" hidden>
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-envelope"></i>
+                <p>
+                    Fund Transfer
+                    <i class="fa fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item nav-wrapper">
+                    <a href="~/User/fundtransfer" class="nav-link">
+                        <i class="fa fa-circle nav-icon"></i>
+                        <p>
+                            Top up wallet
+                        </p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>*@
+                    </ul>
+                    <hr />
+                </nav>
+            </div>
+        </aside>
+    </div>
+
+
+
+    <main>
+        <div>
+            @RenderBody()
+        </div>
+    </main>
+
+
+
+
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/dist/js/demo.js"></script>
+</body>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable();
+    });
+</script>
+
+
+</html>

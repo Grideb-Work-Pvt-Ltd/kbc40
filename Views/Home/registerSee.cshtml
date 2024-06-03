@@ -1,0 +1,41 @@
+﻿@*@model forex.Models.modlogin*@
+
+@{
+    ViewData["Title"] = "Check User Income";
+    Layout = "~/views/Shared/_LayoutRegisterSee.cshtml";
+}
+
+<div class="container-fluid">
+    <nav>
+        <ul class="home-text">
+            <li><a href="~/home"><span class="fa fa-angle-double-left"></span> HOME</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="content">
+    <div class="container text-center mt-4 mb-5">
+        <div class="row">
+
+            <div class="col-md-4 offset-md-4 text-center mt-4 mm" style="color:white; background-color:black;">
+                <h3 class="text-center">WELCOME</h3>
+                <br>
+                <h5 class="text-center"><span>@Model.name</span></h5>
+                <div class="form-group text-center">
+                    <br>
+                    <h6>Your User Id:- <span>@Model.userid</span></h6>
+                    <br>
+                    <h6>Your password:- <span>@Model.password</span></h6>
+                    <br>
+                    <h6>Your Mobile:- <span>@Model.Mobile</span></h6>
+                </div>
+                <div class="form-group vf " style="text-align: center;">
+                    <br>
+                    <a class="btn btn-secondary btn-block " target="_blank" href="~/Home/login">LOGIN</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

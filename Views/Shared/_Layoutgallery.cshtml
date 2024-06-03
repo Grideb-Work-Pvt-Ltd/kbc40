@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>KBC-40</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    @*<link href="assets/img/favicon.png" rel="icon">*@
+    <link rel="icon" type="image/x-icon" href="~/boxicons/logo.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/iotcss/aos.css" rel="stylesheet">
+    <link href="~/iotcss/bootstrap.min.css" rel="stylesheet">
+    <link href="~/ioticons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/iotcss/glightbox.min.css" rel="stylesheet">
+    <link href="~/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/iotcss/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/iotcss/style.css" rel="stylesheet">
+
+
+</head>
+<style>
+    #header {
+        transition: all 0.5s;
+        z-index: 997;
+        padding: 15px 0;
+        background-image: linear-gradient(267deg, #f98a00 0%, #e9ff35);
+    }
+</style>
+
+    <body>
+         <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="index.html"><img src="~/boxicons/logo.png" style="max-width:100%;" /></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="~/home/index">Home</a></li>
+                    <li><a class="nav-link   scrollto" href="~/home/gallery">Our Gallery</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header>
+        <div>
+            @RenderBody()
+        </div>
+    <footer id="footer">
+
+        @* <div class="footer-newsletter">
+        <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-lg-6">
+        <h4 style="font-family: 'boxicons';">Join Our Newsletter</h4>
+        <p style="font-family: 'boxicons';">Propelling you into the connected future, today</p>
+        <form action="" method="post">
+        <input type="email" name="email"><input type="submit" class="text-dark" value="Subscribe">
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        *@
+        <div class="footer-top border-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-md-6 footer-contact">
+                        <h3><img src="~/boxicons/logo.png" style="max-width:100%;" /></h3>
+                        <p style="font-family: 'boxicons';">
+                            303, Shri Sai Complex, Rattan Bagh Nangloi Railway Station Road Near Metro Station Opp Govt. School - 110041
+                            <br />
+                            <strong style="font-family: 'boxicons';">Phone:</strong> +1<br>
+                            <strong style="font-family: 'boxicons';">Email:</strong> support@kbc40.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+
+                        <h4 style="font-family: 'boxicons';">Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="~/home/index" style="font-family: 'boxicons';">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="~/home/index/#about" style="font-family: 'boxicons';">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="~/home/index/#how" style="font-family: 'boxicons';">How it's works'</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="~/home/index/#Gallery" style="font-family: 'boxicons';">Our Gallery</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="~/home/index/#contact" style="font-family: 'boxicons';">Contact</a></li>
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="col-lg-5 col-md-6 footer-links">
+                        <h4 style="font-family: 'boxicons';">Our Social Networks</h4>
+                        <p style="font-family: 'boxicons';">Social networks are powerful tools for companies to build their brand, connect with customers.</p>
+                        <div class="social-links mt-3">
+                            <a href="https://twitter.com/NWFKBC40" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="https://m.facebook.com/needanfoundation" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://www.youtube.com/c/NEEDANEkSamadhan" class="instagram"><i class="bx bxl-youtube"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=918586007125&text=Hi..%20I%20want%20to%20know%20more%20about%20KBC40%20..%20Please%20send%20me%20Full%20details%20.." class="google-plus"><i class="bx bxl-whatsapp"></i></a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </footer><!-- End Footer -->
+    @* <div id="preloader"></div>*@
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/iotjs/aos.js"></script>
+    <script src="~/iotjs/bootstrap.bundle.min.js"></script>
+    <script src="~/iotjs/glightbox.min.js"></script>
+    <script src="~/iotjs/isotope.pkgd.min.js"></script>
+    <script src="~/iotjs/swiper-bundle.min.js"></script>
+    <script src="~/iotjs/noframework.waypoints.js"></script>
+    <script src="~/iotjs/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/iotjs/main.js"></script>
+
+</body>
+
+</html>

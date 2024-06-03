@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://mapfx.world/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            /*background-image: url(../images/fffff.webp), linear-gradient(#fd0000 100%, #818104 0%, blue);*/
+            background-image: linear-gradient(267deg, #e19639 0%, #e9ff35a6);
+            background-blend-mode: multiply;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            /* background-position: center;*/
+        }
+        .image-side{
+            background:#0f423e57;
+            color:#fff;
+            border-radius:10px;
+           /* background: linear-gradient(356deg, #d76cc0, #e9a338);*/
+            padding: 25px;
+            border:2px solid #0eb7bf;
+            box-shadow: rgb(11 214 235) 0px 0px 10px;
+        }
+     
+  h2 {
+  font-size: 37px;
+  background: -webkit-linear-gradient(#ff7702, #d803ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+  .form-control{
+             display: block;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #0c0e40;
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            background-clip: padding-box;
+            border-bottom: 1px solid #2e9c65;
+            border-radius: 0.25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+       }
+
+
+          .input-group-text{
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                padding: 0.375rem 0.75rem;
+                margin-bottom: 0;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #f5f5f5;
+                text-align: center;
+                white-space: nowrap;
+                background-color: #0c0e40;
+                border: none;
+                border-bottom: 1px solid #2e9c65;
+                border-radius: 0.25rem;
+            }
+     
+
+            ::-webkit-input-placeholder { /* Edge */
+                  color: #fff!important;
+                }
+
+                :-ms-input-placeholder { /* Internet Explorer */
+                  color: #fff!important;
+                }
+
+                ::placeholder {
+                  color: #fff!important;
+            }
+
+
+/* CSS */
+.button-71 {
+  background-color: #0078d0;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 0;
+  padding: 3px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-71:before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 88%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+}
+
+
+          input[type=email]:focus {
+                    background-color: black;
+                   
+                }
+
+         input[type=password]:focus {
+                    background-color: black;
+                }
+
+        .input-group>.form-control {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            width: 1%;
+            margin-bottom: 0;
+            background: #0c0e40;
+        }
+
+
+.button-71:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+@@media (min-width: 768px) {
+  .button-71 {
+    padding: 3px 20px;
+  }
+}
+        }
+
+ 
+
+    </style>
+
+</head>
+<body style="font-family: initial;">
+   <nav class="navbar navbar-expand-lg navbar-light" style="background-image: linear-gradient(180deg, #878323 80%, #3a370d);">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="~/boxicons/logo.png" style="max-width:100%;" /></a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="~/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+         
+        </ul>
+      
+      </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row ">
+            <div class="col-sm-4">
+              
+            </div>
+             
+            <div class="col-sm-4 image-side mt-5">
+                <h3>Sign In</h3>
+                <hr />
+                <div class="login-box">
+                 <form asp-action="login" asp-controller="home" method="post">
+                    <div class="form-group">                  
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                             </div>
+                            <input type="text" name="userid" class="form-control text-white" placeholder="User Id" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                   <div class="form-group">             
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-eye"></i></span>
+                             </div>
+                            <input type="password" name="password" class="form-control text-white" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                         
+                    </div>
+
+                      <div class="d-flex" style="justify-content: space-between;">
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Reminder me!</label>
+                        </div>
+                         <div class="forgot-text text-right">
+                            <a href="~/home/forgotpassword" class="text-white" >Forgot password?</a>
+                         </div>
+                      </div>
+                      <div class="g-recaptcha mt-3 text-center" data-sitekey="6LcMJcQjAAAAAIrTnf4oMXwbfzTYMMnAsajtwksA"></div>
+                      <div class="mt-3">
+                          <input type="submit" value="Login" class="form-control" aria-label="Username" style="background-color: #5b5e0a !important; font-weight: bold; font-size: 18px;">
+                     </div>
+                      
+                     <div class="form-check mt-3">                  
+                         <a href="~/user/Register" class="form-check-label text-white" for="exampleCheck1">Don't have an account? <span style="color:#0109f5;"> Register</span></a>
+                    </div>
+                </form>
+               
+                </div>
+            </div>
+            <div class="col-sm-4">
+                
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

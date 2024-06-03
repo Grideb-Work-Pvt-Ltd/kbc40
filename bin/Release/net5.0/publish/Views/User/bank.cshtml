@@ -1,0 +1,72 @@
+﻿@model forex.Models.kycmodel;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card-box">
+                    <span class="header-title m-t-0" id="result" runat="server" style="color:#017627;"></span>
+                    <br />
+                    <div>
+                        <div>
+                            <div class="card-box">
+                                <form asp-action="bank" asp-controller="user" method="post" enctype="multipart/form-data">
+                                    <h4 class="header-title mb-4">Bank Information</h4>
+                                    <p class="header-title mb-4" style="color:red;">@ViewBag.error</p>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account Holder Name</label>
+                                            <input class="form-control" type="text" id="accountno" name="AccountHolderName" value="@Model.AccountHolderName" />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="ifsc">IFSC</label>
+                                            <input class="form-control" type="text" id="ifsc" name="ifsc" value="@Model.ifsc" />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="bankname">Bank Name</label>
+                                            <input class="form-control" type="text" id="bankname" name="bankname" value="@Model.bankname" />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="branch">Branch</label>
+                                            <input class="form-control" type="text" id="branch" name="branch" value="@Model.branch" />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account No</label>
+                                            <input class="form-control" type="text" id="accountno" name="accountno" value="@Model.accountno" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Pan Card No</label>
+                                            <input class="form-control" type="text" id="accountno" name="pannumbr" value="@Model.pannumbr" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Passbook/Cheque</label>
+                                            <input type="file" id="uploadadhar" name="file" value="@Model.bank" />
+                                            <img src="@Model.bank" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Pan Card</label>
+                                            <input type="file" id="uploadadhar" name="pancard" value="@Model.pancard" />
+                                            <img src="@Model.pancard" />
+                                        </div>
+
+                                        <div class="form-group text-right m-b-0">
+                                            <input type="submit" value="submit" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </form>                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

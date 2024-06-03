@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewData["Title"] = "AddFund";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+<style>
+    .slidecontainer {
+        width: 100%;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    /* Style the range input track */
+    .custom-range::-webkit-slider-runnable-track {
+        background-color: #28a745; /* Green color */
+    }
+
+    .custom-range::-moz-range-track {
+        background-color: #28a745; /* Green color */
+    }
+
+    /* Style the range input thumb (slider handle) */
+    .custom-range::-webkit-slider-thumb {
+        background-color: #28a745; /* Green color */
+    }
+
+    .custom-range::-moz-range-thumb {
+        background-color: #28a745; /* Green color */
+    }
+
+
+       
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider:-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+           
+        }
+
+        .slider:-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+         
+        }
+    .range-container {
+        position: relative;
+        margin-top: 30px;
+
+    }
+
+    .label {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #rangeInput {
+        opacity: 0.5; /* Adjust the opacity to your preference */
+      
+        cursor: not-allowed; /* Change the cursor style to indicate it's not clickable */
+    }
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <center> <h1 class="">Volunteer Welfare Fund</h1></center>
+                   
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="">
+            <center><h4>Add funds in your Charity wallet and get 2x Volunteer Welfare fund</h4></center>
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="slidecontainer">
+                        <div class="mt-300">
+
+
+                            <div class="col-md-6">
+                                <h3>Charity Wallet</h3>
+                                <div class="form-group">
+
+                                    <label hidden>Your Fund</label >
+                                    <input type="text" class="form-control" value="@Model.vol" readonly hidden/>
+
+                                    @*<input type="range" class="form-control" min="1" max="100" value="@Model.persent">*@
+
+                                    <div class="range-container">
+                                        <div class="label">
+                                            <span>0%</span>
+                                            <span>100%</span>
+                                        </div>
+                                        <input type="range" class="form-control btn btn-success" min="0" max="100" value="@Model.persent" id="rangeInput" disabled >
+                                        <div id="percentageDisplay">@Model.persent%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <a href="addfundpay" class="btn btn-primary ">Add Fund</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Fund Summary </h3>
+                                <div class="form-group" hidden>
+                                    <label>Deposited Fund</label>
+                                    <input type="text" class="form-control" value="@Model.locks" readonly />
+                                    <label>Received Fund</label>
+                                    <input type="text" class="form-control" value="@Model.unlocks" readonly />
+                                    <label>Balance Fund</label>
+                                    <input type="text" class="form-control" value="@Model.prelaunchcapping" readonly />
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        
+                   </div>
+
+              </div>
+
+            </div>
+        </div>
+       
+
+    </section>
+</div>
+
+@*<script>
+  const rangeInput = document.getElementById('rangeInput');
+  const percentageDisplay = document.getElementById('percentageDisplay');
+
+  rangeInput.addEventListener('input', () => {
+    const value = rangeInput.value;
+    percentageDisplay.innerText = `${value}%`;
+  });
+</script>*@
+
+
+
+
+

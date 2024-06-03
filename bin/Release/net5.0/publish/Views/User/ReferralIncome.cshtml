@@ -1,0 +1,100 @@
+﻿@model forex.Models.income
+@{
+    ViewData["Title"] = "ReferralIncome";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    table.dataTable tbody tr {
+        background-color: #217788;
+    }
+
+    label {
+        color: #fff;
+    }
+
+    div#mytable_info {
+        color: #fff;
+    }
+
+    a#mytable_previous {
+        color: #fff !important;
+    }
+
+    a#mytable_next {
+        color: #fff !important;
+    }
+
+    input[type="search"] {
+        color: #fff;
+    }
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Referral Income</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <div class="table-responsive table-rounds">
+                        <table id="mytable" class="table table-hover table-striped table-border-whole table-bordered table-responsive-sm">
+                            <thead class="table-light-head">
+                                <tr class="table-border">
+                                    <th scope="col" class="table-border">Index</th>
+                                    <th scope="col" class="table-border">$ Fund</th>
+                                    <th scope="col" class="table-border">Details</th>
+                                    <th scope="col" class="table-border">Cr/Dr</th>
+                                    <th scope="col" class="table-border">Date</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-details">
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.incomelist)
+                                {
+                                    i++;
+                                    <tr>
+                                        <th scope="row">@i</th>
+                                        <td>@item.Detail</td>
+                                        <td> @item.NetAmount</td>
+                                        <td>@item.InOut</td>
+                                        <td>@item.tDate</td>
+                                    </tr>
+                                }
+                                <tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+

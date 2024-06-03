@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+<center>
+<div class="container">
+    <div class="row">
+    <div class="col-12">
+    <h1 style="background:#000000; color:#fff;">@ViewBag.royality</h1>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 pb-4" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <h3 class="text-center" style="color:#fff;">Royality</h3>
+            <hr />
+            <form asp-action="royalityadmin" asp-controller="admin">
+                <div class="form-group col-md-4 mx-auto">
+                    <label for="formGroupExampleInput">From Date</label>
+                    <input type="date" class="form-control" name="FromDate" placeholder="YYYY/MM/DD">
+                </div>
+                <div class="form-group col-md-4 mx-auto">
+                    <label for="formGroupExampleInput">To Date</label>
+                    <input type="date" class="form-control" name="ToDate" placeholder="YYYY/MM/DD">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary pl-5 pr-5">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</center>

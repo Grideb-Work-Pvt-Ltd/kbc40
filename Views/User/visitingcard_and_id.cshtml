@@ -1,0 +1,144 @@
+﻿@model forex.Models.userlistModel
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    .icard {
+        background-image: url("/img/icard.jpg");
+        background-repeat: no-repeat;
+        height: 500px;
+    }
+
+    .infor {
+        color: #121110;
+        text-align: right;
+    }
+
+    .cardid {
+        margin-top: 30px;
+        max-width: 28% !important;
+    }
+
+    @@media only screen and (max-width : 720px) {
+        .icard {
+            margin-top: 20px
+        }
+
+        .cardid {
+            max-width: 46% !important;
+            margin-top: 30px;
+        }
+    }
+</style>
+
+<div class="content-wrapper" style="min-height: 700px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Visiting Card And ID</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card-design" id="maincart">
+                        <div class="text-center">
+                            <div class="id-card-design">
+                                <div style="border: 1px solid #f26522; box-shadow: 0px 0px 5px rgb(0 0 0 / 50%);">
+                                    <div>
+                                        <div style="height: 5px; display: inline-block;">
+                                            <img src="../images/kbc-logo.png" style="width: 85%;">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 23px; padding-top: 65px;"><span style="color: #017e3c">NEEDAN</span> <span style="color: #db241e">WELFARE</span> <span style="color: #e98a19">FOUNDATION<span></span></span><sup>&reg;</sup></div>
+                                    </div>
+                                    <div>
+                                        <div height="10"></div>
+                                    </div>
+                                    <div style="background: #f26522;">
+                                        <div height="3" style="color: #fff; font-size: 38px;">VOLUNTEER</div>
+                                    </div>
+                                    <div>
+                                        <div height="10">
+                                            <div class="pull-left" style="width: 43%; background: #fff; padding: 15px;">
+                                                <img src="@Context.Session.GetString("photo")"   style="height: 190px;" />
+                                            </div>
+                                            <div class="pull-left" style="width: 45%;">
+                                                <span id="ContentPlaceHolder1_name" style="font-weight: normal;">@Model.name</span>
+                                                <h1 id="ContentPlaceHolder1_rank" style="background: #f26522; color: #fff;">@Model.designation</h1>
+
+                                                <p style="position: relative; font-size: 20px; color: #f26522; line-height: 43px; display: initial;">
+                                                    KEEP BELIEVING<br>
+                                                    IN CHARITY
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h4 style="color: #DB241E; font-weight: bold; font-size: 20px; margin-top: 4px;">www.KBC40.com</h4>
+                                        </div>
+                                    </div>
+                                    <div style="display: inline-block">
+                                        <div>
+                                            <img src="../images/barcode-1.png" width="100%">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr />
+            <br />
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 icard">
+                    <div class="row">
+                        <div class="col-4 cardid">
+                            <img src="~/boxicons/kbc-logoicard.png" />
+                        </div>
+
+
+                        <div class="col-8 cardid">
+                            <div> <span style="color: #e98a19">Name :</span>@Model.name</div>
+                            <div> <span style="color: #e98a19">IC No :</span>@Model.userid</div>
+                            <div> <span style="color: #e98a19">Email :</span>@Model.emailaddress</div>
+                            <div> <span style="color: #e98a19">Mobile :</span>@Model.Mobile</div>
+                            @*<span> <span style="color: #e98a19">DOA</span>@Model.ActiveDate</span><br>*@
+                            <div> <span style="color: #e98a19">Designation :</span>@Model.designation</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
+
+
+

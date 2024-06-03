@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 pb-4" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <h3 class="text-center" style=" background-color: #000 !important; color:#fff;">Donation Wallet</h3>
+                    <hr />
+                    <h3 style="text-align: center;">@ViewBag.tp2</h3>
+                    <form asp-action="Donationwallet" asp-controller="admin">
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput">User Id</label>
+                            <input type="text" class="form-control" name="userid" id="userid" placeholder="user id" onchange="myFunction()">
+                            <input type="text" class="form-control" readonly id="name" name="name">
+                            <input type="text" class="form-control" readonly id="total">
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput2">Amount</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" name="amount" placeholder="">
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput">Details</label>
+                            <input type="text" class="form-control" name="details" placeholder="">
+                        </div>
+
+                        <div class="form-group col-md-4 mx-auto">
+                            <label for="formGroupExampleInput2">IN OUT</label> <br>
+                            <select name="inout" class="ddlbox" id="inout">
+                                <option value="0">Select</option>
+                                <option value="Cr">Cr</option>
+                                <option value="Dr">Dr</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary pl-5 pr-5">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").value = data.name
+                myFunctions();
+            }
+        });
+    };
+</script>
+<script language="javascript" type="text/javascript">
+    function myFunctions() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../admin/donetiontsee',
+            data: { uid: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("total").value = data.total
+            }
+        });
+    };
+</script>

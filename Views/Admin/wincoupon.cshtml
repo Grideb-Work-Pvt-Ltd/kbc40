@@ -1,0 +1,66 @@
+﻿@model forex.Models.IncomeWallet;
+
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <section class="content">
+
+        <section>
+            <h1 class="h1-12"></h1>
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <div id="name" style="color:red;"></div>
+                <table class="table table-responsive-sm" cellpadding="0" cellspacing="0" border="0">
+                    <thead class="bg-default">
+                        <tr>
+                            <th>Index</th>
+                            <th>Userid</th>
+                            <th>Coupon prize</th>
+                            @*<th>Type</th>*@
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Expiry Date</th>
+                            <th>Date</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.Incomewall)
+                        {
+                            i++;
+                            <tr>
+                                <th class="row-incom">@i</th>
+                                <td>@item.userid</td>
+                                <td>@item.value</td>
+                                @*<td>@item.type</td>*@
+                                <td>@item.sdate</td>
+                                <td>@item.edate</td>
+                                <td>@item.exdate</td>
+                                <td>@item.Date</td>
+                                <td>
+                                    @if (item.type == "prize")
+                                    {
+                                        <form asp-action="viewaddress" asp-controller="admin">
+                                            <input type="text" name="id" value="@item.couponid" hidden />
+                                            <input type="text" name="uid" value="@item.userid" hidden />
+                                            <button type="submit" class="btn btn-info">Address</button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+

@@ -1,0 +1,243 @@
+﻿@model forex.Models.user
+@{
+    ViewData["Title"] = "Idcard";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+@*<style>
+        table.dataTable tbody tr {
+            background-color: #272672;
+        }
+
+        label {
+            color: #fff;
+        }
+
+        div#mytable_info {
+            color: #fff;
+        }
+
+        a#mytable_previous {
+            color: #fff !important;
+        }
+
+        a#mytable_next {
+            color: #fff !important;
+        }
+
+        input[type="search"] {
+            color: #fff;
+        }
+
+
+
+
+        .btn-box {
+            padding: 0px 22px 0px 22px;
+            font-size: 14px;
+            margin-top: 3px;
+            background: #af7798 !important;
+            border: none;
+            color: #fff !important;
+        }
+    </style>*@
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">User List</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">User List</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+
+            <button onclick="ExportToExcel()" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+            <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <div class="table">
+                        <input id="myInput" type="text" placeholder="Search.." />
+                        <table id="mytable" class="table" style="font-size:14px;">
+                            <thead class="table-light-head">
+                                <tr class="table-border">
+                                    <th scope="col" class="table-border">S.no</th>
+                                    <th scope="col" class="table-border">Name</th>
+                                    <th scope="col" class="table-border">User Id</th>
+                                    <th scope="col" class="table-border">Sponsorid</th>
+                                    <th scope="col" class="table-border">Sponsorname</th>
+                                    <th scope="col" class="table-border">Mobile</th>
+                                    <th scope="col" class="table-border">Rank</th>
+                                    <th scope="col" class="table-border">DOJ</th>
+                                    <th scope="col" class="table-border">Address</th>
+                                    <th scope="col" class="table-border">Qrcode</th>
+
+                                    <th scope="col" class="table-border">Image</th>
+
+                                    <th scope="col" class="table-border">Detail</th>
+                                    <th scope="col" class="table-border">Amount</th>
+                                    <th scope="col" class="table-border">date</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-details">
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.reglist)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td scope="row">@i</td>
+                                        <td>@item.name</td>
+                                        <td>@item.userid</td>
+                                        <td>@item.Sponsorid</td>
+                                        <td>@item.Sponsorname</td>
+                                        <td>@item.message</td>
+                                        <td>@item.City</td>
+                                        <td>@item.RegDate</td>
+                                        @if (item.address == "")
+                                        {
+                                            <td>empty</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.address</td>
+                                        }
+                                        @*<td><img id="target_@item.userid" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://kbc40.com/home/identity/"+ @item.userid +" &choe=UTF-8 "/></td>*@
+                                    <td> <canvas id="qrcode_@item.userid"></canvas></td>
+
+                                        <td><a href="@item.image"><img src="@item.image" style="width:100px;" /></a></td>
+
+                                        <td>@item.parentid</td>
+
+                                        <td>@item.accountno</td>
+                                        <td>@item.Mobile</td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    function ExportToExcel() {
+        var wb = XLSX.utils.book_new();
+        var ws = XLSX.utils.table_to_sheet(document.getElementById('mytable'));
+
+        // Add QR code images to the "Data" worksheet in the 9th column
+        $('#mytable tbody tr').each(function (index) {
+            var qrCodeURL = $(this).find('td:nth-child(10) img').attr('src'); // Assuming QR code images are in the 9th column
+
+            var imageURL = $(this).find('td:nth-child(11) img').attr('src'); // Assuming regular images are in the 11th column
+            var hyperlinkURL = "https://kbc40.com/" + imageURL; // Creating hyperlink URL
+
+            var rowData = XLSX.utils.sheet_to_json(ws)[index];
+            var dataArray = Object.values(rowData);
+            dataArray.splice(9, 0, qrCodeURL);
+            dataArray.splice(10, 0, { v: imageURL, l: { Target: hyperlinkURL, Tooltip: "Click to open" } }); // Adding hyperlinked image URL
+            XLSX.utils.sheet_add_aoa(ws, [dataArray], { origin: index + 1 });
+        });
+
+        // Append the modified "Data" worksheet to the workbook
+        XLSX.utils.book_append_sheet(wb, ws, "Data");
+
+        // Save the workbook as an Excel file
+        XLSX.writeFile(wb, 'MySheetName.xlsx');
+    }
+</script>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // Function to generate QR code for each userid
+    function myFunction(userid) {
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: userid },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                // Assuming there's an element with id "target" in each row
+                $('#target_' + userid).attr('src', 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://kbc40.com/home/identity/' + userid + '&choe=UTF-8');
+                //$('#target_' + userid).attr('src', 'QR_CODE_URL');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        // Iterate over each row in the table
+        $('#mytable tbody tr').each(function () {
+            // Find the userid value in the row
+            var userid = $(this).find('td:eq(2)').text(); // Adjust the index based on the position of userid in your table
+            console.log(userid);
+            // myFunction(userid);
+            generateQR(userid);
+        });
+    });
+
+    // Function to export table to Excel
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script>
+    function generateQR(userid) {
+        var text = "https://kbc40.com/home/identity/" + userid + "";
+        var canvas = document.getElementById("qrcode_" + userid + "");
+        canvas.innerHTML = ""; // Clear previous content
+        var qr = new QRious({
+            element: canvas,
+            value: text,
+            size: 200
+
+        });
+    }
+    generateQR();
+</script>
+@*<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        function generateQRCode(userid) {
+        var url = "https://kbc40.com/home/identity/" + userid + ""; // Replace with your URL
+        var qrcode = new QRCode(document.getElementById("qrcode_" + userid + ""), {
+            text: url,
+        width: 150,
+        height: 150,
+
+        });
+    }
+
+    // generateQRCode();
+
+    // khh================================
+
+
+    </script>*@

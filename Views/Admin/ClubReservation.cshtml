@@ -1,0 +1,138 @@
+﻿
+
+@{
+    ViewData["Title"] = "fundtransfer";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Club Reservation</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid mb-5">
+           <form asp-action="ClubReservation" asp-controller="admin">
+               <div class="row">
+                   <div class="col-md-3">
+                       <div class="form-group">
+                           <label>userid</label>
+                           <input type="text" name="id" class="form-control"/>
+                       </div>
+                       <div>
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                       </div>
+                   </div>
+               </div>
+           </form>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="form-group col-6">
+                    <label for="ramount">Total Amount in Club </label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.Amount" readonly>
+                </div>
+                <div class="form-group col-6">
+                    <label for="ramount">Total Amount Distribute Amount </label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.NetAmount" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="ramount">Gold Collection </label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.gold" readonly>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="ramount">Gold Distribution </label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.goldd" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="ramount">Pearl Collection</label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.pearl" readonly>
+                </div>
+                <div class="form-group col-6">
+                    <label for="ramount">Pearl Distribution</label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.pearld" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="ramount">Topaz Collection</label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.toapz" readonly>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="ramount">Topaz Distribution </label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.toapzd" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="ramount">Diamond Collection </label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.diamond" readonly>
+                </div>
+                <div class="form-group col-6">
+                    <label for="ramount">Diamond Distribution</label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.diamondd" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="ramount">NWF Collection</label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.nwf" readonly>
+                </div>
+                <div class="form-group col-6">
+                    <label for="ramount">NWF Distribution</label>
+                    <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.nwfd" readonly>
+                </div>
+            </div>
+         </div>
+    </section>
+</div>
+
+
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").value = data.name
+            }
+        });
+    };
+
+    function myotp() {
+        $.ajax({
+            url: '../User/myotp',
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("otpresult").innerHTML = data.name
+            }
+        });
+    };
+</script>

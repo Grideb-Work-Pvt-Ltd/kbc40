@@ -1,0 +1,122 @@
+﻿@model forex.Models.user
+@{
+    ViewData["Title"] = "userlist";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+@*<style>
+        table.dataTable tbody tr {
+            background-color: #272672;
+        }
+
+        label {
+            color: #fff;
+        }
+
+        div#mytable_info {
+            color: #fff;
+        }
+
+        a#mytable_previous {
+            color: #fff !important;
+        }
+
+        a#mytable_next {
+            color: #fff !important;
+        }
+
+        input[type="search"] {
+            color: #fff;
+        }
+
+
+
+
+        .btn-box {
+            padding: 0px 22px 0px 22px;
+            font-size: 14px;
+            margin-top: 3px;
+            background: #af7798 !important;
+            border: none;
+            color: #fff !important;
+        }
+    </style>*@
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Donate List</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">User List</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <div class="table-responsive table-rounds">
+                        <table id="mytable" class="table table-hover table-striped table-border-whole table-bordered table-responsive-sm" style="font-size:14px;">
+                            <thead class="table-light-head">
+                                <tr class="table-border">
+                                    <th scope="col" class="table-border">S.no</th>
+                                    <th scope="col" class="table-border">Name</th>
+                                    
+                                    <th scope="col" class="table-border">Email</th>
+                                    <th scope="col" class="table-border">Mobile</th>
+                                    <th scope="col" class="table-border">Amount</th>
+                                    <th scope="col" class="table-border">Pan No</th>
+                                    <th scope="col" class="table-border">RegDate</th>
+                                    <th scope="col" class="table-border">Transaction Id</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-details">
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.reglist)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td scope="row">@i</td>
+                                        <td>@item.name</td>
+                                        
+                                        <td>@item.emailaddress</td>
+                                        <td>@item.Mobile</td>
+                                        <td>@item.accountno</td>
+                                        <td>@item.pancard</td>
+                                        <td>@item.RegDate</td>
+                                        <td>@item.result</td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+

@@ -1,0 +1,60 @@
+﻿
+
+@{
+    ViewData["Title"] = "send sms";
+    Layout = "~/views/Shared/_Layoutuser.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Send Sms</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-6">
+                   
+                    <form asp-action="sendsms" asp-controller="User" method="post">
+                        <span id="otpresult" name="otpresult"></span>
+                        <div class="form-group col-6">
+                            <label for="ramount">Contect Number</label>
+                            <input type="tel" pattern="\d{10}" class="form-control" name="mobile" value="">
+                        </div>
+                       
+                            <div class="form-group col-2">
+                                <button type="submit" class="btn btn-success" style="width: 130px;font-size: 16px;height: 42px;"> Submit </button>
+                            </div>
+                       
+                    </form>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+

@@ -1,0 +1,259 @@
+﻿@using Microsoft.AspNetCore.Http
+@model forex.Models.dashboardmodel;
+@{
+    ViewData["Title"] = "admin";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+<style>
+    .counter-style {
+        font-size: 50px;
+        text-align: center;
+        background-image: linear-gradient(180deg, #3f3875, #343470, #433e63);
+    }
+
+    .counter-plus {
+        background-image: linear-gradient(180deg, #3f3875, #343470, #433e63);
+    }
+    .abc{
+        background-color: #b97129;
+        color:#fff;
+    }
+    .bcd {
+        background-color: #ff8000;
+        color: #fff;
+    }
+    .cde {
+        text-align:center;
+    }
+</style>
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Dashboard</h1>
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-chart-pie"></i> Referral</h5>
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+                            <h2>@Model.direct </h2>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user"></i> Downline</h5>
+
+                    </div>
+                    <div class="small-box bcd" >
+                        <div class="inner p-4">
+
+                            <h2>@Model.Downline</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-image"></i>Crowd Wallet</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2> @Model.crowdwallet</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ./col -->
+            </div>
+            <div class="row">
+
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-table"></i> Main Wallet</h5>
+
+                    </div>
+                    <div class="small-box bcd" >
+                        <div class="inner p-4">
+
+                            <h2> @Model.total</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-chart-pie"></i>Follow us on</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+                            <a href="#" class="btn" target="_blank">
+                                <img src="~/img/you.png" />
+                            </a>
+                            <a href="#" class="btn " target="_blank">
+                                <img src="~/img/face.png" />
+                            </a>
+                            <a href="#" class="btn" target="_blank">
+                                <img src="~/img/twitter.png" />
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ./col -->
+
+                <div class="col-sm-4">
+                    <div class="card-header abc">
+                        <h5><i class="nav-icon fa fa-edit"></i> User Info</h5>
+                    </div>
+                    <div class="small-box bcd cde">
+                        <div>
+                            <label>Name :@Model.Name </label>
+                        </div>
+                        <div>
+                            <label>Code :@Model.UserId </label>
+                        </div>
+                        <div>
+                            <label>Packege :@Model.package </label>
+                        </div>
+                        <div>
+                            <label>D.O.A :@Model.activedate </label>
+                        </div>
+                        <div>
+                            <label>Rank :@Model.rank </label>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <section>
+                <div class="row" hidden >             
+                   <div class="col-sm-4" hidden>
+                        <div class="card-header abc">
+                            <h5><i class="nav-icon fa fa-image"></i>Total Invest</h5>
+
+                        </div>
+                        <div class="small-box bcd">
+                            <div class="inner p-4">
+
+                                <h2 id="counter-dashboard2">@Model.invest</h2>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                   <div class="col-sm-4" hidden>
+                       <!-- small box -->
+                       <div class="card-header abc" >
+                           <h5><i class="nav-icon fa fa-image"></i>Payment Request</h5>
+
+                       </div>
+                       <div class="small-box bcd" >
+                           <div class="inner p-4">
+
+                               <h2 id="counter-dashboard"> @Model.paymentrequest </h2>
+
+                           </div>
+                           <div class="icon">
+                               <i class="ion ion-person-add"></i>
+                           </div>
+
+                       </div>
+                   </div>
+                    <!-- ./col -->
+
+                   
+                    <!-- ./col -->
+                </div>
+            </section>
+        </div>
+
+
+    </section>
+
+    <div class="row">      
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" value="http://kbc40/home/register/?id=@Context.Session.GetString("UserId")" id="myInput">
+                <div class="input-group-append">
+                    <span onclick="myFunction()" class="input-group-text" id="basic-addon2" style="background-image: linear-gradient(150deg, #8e8ebf 80%, #191951);">Copy Link</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row (main row) -->
+</div><!-- /.container-fluid -->
+    
+
+<script>
+    function myFunction() {
+        // Get the text field
+        var copyText = document.getElementById("myInput");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+    }
+
+</script>
+

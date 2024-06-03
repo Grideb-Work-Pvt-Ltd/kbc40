@@ -1,0 +1,56 @@
+﻿
+@model forex.Models.notifee;
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "~/views/Shared/_Layoutadmin.cshtml";
+}
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fed pos-fed">
+            <form action="/action_page.php">
+                <div class="container row-fed">
+                    <div class="col-12-fed">
+                        <h1 class="h1-fed">User Feedback</h1>
+                        <!-- <h3 class="h3-fed">Total Balance</h3> -->
+                    </div>
+                </div>
+                <hr>
+
+            </form>
+        </div>
+
+        <section>
+            <div class="tbl-header">
+                <table class="table" cellpadding="0" cellspacing="0" border="0">
+                    <thead style=" background-color: #077bbf!important; color:#fff;">
+                        <tr>
+                            <th>S.No.</th>
+                            @*<th>Username</th>*@
+                            <th>Userid</th>
+                            <th>Feedback</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.notitotal)
+                        {
+                            i++;
+                        <tr>
+                            <th class="row-incom">@i</th>
+                            @*<td>@item.username</td>*@
+                            <td>@item.userid</td>
+                            <td>@item.Content</td>
+                            <td><a href="~/admin/Feedback?id=@item.userid" class="btn btn-primary">Reply</a></td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>

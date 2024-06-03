@@ -1,0 +1,75 @@
+﻿
+.hr2
+{
+    width:50%;
+   border-top: 2px solid #d2e8f5;
+}
+
+.div2
+{
+    width:98%;
+}
+    .div2 .hr2 {
+        margin: 1rem 14rem;
+    }
+.div2_lft
+{
+    float:left; 
+    width:49%;
+}
+.div2_rgt
+{
+    float:right; 
+    width:49%;
+}
+.div_lfthr2
+{
+    float:left; 
+    width:49%; 
+    /*margin-top:-8px;*/
+}
+.div_rgthr2
+{
+    float:right; 
+    width:49%; 
+    
+    /*margin-top:-8px;*/
+    
+}
+.div_rgthr2 .hr2 {
+    margin: 1rem 7rem;
+}
+.div_lfthr2 .hr2 {
+    margin: 1rem 7rem;
+}
+.div_imgLft {
+    float: left;
+    margin-top: -8px;
+    height: 80px;
+    text-align: center;
+    width: 49.5%;
+    background-image: url('http://localhost:52691/demo/atm_img/parent.png') no-repeat;
+}
+.div_imgRgt {
+    float: right;
+    height: 80px;
+    margin-top: -8px;
+    text-align: center;
+    width: 49.5%;
+    background-image: url('http://localhost:52691/demo/atm_img/parent.png') no-repeat;
+}
+#node1 {
+    text-align: center;
+}
+.div1 {
+    width: 100%;
+}
+hr{
+    opacity:1;
+}
+.div2_lft .hr2 {
+    margin: 1rem 3rem;
+}
+.div2_rgt .hr2 {
+    margin: 1rem 3rem;
+}

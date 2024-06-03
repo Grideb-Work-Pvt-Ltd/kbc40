@@ -1,0 +1,122 @@
+﻿@model forex.Models.kycmodellist;
+@{
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    
+    <section class="content">
+        <input type="text" id="myInput" class="mt-5" onkeyup="mysearch()" placeholder="Search for names..">
+        <table id="tbl_exporttable_to_xls" class="table table-bordered" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; background-color:#6e75784a;">
+            <thead>
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+
+                    <th scope="col">Self Income </th>
+                    <th scope="col">Start Rank</th>
+                    <th scope="col">Achive Rank</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">
+                        Direct
+
+
+                    </th>
+                    <th scope="col">
+                        Direct Income
+
+
+                    </th>
+                    <th scope="col">
+                        Start/Rank
+
+
+                    </th>
+                    <th scope="col">
+                        Upgrade direct
+                    </th>
+                    <th scope="col">
+                        Upgrade amount
+                    </th>
+                    <th scope="col">
+                       Action
+                    </th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+
+                }
+                else
+                {
+                    int i = 0;
+
+                    @foreach (var item in Model.kyclist)
+                    {
+                        i++;
+                <tr>
+                    <td scope="row">@i</td>
+                    <td>@item.StartDate</td>
+
+                    <td>@item.EndDate</td>
+
+                    <td>
+                        @item.SelfIncome<br />
+
+                    </td>
+                    <td>
+                        @item.RankF<br />
+
+                    </td>
+                    <td>
+                        @item.RankU<br />
+
+                    </td>
+                    <td>
+                        @item.Direct
+
+                    </td>
+                   
+                    <td>
+                        @item.TTime
+
+                    </td>
+                    <td>
+                        @item.DirectIncome
+
+                    </td>
+                    <td>
+                        @item.SType
+
+                    </td>
+                    <td>
+                        @item.GDirect
+
+                    </td>
+                    <td>
+                        @item.GAmount
+
+                    </td>
+
+                   
+
+                    <td>
+                        <form asp-action="delnoffer" asp-controller="admin">
+                            <input type="text" name="userid" value="@item.indexid" hidden />
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </td>
+                    
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </section>
+</div>

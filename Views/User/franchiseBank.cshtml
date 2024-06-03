@@ -1,0 +1,86 @@
+﻿
+
+@model forex.Models.kycmodel;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+<style>
+    .radi {
+        border-radius: 20px;
+    }
+</style>
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card-box">
+                    <span class="header-title m-t-0" id="result" runat="server" style="color:#017627;"></span>
+                    <br />
+                    <div>
+                        <div>
+                            <div class="card-box">
+                                <form asp-action="franchiseBanks" asp-controller="user" method="post" enctype="multipart/form-data">
+                                    <h4 class="header-title mb-4">Bank Information</h4>
+                                    <p class="header-title mb-4" style="color:red;">@ViewBag.pay</p>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account Holder Name</label>
+                                            <input class="form-control radi" type="text" id="accountno" name="AccountHolderName" value="@Model.AccountHolderName" required />
+                                            <input class="form-control radi" type="text" id="accountno" name="byuserid" value="@Model.Userid" required hidden />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="ifsc">IFSC</label>
+                                            <input class="form-control radi" type="text" id="ifsc" name="ifsc" value="@Model.ifsc" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="bankname">Bank Name</label>
+                                            <input class="form-control radi" type="text" id="bankname" name="bankname" value="@Model.bankname" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="branch">Branch</label>
+                                            <input class="form-control radi" type="text" id="branch" name="branch" value="@Model.branch" required />
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Account No</label>
+                                            <input class="form-control radi" type="text" id="accountno" name="accountno" value="@Model.accountno" required />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for=""> KBC Amount</label>
+                                            <input type="text" class="form-control" name="kamount">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Needan Amount</label>
+                                            <input type="text" class="form-control" name="namount">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Transaction ID</label>
+                                            <input type="text" class="form-control" name="transection">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Image</label>
+                                            <input type="file" class="form-control" name="file">
+                                        </div>
+
+                                        <div class="form-group text-right m-b-0">
+                                            <input type="submit" value="submit" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,86 @@
+﻿@model forex.Models.incomeModel;
+@{
+    ViewData["Title"] = "withdrawalRequest";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Withdrawal Request</h1>
+                    <h1 class="h1-noty" style="text-align: center; color: red;">@ViewBag.pay </h1>
+                    <h1 class="h1-noty" style="text-align: center; color: red;">@ViewBag.payreq </h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-6">
+                    <form asp-action="withdrawalRequest" asp-controller="user" method="post">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">$ Balance Fund In main Wallet</label>
+                            <input type="text" class="form-control" id="ramount" name="19" placeholder="Balance Fund" value="@Model.Amount" readonly disabled style="width: 50%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Fund Transfer</label>
+                            <input type="text" class="form-control" name="amount" placeholder="$ Amount" style="width: 50%;">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn" id="formGroupExampleInput2" onclick="myFunction()" style="background-image: linear-gradient(150deg, #8e8ebf 80%, #191951);"><i class="nav-icon fa fa-edit"></i> Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("ramount").value;
+        var y = document.getElementById("amount").value;
+
+        $.ajax({
+            url: '../user/paymentrequest',
+            data: { ramount: x, amount: y },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("result").innerHTML = data.result;
+                if (x >= y & y > 9) {
+                    document.getElementById("ramount").value = x - y;
+                    document.getElementById("amount").value = 0;
+                }
+            }
+        });
+    };
+</script>
+
+
+
+
+

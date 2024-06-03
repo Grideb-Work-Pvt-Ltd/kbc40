@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "fundtransfer";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Top up Wallet</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-6">
+                   
+                      
+                    <form asp-action="fundtranstogreen" asp-controller="User" method="post">
+                        <span id="otpresult" name="otpresult" style="color:red;">@TempData["tp1"]</span>
+                        <div class="form-group col-6">
+                            <label for="ramount">Total Amount in Needan Wallet </label>
+                            <input type="text" id="ramount" class="form-control" name="ramount" value="@Model.Amount" readonly>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="">Userid</label>
+                            <input type="text" class="form-control" name="byuserid" id="userid" onchange="myFunction()" placeholder="">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="">User Name</label>
+                            <input type="text" class="form-control" id="name" name="name" readonly>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="">Fund Transfer Amount</label>
+                            <input type="text" id="pointsperc" class="form-control" name="amount" placeholder="">
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group">
+                                <button type="button" id="btnotp"   for="exampleFormControlSelect1" style="color: white; background-color: #ffc107;" onclick="myotp();" >Send OTP:</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-6" >
+                            <label for="">Enter OTP</label>
+                            <input type="text" id="pointsperc" class="form-control btn btn-warning" name="enterotp" placeholder=""  >
+                        </div>
+                       
+                            <div class="row">
+                                <div class="form-group col-2">
+                                    <button type="submit" id="btnsubmit" class="" style="background-image: linear-gradient(150deg, #8e8ebf 80%, #191951);" disabled="true"> Submit </button>
+                                </div>
+                            </div>
+                        
+                    </form>
+
+                      
+                    
+
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<script language="javascript" type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("userid").value;
+
+        $.ajax({
+            url: '../Home/MyAction',
+            data: { id: x },
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+                document.getElementById("name").value = data.name
+            }
+        });
+    };
+
+    function myotp() {
+        alert("OTP send");
+        $.ajax({
+            
+            url: '../User/myotp',
+            type: "POST",
+            success: function (data) {
+                
+                console.log(data);
+                document.getElementById("btnotp").disabled = true;
+                document.getElementById("btnsubmit").disabled = false;
+            }
+        });
+    };
+</script>

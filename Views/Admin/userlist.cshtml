@@ -1,0 +1,215 @@
+﻿@model forex.Models.user
+@{
+    ViewData["Title"] = "userlist";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+@*<style>
+        table.dataTable tbody tr {
+            background-color: #272672;
+        }
+
+        label {
+            color: #fff;
+        }
+
+        div#mytable_info {
+            color: #fff;
+        }
+
+        a#mytable_previous {
+            color: #fff !important;
+        }
+
+        a#mytable_next {
+            color: #fff !important;
+        }
+
+        input[type="search"] {
+            color: #fff;
+        }
+
+
+
+
+        .btn-box {
+            padding: 0px 22px 0px 22px;
+            font-size: 14px;
+            margin-top: 3px;
+            background: #af7798 !important;
+            border: none;
+            color: #fff !important;
+        }
+    </style>*@
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">User List</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">User List</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <form asp-action="UserList" asp-controller="admin">
+                <div class="form-group col-md-4 mx-auto">
+                    <label for="formGroupExampleInput">User ID</label>
+                    <input type="text" class="form-control" name="userid">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary pl-5 pr-5">Submit</button>
+                </div>
+            </form>
+            <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+            <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <div class="table">
+                        <input id="myInput" type="text" placeholder="Search.." />
+                        <table id="mytable" class="table table-hover table-striped table-border-whole table-bordered table-responsive-sm" style="font-size:14px;">
+                            <thead class="table-light-head">
+                                <tr class="table-border">
+                                    <th scope="col" class="table-border">S.no</th>
+                                    <th scope="col" class="table-border">Name</th>
+                                    <th scope="col" class="table-border">User Id</th>
+                                    <th scope="col" class="table-border">Sponsor Id</th>
+                                    <th scope="col" class="table-border">Sponsor Name</th>
+                                    <th scope="col" class="table-border">Parent Id</th>
+                                    <th scope="col" class="table-border">Parent Name</th>
+                                    <th scope="col" class="table-border">Password</th>
+                                    <th scope="col" class="table-border">PAN CARD</th>
+                                    <th scope="col" class="table-border">Donation</th>
+                                    <th scope="col" class="table-border">Designation</th>
+                                    <th scope="col" class="table-border">Direct</th>
+                                    @*<th scope="col" class="table-border">Total Business</th>*@
+                                    <th scope="col" class="table-border">Email</th>
+                                    <th scope="col" class="table-border">Mobile</th>
+                                    <th scope="col" class="table-border">Plan Name</th>
+                                    <th scope="col" class="table-border">Country</th>
+                                    <th scope="col" class="table-border">RegDate</th>
+                                    <th scope="col" class="table-border">Active Date</th>
+                                    <th scope="col" class="table-border">Main wallet</th>
+                                    <th scope="col" class="table-border">Crowed wallet</th>
+                                    <th scope="col" class="table-border">Status</th>
+                                    <th scope="col" class="table-border">Charity Capping</th>
+                                    <th scope="col" class="table-border">Prelaunch Capping</th>
+                                    <th scope="col" class="table-border">Block/Unblock</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-details">
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.reglist)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td scope="row">@i</td>
+                                        <td>@item.name</td>
+                                        <td><a href="profileupdate/?uid=@item.userid" style="color: #49bd82!important;">@item.userid</a></td>
+                                        <td>@item.Sponsorid</td>
+                                        <td>@item.Sponsorname</td>
+                                        <td>@item.parentid</td>
+                                        <td>@item.parentname</td>
+
+                                        <td>@item.password</td>
+                                        <td>@item.pancard</td>
+                                        <td>@item.package</td>
+                                        <td>@item.designation</td>
+                                        <td>@item.direct</td>
+                                        @*<td>@item.TotalBusiness</td>*@
+                                        <td>@item.emailaddress</td>
+                                        <td>@item.Mobile</td>
+                                        <td>@item.planename</td>
+                                        <td>@item.City</td>
+                                        <td>@item.RegDate</td>
+                                        <td>@item.ActiveDate</td>
+                                        <td id="main_@item.userid"></td>
+                                        <td id="crowd_@item.userid"></td>
+                                        <td>@item.status</td>
+
+                                        <td>@item.ccapping</td>
+                                        <td>@item.pcapping</td>
+                                        <td>
+                                            <form asp-action="block" asp-controller="admin">
+                                                <select type="text" name="block">
+                                                    <option value="">Select</option>
+                                                    <option value="0">BlockID</option>
+                                                    <option value="1">UnblockID</option>
+                                                </select>
+                                                <input name="userid" value="@item.userid" hidden>
+                                                <button class="btn btn-box" type="submit">Submit</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('mytable');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // Function to generate QR code for each userid
+    function myFunction(userid) {
+        $.ajax({
+            url: '../Home/MyActions',
+            data: { id: userid },
+            type: "POST",
+            success: function (data) {
+                console.log(data.main);
+                document.getElementById("main_" + userid).innerText = data.main;
+                document.getElementById("crowd_" + userid).innerText = data.crowd;
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        // Iterate over each row in the table
+        $('#mytable tbody tr').each(function () {
+            // Find the userid value in the row
+            var userid = $(this).find('td:eq(3)').text(); // Adjust the index based on the position of userid in your table
+            // Call myFunction to generate QR code for the userid
+             myFunction(userid);
+            
+        });
+    });
+
+    // Function to export table to Excel
+
+</script>
+
+
+

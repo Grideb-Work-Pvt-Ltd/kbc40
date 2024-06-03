@@ -1,0 +1,78 @@
+﻿@model forex.Models.IncomeWallet;
+@{
+    ViewData["Title"] = "coupon";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container-fluid">
+
+
+            <div class="col-lg-12 ml-2 mt-3">
+                <div class="row">
+                    @{
+                        int i = 0;
+                    }
+                    @foreach (var item in Model.Incomewall)
+                    {
+                        i++;
+
+                        @if (item.status == "0")
+                        {
+                            <div class="col-md-4 mb-5 ">
+                                <a href="coupon?id=@item.Index"><img src="~/images/dd.png" /></a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-4 mb-5 ">
+                                <img src="@item.img" />
+                            </div>
+                        }
+
+
+                    }
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

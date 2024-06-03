@@ -1,0 +1,240 @@
+﻿@model forex.Models.userlistModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+<style>
+
+    .table {
+        line-height: 0.6 !important;
+    }
+
+    .a {
+        margin-top: 129px;
+        margin-left: 108px;
+        font-size: 24px;
+    }
+
+    .b {
+        margin-top: 142px;
+        font-size: 24px;
+    }
+
+    .c {
+        margin-top: 43px;
+        margin-left: 247px;
+        font-size: 24px;
+    }
+
+    .d {
+        margin-top: -52px;
+        margin-right: 107px;
+        font-size: 24px;
+    }
+    /*@@media screen and (max-width: 800px)*/
+    @@media screen and (min-width: 320px) and (max-width: 768px) {
+        .a {
+            margin-top: 30px;
+            margin-left: 23px;
+            font-size: 10px;
+        }
+
+        .b {
+            margin-top: 50px;
+            font-size: 10px;
+        }
+
+        .c {
+            margin-top: -4px;
+            margin-left: 92px;
+            font-size: 10px;
+        }
+
+        .d {
+            margin-top: -31px;
+            margin-right: 22px;
+            font-size: 10px;
+        }
+    }
+</style>
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="text-align:end;">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <button onclick="downloadImage()">Download</button>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Dashboard</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <center>
+                <h1 class="m-3">
+                    NEEDAN WELFARE FOUNDATION <br />
+                    <small> DONATION RECIEPT</small>
+                </h1>
+            </center>
+            @*<div class="row">
+                <div class="col-2" style="text-align:center;">
+
+                </div>
+                <div class="col-8" >
+                    <table class="table table-borderless">
+
+                        <tr>
+                            <td>
+                                RECEIPT NO
+                            </td>
+
+                            <td>
+                                @Model.userid
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                NAME
+                            </td>
+
+                            <td>
+                                @Model.name
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                EMAIL ID
+                            </td>
+
+                            <td>
+                                @Model.emailaddress
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                MOBILE
+                            </td>
+
+                            <td>
+                                @Model.Mobile
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                DONATION DATE
+                            </td>
+
+                            <td>
+                                @Model.ActiveDate
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                PAN NUMBER
+                            </td>
+
+                            <td>
+                                @Model.pancard
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                DONATION AMOUNT :
+                            </td>
+
+                            <td>
+                                <label>1500</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               RE DONATION TO :
+                            </td>
+
+                            <td>
+                                <label> @Model.Sponsorid -500</label><br>
+                                <label> @Model.parentid -500</label> <br>
+                                <label> Volunteer Matching Fund -500</label>
+                            </td>
+                        </tr>
+
+                    </table>
+                    </div>
+                </div>*@
+            <div class="card bg-dark text-white"  id="htmlContent">
+                <img id="myImage" src="~/images/yash.jpg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+
+
+
+
+
+                    <p class="card-text a">@Model.userid</p>
+                    <p class="card-text text-center b">@Model.name</p>
+
+                    <p class="card-text text-center c">@Model.Sponsorid</p>
+                    <p class="card-text text-right d ">@Model.parentid</p>
+                </div>
+            </div>
+
+
+            <br><br><br>
+            <div class="row">
+                <div class="col-2" style="text-align:center;">
+
+                </div>
+                <div class="col-6">
+
+
+                    <div class="row">
+
+                        <small>
+                            It is System Generated Reciept.
+                            No signature Required.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-3" style="text-align:center;">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    function downloadImage() {
+        html2canvas(document.querySelector("#htmlContent")).then(canvas => {
+            // Convert canvas to image and download
+            let link = document.createElement("a");
+            document.body.appendChild(link);
+            link.download = "receipt.png";
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    }
+</script>

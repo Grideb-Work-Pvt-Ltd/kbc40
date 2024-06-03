@@ -1,0 +1,121 @@
+﻿@model forex.Models.userlistModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="text-align:end;">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Receipt</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="../User/dashboard">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">RECEIPT NO</label>
+                </div>
+                <div class="col-6">
+                    <label>@Model.userid</label>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">Name</label>
+                </div>
+                <div class="col-6">
+                    <label>@Model.name</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">Email</label>
+                </div>
+                <div class="col-6">
+                    <label>@Model.emailaddress</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">Mobile</label>
+                </div>
+                <div class="col-6">
+                    <label>@Model.Mobile</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">Userid</label>
+                </div>
+                <div class="col-6">
+                    <label>@Model.userid</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">DONATION DATE</label>
+                </div>
+                <div class="col-6">
+                    <label>@Model.ActiveDate</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <label for="formGroupExampleInput">DONATE AMOUNT</label>
+                </div>
+                <div class="col-6">
+                    <label>1000</label> <br>
+                    <label>Sponsorid: @Model.Sponsorid -500</label><br>
+                    <label>Parentid: @Model.parentid -500</label>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <div class="col-2" style="text-align:center;">
+
+                </div>
+                <div class="col-7">
+                    <div class="row">
+                        Congratulations on your decision to Join Needan welfare Foundation<sup>&reg;</sup> KBC40<sup>&reg; </sup> as your Platform to donate
+                        your fund to a needy ones..!! KBC40 is a project of donation based crowdfunding Run By  <span style="color: #e98a19">Needan welfare Foundation</span><sup>&reg; </sup> @Model.name
+                    </div>
+                    <div class="row">
+                        It is a Computer generated Information of a
+                        Donation Based Crowdfunding. For No signature Required.
+                    </div>
+                </div>
+                <div class="col-3" style="text-align:center;">
+
+                </div>
+            </div>
+        </div>
+</section>
+</div>
+
+
+
+
+

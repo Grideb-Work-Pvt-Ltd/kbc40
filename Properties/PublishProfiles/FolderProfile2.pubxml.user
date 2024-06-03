@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\New folder\working project\KBC40Dashboard\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2023-03-28T15:40:18.2585117Z;True|2023-03-28T20:24:03.0983740+05:30;True|2023-03-28T19:26:29.2090811+05:30;True|2023-03-28T18:14:36.5969533+05:30;True|2023-03-26T19:12:55.6091037+05:30;True|2023-03-26T16:15:23.1728068+05:30;True|2023-03-24T13:11:09.6100939+05:30;True|2023-03-24T10:52:02.7175757+05:30;True|2023-03-23T17:23:04.5163381+05:30;True|2023-03-21T19:57:51.7259583+05:30;True|2023-03-20T15:02:14.0415366+05:30;True|2023-03-16T18:32:39.5118565+05:30;</History>
+  </PropertyGroup>
+</Project>

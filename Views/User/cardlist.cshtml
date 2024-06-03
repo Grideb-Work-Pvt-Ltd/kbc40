@@ -1,0 +1,281 @@
+﻿@model forex.Models.ProductAddModelList;
+@{
+    ViewData["Title"] = "shop";
+    Layout = "~/views/Shared/_Layoutuser.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6"></div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ProductAddModelVarriable)
+                    {
+                        <tr>
+                            <td>@item.name</td>
+                            <td>
+                                <span id="price_@item.pid">@item.price</span>
+                            </td>
+                            <td>
+                                <form method="post" onsubmit="return updateQuantity('@item.pid')">
+                                    <input type="hidden" name="productId" value="@item.pid" />
+                                    <button type="button" onclick="updatePrice('@item.pid', 'increment')">+</button>
+                                    <span id="quantity_@item.pid">@item.quantity</span>
+                                    <button type="button" onclick="updatePrice('@item.pid', 'decrement')">-</button>
+                                </form>
+                            </td>
+                            <td id="total_@item.pid">@Convert.ToDecimal(item.price)</td>
+                            <td>
+                                <form asp-action="delcard" asp-controller="user" method="post">
+                                    <input type="text" name="id" value="@item.indexid" hidden />
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                    <!-- Add a separate row for the final total -->
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td id="finalTotal"></td>
+                        <td>
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="buy">
+                                Buy
+                            </button>
+                            @*<button type="submit" class="btn btn-success" id="buyButton">Buy</button>*@
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:white !important">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Address</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="name" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile No</label>
+                                <input type="text" class="form-control"id="mobile"readonly />
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea class="form-control" rows="3" id="address"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control"id="city" />
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <input type="text" class="form-control" id="state" />
+                            </div>
+                            <div class="form-group">
+                                <label>Pincode</label>
+                                <input type="text" class="form-control"id="pin" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="udadd">Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    function updatePrice(productId, action) {
+        var priceElement = document.getElementById('price_' + productId);
+        var quantityElement = document.getElementById('quantity_' + productId);
+        var totalElement = document.getElementById('total_' + productId);
+        var finalTotalElement = document.getElementById('finalTotal');
+
+        var price = parseFloat(priceElement.innerText);
+        var quantity = parseInt(quantityElement.innerText);
+
+        if (action === 'increment') {
+            quantity++;
+        } else if (action === 'decrement' && quantity > 1) {
+            quantity--;
+        }
+
+        quantityElement.innerText = quantity;
+        totalElement.innerText = (price * quantity).toFixed(2);
+
+        // Calculate and update the final total
+        updateFinalTotal();
+    }
+
+    function updateFinalTotal() {
+        var finalTotalElement = document.getElementById('finalTotal');
+        var totalElements = document.querySelectorAll('[id^="total_"]');
+        var finalTotal = 0;
+
+        totalElements.forEach(function (totalElement) {
+            finalTotal += parseFloat(totalElement.innerText);
+        });
+
+        finalTotalElement.innerText = finalTotal.toFixed(2);
+    }
+    window.onload = function () {
+        updateFinalTotal();
+    };
+    // Buy button click event
+    function buyproduct() {
+        // Get all product data from the table
+        var productData = [];
+        $("tbody tr").each(function () {
+            var quantityElement = $(this).find('[id^="quantity_"]');
+            var productId = quantityElement.length > 0 ? quantityElement.attr('id').split("_")[1] : null;
+
+            // Check if productId is defined before proceeding
+            if (productId !== null) {
+                var quantity = parseInt(quantityElement.text());
+                var price = parseFloat($(this).find('[id^="price_"]').text());
+
+                // Check if quantity is a valid number before adding to productData
+                if (!isNaN(quantity)) {
+                    productData.push({ productId: productId, quantity: quantity, price: price });
+                }
+            }
+        });
+
+        // Get the final total
+        var finalTotal = parseFloat($("#finalTotal").text());
+        console.log(finalTotal);
+        console.log(productData);
+
+        // Make an AJAX call to send data to the server
+      
+        $.ajax({
+
+            type: "POST",
+            url: "../user/buy",
+            data: {
+               
+                "products": JSON.stringify(productData),
+                "finalTotal": finalTotal
+               
+            },
+            success: function (response) {
+                
+                alert(response);
+                window.location.href='../user/shop'
+            },
+
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+</script>
+<script>
+    $(document).on("click", "#buy", function () {
+       
+
+
+        $.ajax({
+
+            type: "POST",
+            url: "../user/findaddress",
+            data: {
+
+
+            },
+            success: function (response) {
+
+                $('#name').val(response.name);
+                $('#city').val(response.city);
+                $('#mobile').val(response.mobile);
+                $('#address').val(response.address);
+                $('#state').val(response.state);
+                $('#pin').val(response.pin);
+            },
+
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+
+</script>
+<script>
+    $(document).on("click", "#udadd", function () {
+
+
+
+        $.ajax({
+
+            type: "POST",
+            url: "../user/updateaddress",
+            data: {
+                "city": $("#city").val(),
+                
+                "address": $("#address").val(),
+                "state": $("#state").val(),
+                "pin": $("#pin").val(),
+            },
+            success: function (response) {
+               
+                buyproduct();
+                //$("#buyButton").click();
+               
+            },
+
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+
+</script>

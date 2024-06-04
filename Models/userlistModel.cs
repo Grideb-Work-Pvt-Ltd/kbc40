@@ -40,6 +40,10 @@ namespace forex.Models
         public string parentname { get; set; }
         public string pancard { get; set; }
         public string image { get; set; }
+        public string pincode { get; set; }
+        public string dob { get; set; }
+        public string gender { get; set; }
+        public string father { get; set; }
         public string type { get; set; }
         public string latest1 { get; set; }
         public string latest2 { get; set; }

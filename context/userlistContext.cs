@@ -136,8 +136,10 @@ namespace forex.context
                     srq.pcapping = ds.Tables[0].Rows[i]["prelanunchcapping"].ToString();
                     srq.address = ds.Tables[0].Rows[i]["address"].ToString();
                     srq.image = ds.Tables[0].Rows[i]["photo"].ToString();
-                   // srq.main = ds.Tables[1].Rows[i]["0"].ToString();
-                   // srq.crowd = ds.Tables[2].Rows[i]["0"].ToString();
+                    srq.gender = ds.Tables[0].Rows[i]["gender"].ToString();
+                    srq.pincode = ds.Tables[0].Rows[i]["pincode"].ToString();
+                    srq.dob = ds.Tables[0].Rows[i]["dob"].ToString();
+                    srq.father = ds.Tables[0].Rows[i]["father"].ToString();
                     
                     orderListO.Add(srq);
                 }

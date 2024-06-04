@@ -50,6 +50,11 @@ namespace forex.context
                 cmd.Parameters.AddWithValue("@PanNo", logo.pannumbr);
                 cmd.Parameters.AddWithValue("@contactid", logo.contactid);
                 cmd.Parameters.AddWithValue("@faccount", logo.faccount);
+                cmd.Parameters.AddWithValue("@pincode)", logo.pincode);
+                cmd.Parameters.AddWithValue("@dob", logo.dob);
+                cmd.Parameters.AddWithValue("@address", logo.address);
+                cmd.Parameters.AddWithValue("@gender", logo.gender);
+                cmd.Parameters.AddWithValue("@father", logo.father);
                 cmd.Parameters.AddWithValue("@BankPassbook", "../upload/" + logo.bank);
                 cmd.Parameters.AddWithValue("@PanCard", "../upload/" + logo.pancard); 
                 cmd.Parameters.AddWithValue("@AdharCardfront", "../upload/" + logo.adharfront); 

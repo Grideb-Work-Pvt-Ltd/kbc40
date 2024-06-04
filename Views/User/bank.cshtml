@@ -100,6 +100,14 @@
                                             <button id="adhverify">Adhaar Card Verify</button>
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label class="control-label" for="uploadadhar">Pan Card</label>
+                                            <input type="file" id="panup" name="file1" value="@Model.pancard" required />
+                                            <img src="@Model.pancard" style="height: 260px;" />
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <button id="panverify">Pancard Verify</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label class="control-label" for="accountno">Account Holder Name</label>
                                             <input class="form-control radi" type="text" id="namess" name="AccountHolderName" value="@Model.AccountHolderName" required />
                                         </div>
@@ -107,7 +115,7 @@
 
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">Bank Name</label>
-                                            <input class="form-control radi" type="text" id="banknames" name="bankname" value="@Model.bankname" required />
+                                            <input class="form-control radi" type="text" id="bankNames" name="bankname" value="@Model.bankname" required />
 
                                         </div>
                                         <div class="form-group col-md-6">
@@ -115,7 +123,11 @@
                                             <input class="form-control radi" type="text" id="branchs" name="branch" value="@Model.branch" required />
 
                                         </div>
-                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="accountno">Father Name</label>
+                                            <input class="form-control radi" type="text" id="fathers" name="father" value="@Model.father" required readonly />
+                                        </div>
+
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="accountno">Gender</label>
                                             <input class="form-control radi" type="text" id="genders" name="gender" value="@Model.gender" required readonly />
@@ -126,34 +138,38 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">City</label>
-                                            <input class="form-control radi" type="text" id="" name="city" value="@Model.city" required />
+                                            <input class="form-control radi" type="text" id="citys" name="city" value="@Model.city" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="bankname">DOB</label>
+                                            <input class="form-control radi" type="text" id="dobs" name="dob" value="@Model.dob" required />
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label" for="bankname">Pincode</label>
+                                            <input class="form-control radi" type="text" id="pincodes" name="pincode" value="@Model.pincode" required />
 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="branch">State</label>
-                                            <input class="form-control radi" type="text" name="states" value="@Model.state" required readonly />
+                                            <input class="form-control radi" type="text" id="states" name="state" value="@Model.state" required readonly />
 
                                         </div>
 
 
 
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label" for="uploadadhar">Pan Card</label>
-                                            <input type="file" id="panup" name="file1" value="@Model.pancard" required />
-                                            <img src="@Model.pancard" style="height: 260px;" />
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <button id="panverify">Pancard Verify</button>
-                                        </div>
+
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="accountno">Pan Card No</label>
-                                            <input class="form-control radi" type="text" id="pan" name="pannumbr" value="@Model.pannumbr" required />
+                                            <input class="form-control radi" type="text" id="pans" name="pannumbr" value="@Model.pannumbr" required />
                                         </div>
+
 
                                         <div class="form-group col-md-6">
-
+                                            <label class="control-label" for="accountno">Adhaar Card No</label>
+                                            <input class="form-control radi" type="text" id="" name="adharnumber" value="@Model.adharnumber" required />
                                         </div>
-
 
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="uploadadhar">Passbook/Cheque</label>
@@ -162,8 +178,7 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label class="control-label" for="accountno">Adhaar Card No</label>
-                                            <input class="form-control radi" type="text" id="" name="adharnumber" value="@Model.adharnumber" required />
+
                                         </div>
 
                                         <div class="form-group text-right m-b-0">
@@ -288,13 +303,13 @@
                     console.log(response);
                     $('#age').text(response.age);
                     $('#dob').text(response.dob);
-                    $('#dobs').text(response.dob);
+                    $('#dobs').val(response.dob);
                     $('#father').text(response.father);
-                    $('#fathers').text(response.father);
+                    $('#fathers').val(response.father);
                     $('#message').text(response.message);
                     $('#name').text(response.name);
                     $('#pan').text(response.pan);
-                    $('#pans').text(response.pan);
+                    $('#pans').val(response.pan);
                     $('#pan_type').text(response.pan_type);
                     $('#reference_id').text(response.reference_id);
                     $('#status').text(response.status);
@@ -373,16 +388,17 @@
                 success: function (response) {
                     console.log(response);
                     $('#names').text(response.name);
-                    $('#namess').text(response.name);
+                    $('#namess').val(response.name);
                     $('#address').text(response.address);
-                    $('#addresss').text(response.address);
+                    $('#addresss').val(response.address);
                     $('#gender').text(response.gender);
-                    $('#genders').text(response.gender);
+                    $('#genders').val(response.gender);
                     $('#messages').text(response.message);
                     $('#pincode').text(response.pincode);
+                    $('#pincodes').val(response.pincode);
                    
                     $('#state').text(response.state);
-                    $('#states').text(response.state);
+                    $('#states').val(response.state);
                     $('#statuss').text(response.status);
                     $('#uid').text(response.uid);
                     $('#valids').text(response.valid);
@@ -449,9 +465,9 @@
                 },
                 success: function (response) {
                     console.log(response);
-                    $('#branchs').text(response.data.branch);
-                    $('#citys').text(response.data.city);
-                    $('#bankNames').text(response.data.bankName);
+                    $('#branchs').val(response.data.branch);
+                    $('#citys').val(response.data.city);
+                    $('#bankNames').val(response.data.bankName);
                     const nameAtBank = response.data.nameAtBank;
                     const bankName = response.data.bankName;
                     const branch = response.data.branch;

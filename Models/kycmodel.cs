@@ -58,6 +58,9 @@ namespace forex.Models
     public class kycmodel
     {
         public string StartDate { get; set; }
+        public string dob { get; set; }
+        public string pincode { get; set; }
+        public string father { get; set; }
         public string EndDate { get; set; }
         public string SelfIncome { get; set; }
         public string RankF { get; set; }

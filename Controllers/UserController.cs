@@ -2090,7 +2090,7 @@ namespace forex.Controllers
 
         [HttpPost]
         public async Task<IActionResult> bank(string accountno, string ifsc, string bankname, string Payment, string branch, string city, IFormFile files, IFormFile file1,
-            string adharnumber, string state, string pannumbr, string AccountHolderName, IFormFile file2, IFormFile file3)
+           string address,string gender,string pincode,string dob,string father, string adharnumber, string state, string pannumbr, string AccountHolderName, IFormFile file2, IFormFile file3)
         {
             kyccontext logoc = new kyccontext();
             kycmodel logo = new kycmodel();
@@ -2104,6 +2104,10 @@ namespace forex.Controllers
             logo.pannumbr = pannumbr;
             logo.adharnumber = adharnumber;
             logo.state = state;
+            logo.pincode = pincode;
+            logo.dob = dob;
+            logo.address = gender;
+            logo.father = father;
             string vid = HttpContext.Session.GetString("UserId");
            
            

@@ -2106,7 +2106,8 @@ namespace forex.Controllers
             logo.state = state;
             logo.pincode = pincode;
             logo.dob = dob;
-            logo.address = gender;
+            logo.gender = gender;
+            logo.address = address;
             logo.father = father;
             string vid = HttpContext.Session.GetString("UserId");
            

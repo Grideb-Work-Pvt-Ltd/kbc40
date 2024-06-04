@@ -632,6 +632,8 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\Tree_img\t6.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\Tree_img\t7.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\Tree_img\t8.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0054fd33-59b8-4156-b00b-e237b22562f0_event1.jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\00b8f9fa-7d2b-4a44-9050-e1792935486b_tc.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0178fbb5-10fe-4ec2-b4a2-a2d7625c7b00_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\03ab3e84-66af-43bf-bcb1-04e6a469094d_blog2.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\046d7247-c68e-4016-b458-9cbbb264f59c_4-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\05465047-a0e3-4822-add0-e95b1155fd62_back.jpeg
@@ -639,10 +641,14 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0567034a-62af-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\065d50b2-44e5-43e4-ae82-e61db6af3cd7_aboutus1.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\070dbb2b-4253-4661-9910-d6c6bc75fa38_manoj4 .jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\07c7ccdf-4a92-4fff-9244-ab25c6219c35_100.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\087e9fec-5054-46ac-9047-d5e22707e3e3_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\088efba1-2d8d-4070-aade-6b3437109643_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\099546fd-8b72-4222-a6e1-f52dbb0e31ac_4-removebg-preview.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\09d4ea76-73bc-479e-b637-a45453c248b0_tc.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0a91b987-a084-44eb-aaf5-f4d64e61c3ec_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0bc6212a-4c3e-427a-a811-868de6a595cd_3-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0bfd698e-8e4a-4293-ba37-941775157436_4-removebg-preview.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0c3cdfa1-bf5c-4594-8722-5a05b6e4b9a4_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0dcf20ce-4b2d-4881-b250-ce1e83a3c0d4_100.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0f9f97a1-1184-4c5b-8765-2892ab1d7085_Associate.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\0ffc45f2-4cff-4b5b-9937-9fc52a66f7c2_cause2.jpg
@@ -656,6 +662,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\14c9df0b-5b42-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\1594740d-c5a9-4225-8f1f-badd85022304_2-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\15de8085-40a7-45e0-bd43-9301e47c0c25_100.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\1724a0eb-8444-405f-95bd-e43798ab5a78_val.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\180c59c0-78d1-4caf-9a14-754a9b5c08fb_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\18273ce2-c773-4836-be9f-9a857ebcc5bd_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\19cf6558-daf7-42da-9f9b-d4ba1418128a_3-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\19e563df-2bfa-48d3-bcdc-7376b1b9192e_male.png
@@ -670,6 +677,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\20fdcc47-eabb-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2140ebb4-3381-45c1-9e10-51329e8b812d_medal-brown.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\22228a6f-152b-412c-a8ab-ba53333c99ba_WhatsApp Image 2024-05-16 at 11.43.39.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\22bb7419-b7d8-4f70-9555-64d497f65e9e_become a volunteer 1.jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\24671626-a0ab-438d-9a2a-98a65b02b2ec_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\268310ef-5ead-4813-8407-246fe47962b0_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2a4c8826-3f13-45b9-b4f0-ae8adedfd0ef_medal-gray.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2b01e92f-143f-4d57-805d-c4a2731b0484_bacome a volunteer 2 .jpg
@@ -677,6 +685,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2d6f5ba0-fafe-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2e0f231f-5527-415a-91ef-bb33313407b9_val.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2f5ab2ef-87e9-4761-8298-53885e4ba41e_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\2fa340fa-75a5-4a5e-bb89-8bcdd42b4ee5_tc.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\30c3b562-bba7-4978-ad6d-ce92a76dc354_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\34931f5c-38db-4c90-b793-715818752187_pp.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\34b62d9f-56b5-478b-ae35-0ca036db9df8_male.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\351bfc91-ec3a-4336-a061-dceab5a647f4_valunteer4.jpg
@@ -690,14 +699,17 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\39fb78e3-9a38-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\3c3b7824-aa07-470c-950a-708bf074ee30_WhatsApp Image 2022-11-28 at 1.45.15 PM.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\3e8a466f-87f5-40cf-8510-4885810ea35a_food.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\3f2045a9-b60e-4c83-9cc2-ccf3daca2fb5_1-removebg-preview.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\3fbe97c7-a433-40ca-b4d6-153a25b9bd35_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\4032dceb-2511-4318-95e2-700ac5954a8a_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\40436eb7-8809-43c0-8190-0322586ca3eb_download.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\4279f6c0-4664-49a6-b813-29d5ce2d166a_iconman.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\4441cb32-504e-48e9-8ae4-b6fad9f30429_4-removebg-preview.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\44a7779c-113e-48e8-9001-84a6f4901d29_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\453e81e5-f2f8-425b-9137-f7a21da4b8ee_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\456428d0-4f41-4f87-a907-913a609ba069_medal-gray.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\4642ef7a-9ab3-4a9f-bf97-da94ff1cecb1_WhatsApp Image 2024-05-16 at 11.43.39.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\46d5e6ee-cbc7-4487-8fcb-e4d503b9a212_100.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\46e0476f-37bf-4187-9da5-8c9a83ead931_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\48f1fede-3a8c-4882-98dd-207573d6ff97_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\49281e11-ab00-49df-a483-e2bdc970e435_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\4d03d6bd-1e2c-41a6-a0d5-1c5b0bb1f70d_Associate.png
@@ -710,19 +722,25 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\533c6f14-5445-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\56f6a693-53bd-4708-a839-c5e78ef9165c_Blue Spain Tour And Travel Agent Instagram Post_20231211_115303_0000 (1).png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\57a2265f-816d-47ab-b0d6-9d6bdffc22de_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\58323464-0712-4e7f-bdbf-ad478cd15628_medal-gray.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\593b5f22-c7c7-463d-baab-225c0d7b8214_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5955c6ad-9959-4ca3-8862-c00a73312204_valunteer2.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\597108a6-dbc3-4ca4-bcea-d2aa3023c9c7_4-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\59899615-255c-4ab2-a44d-f3709a876751_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5b83d55a-65d3-4612-bbe3-4d5fa5fb98ec_tc.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5c37e7fd-778e-4258-a358-5122b91b574a_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5c9af449-be56-4cda-86a9-22679a50fd0e_3-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5ca9f287-ea1f-4762-9681-ee4dbb6fb2fe_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5d934aae-802e-4b36-b292-615b8fc9dfe7_100.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\5f93cc4b-d816-4280-8d2b-2aeb2ec25a5c_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6165c962-2534-4020-9733-ba3ee7bc98b6_100.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\63b7f439-e5e0-4ac7-9194-0e6a8a0e8b18_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6605d90c-4a70-4a65-94b2-50adf65e9c0a_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\66548cc1-c1fd-413b-9a08-c7b48d0523f2_pan.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6a9886e6-a67a-434e-8c00-e13343f0878f_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6b876720-669a-409f-9651-0f0155036d9c_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6c127602-4f0b-4cc1-a058-bf46845f39a2_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6cc67b25-b654-4022-b936-9a5020d5ac4b_aboutus1.jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6dd308be-be65-4f25-962e-9f8a0d8808a7_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\6f63e500-6558-47a8-9f74-6b6a4e9f8b65_blog1.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\71409f54-a98d-4e07-a8f8-d8dd2b24ab62_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\71c9472c-2f35-46d5-bbb2-76c0966f85ae_WhatsApp Image 2024-02-03 at 18.00.54.jpeg
@@ -735,14 +753,18 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7653d7be-b40e-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\76b431eb-31b4-44f3-b9be-7df9f87d9cb2_NGO copy.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7a9c4558-f583-4cdf-9a3b-ec334fce7dd1_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7c33ad39-cec7-4016-9c97-cfcbadafa185_100.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7c4202ba-434f-4614-a422-23b4f21992f2_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7c50005d-bc49-43b9-b842-c61850206856_event1.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7c925dc4-7083-4cc0-85b4-b79aa9f29f51_WhatsApp Image 2024-02-03 at 18.00.54.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7cff96ec-0f06-4250-ae41-8d860386f583_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\7d5ca226-294f-4838-9603-dcc0dd16f73f_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\806acfe2-77e7-431f-86f1-8257c7de9f0c_em.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\809e698d-1b19-4d8b-b21e-91002d62c51d_medal-gray.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\83bd4f65-cf4d-4fcd-b815-430813cb4e00_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\873828b2-7f66-457c-ac73-52257f2fcac3_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\87abd944-98f5-4a55-8b46-f9f435bfb6a7_4-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8862b193-dcab-4e21-a6a6-6df1f3c01916_back.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\894346b4-12e7-41f9-8cf8-4227249ae879_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\896ef18c-0dbe-42b1-ba00-38c61879478f_100.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8ae69db5-590c-4cd5-9a15-8e599fc0194e_4-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8b322ff8-5c14-4b34-ae5e-71c5f7a697e2_food.jpeg
@@ -755,14 +777,18 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8fe85514-6ff6-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8ffc33b1-6026-41c2-8b25-043296bebc78_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\90cb4a3c-feeb-486e-9810-2e4d4ffb7e28_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\91612fe8-a670-422a-a513-ad46f74ec8ed_medal-brown.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\91963eed-160b-448f-8f50-87fe68faa9f4_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\920703a7-d5b5-4df2-a472-50a119737eac_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\92455274-e7ec-4fba-809b-72c985096e79_male.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\92f7549b-6f11-433d-9655-82ca8acaa570_medal-brown.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\94320a09-46d6-466b-a226-087c5b0b6fe3_iconman.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\945fe3f9-e761-4f62-9109-31d28813aeec_manoj1.jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\95b5f53d-942e-4a86-8266-25bab65b9214_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\960ccad2-c76e-4dca-8d78-6d16058c5633_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\98aa1c58-102d-4bcc-9c50-0115d6e0bdc6_tc.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\98bf58a9-86b0-451d-a0b1-b925c281ebd3_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\99890eb0-55d8-4a94-a5fc-ce8fe581d2f8_medal-gray.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\999b81aa-2301-43fc-8c1c-f481b4c94612_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9b0e726f-d2a0-49ee-a27b-459ced6f42f5_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9bed8815-e639-4cdc-8a7c-ffdf3b8a5264_2-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9fdc3fb1-bf03-4de0-9e27-3ccfe0c068b0_fornt.jpeg
@@ -770,6 +796,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\a0a9e308-0384-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\a1b11d2c-4624-42a9-9559-5d2f72403126_manish.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\a447da00-0e84-46e9-ae00-4ae8652cd33f_medal-gray.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\a520f35f-4ff5-45bf-b2c1-6684af1d2b3a_download.jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\aa4c138d-8861-4c0e-88d2-a18b49ddb3cc_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\aa6ae31c-f55c-4dc2-89f0-649493603699_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ac23a8dd-6952-4ec6-b47c-63b76871a2d6_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ac39bfd4-c7ba-497b-b9cc-9147b23bebd9_medal-brown.png
@@ -796,16 +823,21 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c32b5696-c11b-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c362b547-6b1c-49c1-8133-79075e2dbc1f_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c3f62ea5-4cbc-4335-9a43-060cdead8a48_WhatsApp Image 2022-11-28 at 1.45.15 PM.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c45ef992-36ee-461a-b4a4-0c762a8db5be_cause1.jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c46c060d-736b-4929-a43b-f4ea2719e6da_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c50f749e-7862-4991-aded-b9c2f468fcbc_fin.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c518158a-d837-42de-8be8-f186e8433bf0_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c6eea407-7408-4081-9fae-92930e03e8fe_back.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\c70fc25f-d0a9-4d95-bfb2-ea07d259d42f_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\caf15031-b524-4645-8583-fcd32a689230_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cce72e86-4f4a-40e6-9be6-ea2308a35914_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ccfad7fc-c9d7-4635-bd73-c28fa4b4541c_4-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cd5cea92-4910-4022-958f-8afca445bb89_famel.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cd937ca6-1d73-4700-bb34-3d563b72c3e5_WhatsApp Image 2022-11-28 at 1.45.15 PM.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cdb80a25-529c-45ca-8c3e-3ae9c125fe1d_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cdd5f28a-95b9-4b01-99c6-dc2a2b9761a9_3-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d0518c6f-358e-45f1-874e-938c5ae9e3d8_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d247e9b9-8e8f-4262-82c7-5033d890151b_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d304b7dc-f963-4aa3-ac0d-4640ebfe2075_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d3393452-03a2-4051-bf1c-1de6843d9aa9_fin.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d35bcf2f-7cdb-4819-ae96-122aaacda421_Associate.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d5d4b787-48ef-4352-9080-056b3462a924_back.jpeg
@@ -819,23 +851,31 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\de01af1d-7d2c-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\dfe17d9a-f5c0-424e-975d-08ddbbbef45e_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\dss.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\e30d6ca1-73d4-48a4-bf34-511167dba2b8_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\e4f700b1-53d9-4e55-93f3-39a04af860f8_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\e5b55da1-73ff-43d4-a459-29189675a11b_WhatsApp Image 2023-12-16 at 13.57.06_4fe3c5b7.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\e7e47c04-cc26-4219-82fb-5f587ab5d6ec_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\e7f91143-df24-42a6-b49a-602a0108badb_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\e8ac8e68-46a9-46a1-9ba3-e07f868b1df0_event1.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ea32555c-16a1-47ef-b683-54901ccd34d6_tc.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eaa631e1-edc0-4cc8-aaa5-87cdf3147695_back.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eabbe2e5-15a1-4dca-9549-30faf10079af_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eb85cc8b-1719-44b6-9731-0faf82eb1001_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ec7b1412-f3fb-4d1f-bf20-6a724fb3558d_famel.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ec9d6807-ef29-45e5-b950-79ffbc69708c_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ecbc0c5b-a8fd-4651-843f-37770db3c545_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ecf66fb3-b372-4eb5-832b-bd0f7413a259_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ed070854-c281-44be-9789-28fb74c8ba98_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ed238af7-9e79-4863-b364-0919744ed9ac_manoj4 .jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ee7ad7fe-0f5d-44e5-bff0-531056ef8c7b_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ef2a8b9a-91f2-4cd0-92d6-ab5c73e6b14c_manoj4 .jpg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ef66b31f-6445-486a-9f68-44b91919e3dc_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f034a132-eaa5-44cc-9803-9f8a03658ae8_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f198cd26-70be-49d1-b60a-dcd1b881c5a6_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f1b747a4-eb2f-410b-b57d-ea93107a65f8_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f1e4b2d5-b597-4b75-8301-b7657f7fce9f_3-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f2b4151e-fdaa-484b-b6f8-c07830eab5c2_tc.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f62c1727-c749-4ebf-88b8-b65fe6bb05ad_pan.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f880f690-93b6-4cb9-b8ab-5c8954084889_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f936f9eb-4254-4637-a166-e5af03ae952e_event2.jpg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\f990d70d-ba8f-4e12-86fa-0e09f3c22118_food.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\fb5d9ab2-b290-4d90-835d-5dd25487cb67_pan.jpeg

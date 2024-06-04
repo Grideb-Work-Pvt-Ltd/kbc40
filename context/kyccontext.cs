@@ -50,7 +50,7 @@ namespace forex.context
                 cmd.Parameters.AddWithValue("@PanNo", logo.pannumbr);
                 cmd.Parameters.AddWithValue("@contactid", logo.contactid);
                 cmd.Parameters.AddWithValue("@faccount", logo.faccount);
-                cmd.Parameters.AddWithValue("@pincode)", logo.pincode);
+                cmd.Parameters.AddWithValue("@pincode", logo.pincode);
                 cmd.Parameters.AddWithValue("@dob", logo.dob);
                 cmd.Parameters.AddWithValue("@address", logo.address);
                 cmd.Parameters.AddWithValue("@gender", logo.gender);
@@ -490,6 +490,11 @@ namespace forex.context
                 srq.AccountHolderName = ds.Tables[0].Rows[0]["AccountHolderName"].ToString();
                 srq.state = ds.Tables[0].Rows[0]["STATE"].ToString();
                 srq.city = ds.Tables[0].Rows[0]["city"].ToString();
+                srq.pincode = ds.Tables[0].Rows[0]["pincode"].ToString();
+                srq.dob = ds.Tables[0].Rows[0]["dob"].ToString();
+                srq.address = ds.Tables[0].Rows[0]["address"].ToString();
+                srq.gender = ds.Tables[0].Rows[0]["gender"].ToString();
+                srq.father = ds.Tables[0].Rows[0]["father"].ToString();
                 return srq;
             }
         }

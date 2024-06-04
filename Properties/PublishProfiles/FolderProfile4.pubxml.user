@@ -3,4 +3,8 @@
 https://go.microsoft.com/fwlink/?LinkID=208121. 
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\all project\kbc40\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2024-06-04T06:21:14.7051106Z;</History>
+  </PropertyGroup>
 </Project>

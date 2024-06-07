@@ -66,6 +66,26 @@ namespace forex.context
             }
         }
 
+        public string kyccharge(string uid, kycmodel logo, string connectionString)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@userid", uid);
+                cmd.Parameters.AddWithValue("@action", "kyccharge");
+                cmd.Parameters.AddWithValue("@gender", logo.gender);
+                cmd.Parameters.AddWithValue("@father", logo.father);
+               
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "done";
+            }
+        }
+
 
         public string franchisebankin(string uid, kycmodel logo, string connectionString)
         {

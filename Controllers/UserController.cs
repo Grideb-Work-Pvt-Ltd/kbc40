@@ -1951,9 +1951,11 @@ namespace forex.Controllers
             kycmodel logo = new kycmodel();
             logo.accountno = accountno;
             logo.ifsc = ifsc;
-
+            logo.gender = "4";
+            logo.father = "Account ifsc Verify";
 
             string vid = HttpContext.Session.GetString("UserId");
+            logoc.kyccharge(vid,logo,connectionString);
             {
 
                 var client = new HttpClient();
@@ -2008,7 +2010,11 @@ namespace forex.Controllers
             kyccontext logoc = new kyccontext();
             kycmodel logo = new kycmodel();
 
+            logo.gender = "1.5";
+            logo.father = "Pan Card Verify";
+
             string vid = HttpContext.Session.GetString("UserId");
+            logoc.kyccharge(vid, logo, connectionString);
             string uniqueFileName1 = null;
             if (file1 != null)
             {
@@ -2043,8 +2049,11 @@ namespace forex.Controllers
         {
             kyccontext logoc = new kyccontext();
             kycmodel logo = new kycmodel();
+            logo.gender = "1.5";
+            logo.father = "Adhaar Card Verify";
 
             string vid = HttpContext.Session.GetString("UserId");
+            logoc.kyccharge(vid, logo, connectionString);
             string uniqueFileName2 = null;
             if (file2 != null)
             {
@@ -2111,8 +2120,6 @@ namespace forex.Controllers
             logo.father = father;
             string vid = HttpContext.Session.GetString("UserId");
            
-           
-
             string uniqueFileName = null;
             if (files != null)
             {

@@ -1,0 +1,94 @@
+﻿@model forex.Models.IncomeWallet;
+
+@{
+    ViewData["Title"] = "Coupon";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Business Panel</a></li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <form asp-action="poplogin" asp-controller="admin" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label>pop Image</label>
+                            <input type="file" name="file" class="form-control" id="customFile">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">save</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <section mt-3>
+
+            <!--for demo wrap-->
+            <div class="tbl-header">
+                <div id="name" style="color:red;"></div>
+                <table class="table table-responsive-sm" cellpadding="0" cellspacing="0" border="0">
+                    <thead class="bg-dark" style=" color:#fff;">
+                        <tr>
+
+                            <th>Image</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                        }
+                        @foreach (var item in Model.Incomewall)
+                        {
+                            i++;
+                            <tr>
+
+                                <td><img src="@item.img" style="width:200px" /></td>
+                                <td>
+                                    <form asp-action="delimagelogin" asp-controller="admin" method="post" enctype="multipart/form-data">
+
+
+                                        <input type="text" name="index" value="@item.Index" hidden />
+
+                                        <button type="submit" class="btn btn-primary">Delete</button>
+
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+
+
+
+

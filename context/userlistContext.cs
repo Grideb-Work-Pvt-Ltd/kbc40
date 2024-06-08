@@ -826,6 +826,7 @@ namespace forex.context
                     srq.Gold = ds.Tables[18].Rows[0]["Gold"].ToString();
                     srq.Pearl = ds.Tables[18].Rows[0]["Pearl"].ToString();
                     srq.popup = ds.Tables[21].Rows[0]["popimg"].ToString();
+                    srq.popups = ds.Tables[21].Rows[0]["popimg"].ToString();
 
                 for (int i = 0; i < ds.Tables[19].Rows.Count; i++)
                 {
@@ -1413,6 +1414,52 @@ namespace forex.context
                 return "ok";
             }
         }
+
+
+        public string poplogin(string f, string connectionString)
+        {
+
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "insertpoplogin");
+
+                cmd.Parameters.AddWithValue("@img", "../upload/" + f);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "ok";
+            }
+        }
+
+        public string popdashboard(string f, string connectionString)
+        {
+
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "insertpopdashboard");
+
+                cmd.Parameters.AddWithValue("@img", "../upload/" + f);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "ok";
+            }
+        }
+
+
+
 
 
     }

@@ -95,6 +95,69 @@ namespace forex.context
             }
         }
 
+        public IncomeWallet slideimglogin(string connectionString)
+        {
+            IncomeWallet tl = new IncomeWallet();
+            List<walletmodel> orderListO = new List<walletmodel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "selectpoplogin");
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    walletmodel srq = new walletmodel();
+
+                    srq.Index = ds.Tables[0].Rows[i]["indexid"].ToString();
+                    srq.img = ds.Tables[0].Rows[i]["popimg"].ToString();
+
+                    orderListO.Add(srq);
+                }
+                tl.Incomewall = orderListO;
+                return tl;
+            }
+        }
+
+        public IncomeWallet slideimgdashboard(string connectionString)
+        {
+            IncomeWallet tl = new IncomeWallet();
+            List<walletmodel> orderListO = new List<walletmodel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "selectpopdashboard");
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    walletmodel srq = new walletmodel();
+
+                    srq.Index = ds.Tables[0].Rows[i]["indexid"].ToString();
+                    srq.img = ds.Tables[0].Rows[i]["popimg"].ToString();
+
+                    orderListO.Add(srq);
+                }
+                tl.Incomewall = orderListO;
+                return tl;
+            }
+        }
+
+
         public income incomesee(string id, string uid,string connectionString)
         {
             income tl = new income();
@@ -495,6 +558,47 @@ namespace forex.context
                 return "Amount";
             }
         }
+
+        public string delimgslogin(string index, string connectionString)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "delpoplogin");
+                cmd.Parameters.AddWithValue("@indexid", index);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "Amount";
+            }
+        }
+
+        public string delimgsdashboard(string index, string connectionString)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "delpopdashboard");
+                cmd.Parameters.AddWithValue("@indexid", index);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "Amount";
+            }
+        }
+
+
+
 
         public string delimg(string id,string connectionString)
         {

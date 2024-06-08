@@ -151,6 +151,8 @@ namespace forex.context
                 srq.car = ds.Tables[14].Rows[0][0].ToString();
                 srq.franchiseamountunt = ds.Tables[15].Rows[0][0].ToString();
                 srq.franchise = ds.Tables[16].Rows[0][0].ToString();
+                srq.kbc = ds.Tables[17].Rows[0][0].ToString();
+                srq.popup = ds.Tables[18].Rows[0]["popimg"].ToString();
                 return srq;
             }
         }

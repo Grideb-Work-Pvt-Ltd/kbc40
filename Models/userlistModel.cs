@@ -10,6 +10,7 @@ namespace forex.Models
         public string main { get; set; }
         public string nominee { get; set; }
         public string popup { get; set; }
+        public string popups { get; set; }
         public string name { get; set; }
         public string pin { get; set; }
         public string state { get; set; }

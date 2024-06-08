@@ -14,10 +14,12 @@
     .counter-plus {
         background-image: linear-gradient(to right, #ffe558, #ffe558, #ffe558);
     }
+
     .abc {
         background-color: #0756ab;
         color: #fff;
     }
+
     .bcd {
         box-shadow: 0px 5px #0756ab;
         border-radius: 0px 0px 30px 50px;
@@ -25,13 +27,16 @@
         /*background-color: #ffc107;*/
         color: #fff;
     }
+
     .cde {
-        text-align:center;
+        text-align: center;
     }
-    .iconn{
-        color:white;
+
+    .iconn {
+        color: white;
     }
 </style>
+
 
 
 <div class="content-wrapper" style="min-height: 333px;">
@@ -86,6 +91,24 @@
                         <div class="inner p-4">
 
                             <h2> @Model.total</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add iconn"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-table iconn"></i> KBC Wallet</h5>
+
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2> @Model.kbc</h2>
 
                         </div>
                         <div class="icon">
@@ -469,11 +492,11 @@
                 <!-- ./col -->
                 <!-- ./col -->
             </div>
-          
+
         </div>
     </section>
 
-    <div class="row" hidden>      
+    <div class="row" hidden>
         <div class="col-md-6">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" style="background-color: #ffc107 !important; color: black !important;" value="http://kbc40/home/register/?id=@Context.Session.GetString("UserId")" id="myInput">
@@ -483,9 +506,38 @@
             </div>
         </div>
     </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary"  id="modalTrigger"  data-toggle="modal" data-target="#exampleModal">
+       
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color:white!important;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="@Model.popup" />
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Trigger a click event on the hidden button
+            document.getElementById("modalTrigger").click();
+        });
+    </script>
     <!-- /.row (main row) -->
 </div><!-- /.container-fluid -->
-    
+
 
 <script>
     //function myFunction() {
@@ -515,7 +567,7 @@
             var successful = document.execCommand('copy');
 
             // Display a success/fail message
-            var msg = successful ? 'Copied the text:  '+ copyText.value : 'Oops, unable to copy!';
+            var msg = successful ? 'Copied the text:  ' + copyText.value : 'Oops, unable to copy!';
             alert(msg);
         } catch (err) {
             // Fallback for browsers that don't support execCommand

@@ -75,12 +75,21 @@ namespace forex.Controllers
                 {
                     string uid = HttpContext.Session.GetString("orderid");
                     string id = HttpContext.Session.GetString("donations");
+                    string Mobile = HttpContext.Session.GetString("mobile");
+                    string name = HttpContext.Session.GetString("name");
+                    string pass = HttpContext.Session.GetString("password");
                     adminlogin regisO = new adminlogin();
                     modlogin mls = new modlogin();
                     mls = regisO.paymet(id, uid, connectionString);
                     HttpContext.Session.SetString("newuserid", mls.userid);
+                    connect sms = new connect();
+                    //string templateid = "1207161847338398965";
+                    string templateid = "1207169502993389819";
+                    //sms.SendSMS(Mobile, "Dear " + name + ", Welcome to KBC40 Your account has been created successfully.Your Login Id is: " + ml.userid + " and Password: -" + password + ".Thanks Team kbc40", templateid,"TXN");
+                    sms.SendSMS(Mobile, "Dear " + name + ", Welcome to KBC40 Your account has been created successfully.Your Login Id is: " + mls.userid + " and Password: -" + pass + ".Login at https://kbc40.com/home/login Thanks Team KBC40", templateid, "TXN");
 
-                   
+
+
                     return RedirectToAction("registerSee", "Home");
                 }
 

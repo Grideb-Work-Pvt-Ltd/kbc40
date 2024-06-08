@@ -819,6 +819,39 @@ namespace New_Dashboard.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        [HttpPost]
+        public IActionResult delimagelogin(string index)
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+
+
+                incomewalletContext dcO = new incomewalletContext();
+                dcO.delimgslogin(index, connectionString);
+                return RedirectToAction("poplogin");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        [HttpPost]
+        public IActionResult delimagedashboard(string index)
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                incomewalletContext dcO = new incomewalletContext();
+                dcO.delimgsdashboard(index, connectionString);
+                return RedirectToAction("popdashbord");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
         public IActionResult PaymentSummery()
         {
             string k = HttpContext.Session.GetString("Adminflag");
@@ -2422,6 +2455,40 @@ namespace New_Dashboard.Controllers
             }
         }
 
+        public IActionResult poplogin()
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+
+                IncomeWallet d = new IncomeWallet();
+                incomewalletContext dcO = new incomewalletContext();
+                d = dcO.slideimglogin(connectionString);
+                return View(d);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public IActionResult popdashbord()
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+
+                IncomeWallet d = new IncomeWallet();
+                incomewalletContext dcO = new incomewalletContext();
+                d = dcO.slideimgdashboard(connectionString);
+                return View(d);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
         [HttpPost]
         public IActionResult pop(IFormFile file)
         {
@@ -2445,13 +2512,77 @@ namespace New_Dashboard.Controllers
                 userlistContext duct = new userlistContext();
 
                 duct.pop(f, connectionString);
-                return View();
+                return RedirectToAction("pop");
             }
             else
             {
                 return RedirectToAction("adminlogin", "home");
             }
         }
+
+        [HttpPost]
+        public IActionResult poplogin(IFormFile file)
+        {
+
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                string uniqueFileName = null;
+                if (file != null)
+                {
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                }
+
+                string f = uniqueFileName;
+                userlistContext duct = new userlistContext();
+
+                duct.poplogin(f, connectionString);
+                return RedirectToAction("poplogin");
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult popdashboard(IFormFile file)
+        {
+
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                string uniqueFileName = null;
+                if (file != null)
+                {
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                }
+
+                string f = uniqueFileName;
+                userlistContext duct = new userlistContext();
+
+                duct.popdashboard(f, connectionString);
+                return RedirectToAction("popdashbord");
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
+            }
+        }
+
+
 
     }
 }

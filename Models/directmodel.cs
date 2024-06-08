@@ -53,6 +53,8 @@ namespace forex.Models
         public string house { get; set; }
         public string car { get; set; }
         public string franchise { get; set; }
+        public string kbc { get; set; }
+        public string popup { get; set; }
         public string franchiseamountunt { get; set; }
         public string travral { get; set; }
         public string planname { get; set; }

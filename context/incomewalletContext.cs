@@ -1207,6 +1207,7 @@ public income needanSee(string uid, string connectionString)
                     srq.faccount = ds.Tables[0].Rows[i]["faccount"].ToString();
                     srq.Detail = ds.Tables[0].Rows[i]["Detail"].ToString();
                     srq.AdminCharge = ds.Tables[0].Rows[i]["AdminCharge"].ToString();
+                    srq.TDS = ds.Tables[0].Rows[i]["tds"].ToString();
                     srq.Amount = ds.Tables[0].Rows[i]["Amount"].ToString();
                     srq.tDate = ds.Tables[0].Rows[i]["tDate"].ToString();
                     srq.NetAmount = ds.Tables[0].Rows[i]["NetAmount"].ToString();
@@ -1214,6 +1215,7 @@ public income needanSee(string uid, string connectionString)
                     srq.ifsc = ds.Tables[0].Rows[i]["IFSC"].ToString();
                     srq.bankname = ds.Tables[0].Rows[i]["BankName"].ToString();
                     srq.branch = ds.Tables[0].Rows[i]["Branch"].ToString();
+                    srq.pan = ds.Tables[0].Rows[i]["Branch"].ToString();
                     // srq.PaymentMedium = ds.Tables[0].Rows[i]["PaymentMedium"].ToString();
                     orderListO.Add(srq);
                 }

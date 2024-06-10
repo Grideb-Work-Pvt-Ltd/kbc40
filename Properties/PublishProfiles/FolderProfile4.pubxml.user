@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\all project\kbc40\bin\Release\net5.0\publish\</_PublishTargetUrl>
-    <History>True|2024-06-07T06:41:58.7510724Z;True|2024-06-04T12:37:38.1826991+05:30;True|2024-06-04T11:51:14.7051106+05:30;</History>
+    <History>True|2024-06-08T13:56:36.9122158Z;True|2024-06-08T19:11:10.0637710+05:30;True|2024-06-07T12:11:58.7510724+05:30;True|2024-06-04T12:37:38.1826991+05:30;True|2024-06-04T11:51:14.7051106+05:30;</History>
   </PropertyGroup>
 </Project>

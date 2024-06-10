@@ -350,6 +350,7 @@ namespace forex.context
 
                     srq.Userid = ds.Tables[0].Rows[i]["userid"].ToString();
                     srq.amount = ds.Tables[0].Rows[i]["Amount"].ToString();
+                    srq.Direct = ds.Tables[0].Rows[i]["detail"].ToString();
                     srq.tdate = ds.Tables[0].Rows[i]["tDate"].ToString();
                     srq.transection = ds.Tables[0].Rows[i]["InOut"].ToString();
                     noListO.Add(srq);

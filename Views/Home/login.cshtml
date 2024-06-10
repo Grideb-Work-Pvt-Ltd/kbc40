@@ -155,82 +155,85 @@
 
 
 <div class="container mt-5">
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    @if (Model.popups! == null)
+    {
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="@Model.popups" />
+                    </div>
+
                 </div>
-                <div class="modal-body">
-                    <img src="@Model.popups" />
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="modalTrigger" data-bs-toggle="modal" style="display: none;" data-bs-target="#exampleModal">
+        </button>
+        @*<button type="button" id="modalTrigger"  data-toggle="modal" data-target="#exampleModal">12345</button>*@
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Trigger a click event on the hidden button
+                document.getElementById("modalTrigger").click();
+            });
+        </script>
+    }
+        <div class="row ">
+            <div class="col-sm-4">
+
+            </div>
+
+            <div class="col-sm-4 image-side mt-5 mb-5">
+                <h3>Sign In</h3>
+                <hr />
+                <span style="color:red">@ViewBag.error</span>
+                <div class="login-box">
+                    <form asp-action="login" asp-controller="home" method="post">
+                        <div class="form-group">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1" style=" PADDING-BOTTOM: 30PX; PADDING-TOP: 25PX;"><i class="fa fa-envelope"></i></span>
+                                </div>
+                                <input type="text" name="userid" class="form-control text-white" placeholder="User Id" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1" style=" PADDING-BOTTOM: 30PX; PADDING-TOP: 25PX;"><i class="fa fa-eye"></i></span>
+                                </div>
+                                <input type="password" name="password" class="form-control text-white" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex" style="justify-content: space-between;">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Reminder me!</label>
+                            </div>
+                            <div class="forgot-text text-right">
+                                <a href="~/home/forgotpassword" class="text-white">Forgot password?</a>
+                            </div>
+                        </div>
+                        <div class="g-recaptcha mt-3 text-center" data-sitekey="6LcMJcQjAAAAAIrTnf4oMXwbfzTYMMnAsajtwksA"></div>
+                        <div class="mt-3">
+                            <input type="submit" value="Login" class="form-control" aria-label="Username" style="background-color: #5b5e0a !important; font-weight: bold; font-size: 18px;">
+                        </div>
+
+                        <div class="form-check mt-3">
+                            <a href="~/user/Register" class="form-check-label text-white" for="exampleCheck1">Don't have an account? <span style="color:#0109f5;"> Register</span></a>
+                        </div>
+                    </form>
+
                 </div>
+            </div>
+            <div class="col-sm-4">
 
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-primary" id="modalTrigger" data-bs-toggle="modal" style="display: none;" data-bs-target="#exampleModal">
-    </button>
-    @*<button type="button" id="modalTrigger"  data-toggle="modal" data-target="#exampleModal">12345</button>*@
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Trigger a click event on the hidden button
-        document.getElementById("modalTrigger").click();
-    });
-    </script>
-    <div class="row ">
-        <div class="col-sm-4">
-
-        </div>
-
-        <div class="col-sm-4 image-side mt-5 mb-5">
-            <h3>Sign In</h3>
-            <hr />
-            <span style="color:red">@ViewBag.error</span>
-            <div class="login-box">
-                <form asp-action="login" asp-controller="home" method="post">
-                    <div class="form-group">
-                        <div class="input-group ">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1" style=" PADDING-BOTTOM: 30PX; PADDING-TOP: 25PX;"><i class="fa fa-envelope"></i></span>
-                            </div>
-                            <input type="text" name="userid" class="form-control text-white" placeholder="User Id" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group ">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1" style=" PADDING-BOTTOM: 30PX; PADDING-TOP: 25PX;"><i class="fa fa-eye"></i></span>
-                            </div>
-                            <input type="password" name="password" class="form-control text-white" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-
-                    </div>
-
-                    <div class="d-flex" style="justify-content: space-between;">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Reminder me!</label>
-                        </div>
-                        <div class="forgot-text text-right">
-                            <a href="~/home/forgotpassword" class="text-white">Forgot password?</a>
-                        </div>
-                    </div>
-                    <div class="g-recaptcha mt-3 text-center" data-sitekey="6LcMJcQjAAAAAIrTnf4oMXwbfzTYMMnAsajtwksA"></div>
-                    <div class="mt-3">
-                        <input type="submit" value="Login" class="form-control" aria-label="Username" style="background-color: #5b5e0a !important; font-weight: bold; font-size: 18px;">
-                    </div>
-
-                    <div class="form-check mt-3">
-                        <a href="~/user/Register" class="form-check-label text-white" for="exampleCheck1">Don't have an account? <span style="color:#0109f5;"> Register</span></a>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-        <div class="col-sm-4">
-
-        </div>
-    </div>
-</div>
 

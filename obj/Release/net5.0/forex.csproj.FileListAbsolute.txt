@@ -2159,7 +2159,6 @@ D:\all project\kbc40\bin\Release\net5.0\runtimes\win-x64\native\sni.dll
 D:\all project\kbc40\bin\Release\net5.0\runtimes\win-x86\native\sni.dll
 D:\all project\kbc40\bin\Release\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\all project\kbc40\bin\Release\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\all project\kbc40\obj\Release\net5.0\forex.csproj.AssemblyReference.cache
 D:\all project\kbc40\obj\Release\net5.0\forex.GeneratedMSBuildEditorConfig.editorconfig
 D:\all project\kbc40\obj\Release\net5.0\forex.AssemblyInfoInputs.cache
 D:\all project\kbc40\obj\Release\net5.0\forex.AssemblyInfo.cs
@@ -2241,6 +2240,8 @@ D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\PaymentSummery.cshtml.
 D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\PaymentSummeryfranchise.cshtml.g.cs
 D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\plan.cshtml.g.cs
 D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\pop.cshtml.g.cs
+D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\popdashbord.cshtml.g.cs
+D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\poplogin.cshtml.g.cs
 D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\ProductAdd.cshtml.g.cs
 D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\Productlist.cshtml.g.cs
 D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\Profile.cshtml.g.cs
@@ -2376,5 +2377,3 @@ D:\all project\kbc40\obj\Release\net5.0\forex.dll
 D:\all project\kbc40\obj\Release\net5.0\ref\forex.dll
 D:\all project\kbc40\obj\Release\net5.0\forex.pdb
 D:\all project\kbc40\obj\Release\net5.0\forex.genruntimeconfig.cache
-D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\poplogin.cshtml.g.cs
-D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\popdashbord.cshtml.g.cs

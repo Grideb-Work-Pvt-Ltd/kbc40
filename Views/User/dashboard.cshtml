@@ -59,25 +59,25 @@
             <div class="row">
                 @if (Model.idcard == "ID CARD")
                 {
-                    <div class="col-sm-4">
-                        <!-- small box -->
-                        <div class="card-header abc">
-                            <h5> <i class="nav-icon fa fa-table iconn"></i>ID CARD</h5>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-table iconn"></i>ID CARD</h5>
 
-                        </div>
-                        <div class="small-box bcd">
-                            <div class="inner p-4">
-
-                                <h2 style="color:red;font-size:20px;">Please Update your Profile</h2>
-                                <a href="~/user/profile"> Click here</a>
-
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add iconn"></i>
-                            </div>
-
-                        </div>
                     </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2 style="color:red;font-size:20px;">Please Update your Profile</h2>
+                            <a href="~/user/profile"> Click here</a>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add iconn"></i>
+                        </div>
+
+                    </div>
+                </div>
                 }
                 <!-- ./col -->
 
@@ -339,81 +339,81 @@
 
                 @if (Model.franchise == "1")
                 {
-                    <div class="col-sm-4">
-                        <!-- small box -->
-                        <div class="card-header abc">
-                            <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
 
-                        </div>
-                        <div class="small-box bcd">
-                            <div class="inner p-4">
-
-                                <h2>@Model.franchiseamountunt</h2>
-
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <div class="inner p-4">
-
-                                <a href="~/user/fundtranstofranchisetoNeedan">Send Amount IN Needan Wallet</a>
-
-                            </div>
-
-                        </div>
                     </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
+                            <h2>@Model.franchiseamountunt</h2>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <div class="inner p-4">
+
+                            <a href="~/user/fundtranstofranchisetoNeedan">Send Amount IN Needan Wallet</a>
+
+                        </div>
+
+                    </div>
+                </div>
                 }
                 @if (Model.franchise == "1")
                 {
-                    <div class="col-sm-4">
-                        <!-- small box -->
-                        <div class="card-header abc">
-                            <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
 
-                        </div>
-                        <div class="small-box bcd">
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
                             <div class="inner p-4">
 
-                                <div class="inner p-4">
-
-                                    <a href="~/user/PaymentRequestfranchise">Payment Request</a>
-
-                                </div>
+                                <a href="~/user/PaymentRequestfranchise">Payment Request</a>
 
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-
 
                         </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+
                     </div>
+                </div>
                 }
                 @if (Model.franchise == "1")
                 {
-                    <div class="col-sm-4">
-                        <!-- small box -->
-                        <div class="card-header abc">
-                            <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
+                <div class="col-sm-4">
+                    <!-- small box -->
+                    <div class="card-header abc">
+                        <h5> <i class="nav-icon fa fa-user iconn"></i>Franchise</h5>
 
-                        </div>
-                        <div class="small-box bcd">
+                    </div>
+                    <div class="small-box bcd">
+                        <div class="inner p-4">
+
                             <div class="inner p-4">
 
-                                <div class="inner p-4">
-
-                                    <a href="~/user/requestforwallet">Fund Request</a>
-
-                                </div>
+                                <a href="~/user/requestforwallet">Fund Request</a>
 
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-
 
                         </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+
                     </div>
+                </div>
                 }
 
                 <!-- ./col -->
@@ -507,11 +507,12 @@
         </div>
     </div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary"  id="modalTrigger"  data-toggle="modal" data-target="#exampleModal">
-       
-    </button>
 
-    <!-- Modal -->
+    @if (Model.popup! == null)
+    {
+    <button type="button" class="btn btn-primary" id="modalTrigger" data-toggle="modal" data-target="#exampleModal">
+    </button>
+ <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" style="background-color:white!important;">
@@ -524,17 +525,18 @@
                 <div class="modal-body">
                     <img src="@Model.popup" />
                 </div>
-                
+
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Trigger a click event on the hidden button
             document.getElementById("modalTrigger").click();
         });
     </script>
+    }
     <!-- /.row (main row) -->
 </div><!-- /.container-fluid -->
 

@@ -57,6 +57,8 @@ namespace forex.Models
         public string pdate { get; set; }
         public string franchiseid { get; set; }
         public string branch { get; set; }
+        public string pan { get; set; }
+        public string panno { get; set; }
         public string accountno { get; set; }
         public string bankname { get; set; }
         public string ifsc { get; set; }

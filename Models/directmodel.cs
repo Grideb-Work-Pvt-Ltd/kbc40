@@ -52,6 +52,8 @@ namespace forex.Models
         public string indexid { get; set; }
         public string house { get; set; }
         public string car { get; set; }
+        public string donation { get; set; }
+        public string velfund { get; set; }
         public string franchise { get; set; }
         public string kbc { get; set; }
         public string popup { get; set; }
@@ -77,6 +79,14 @@ namespace forex.Models
         public string paymentrequest { get; set; }
         public string Totalcount { get; set; }
         public string todaycount { get; set; }
+        public string zero { get; set; }
+        public string one { get; set; }
+        public string two { get; set; }
+        public string three { get; set; }
+        public string four { get; set; }
+        public string five { get; set; }
+        public string six { get; set; }
+       
         public string Totalinvest { get; set; }
         public string amount { get; set; }
         public string netamount { get; set; }

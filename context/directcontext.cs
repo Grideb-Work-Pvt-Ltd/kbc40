@@ -294,6 +294,20 @@ namespace forex.context
                 srq.GreenWallet = ds.Tables[4].Rows[0]["GreenWallet"].ToString();
                 srq.TransferGreenFund = ds.Tables[4].Rows[0]["TransferGreenFund"].ToString(); 
                 srq.communityIncome = ds.Tables[2].Rows[0]["communityIncome"].ToString(); 
+                srq.zero = ds.Tables[6].Rows[0][0].ToString(); 
+                srq.one = ds.Tables[7].Rows[0][0].ToString(); 
+                srq.two = ds.Tables[8].Rows[0][0].ToString(); 
+                srq.three = ds.Tables[9].Rows[0][0].ToString(); 
+                srq.four = ds.Tables[10].Rows[0][0].ToString(); 
+                srq.five = ds.Tables[11].Rows[0][0].ToString(); 
+                srq.six = ds.Tables[12].Rows[0][0].ToString(); 
+                srq.kbc = ds.Tables[13].Rows[0][0].ToString(); 
+                srq.house = ds.Tables[14].Rows[0][0].ToString();
+                srq.travral = ds.Tables[15].Rows[0][0].ToString();
+                srq.car = ds.Tables[16].Rows[0][0].ToString(); 
+               
+                srq.donation = ds.Tables[17].Rows[0][0].ToString(); 
+                srq.velfund = ds.Tables[18].Rows[0][0].ToString(); 
 
                 return srq;
             }

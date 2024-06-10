@@ -1215,7 +1215,8 @@ public income needanSee(string uid, string connectionString)
                     srq.ifsc = ds.Tables[0].Rows[i]["IFSC"].ToString();
                     srq.bankname = ds.Tables[0].Rows[i]["BankName"].ToString();
                     srq.branch = ds.Tables[0].Rows[i]["Branch"].ToString();
-                    srq.pan = ds.Tables[0].Rows[i]["Branch"].ToString();
+                    srq.pan = ds.Tables[0].Rows[i]["pancard"].ToString();
+                    srq.panno = ds.Tables[0].Rows[i]["panno"].ToString();
                     // srq.PaymentMedium = ds.Tables[0].Rows[i]["PaymentMedium"].ToString();
                     orderListO.Add(srq);
                 }

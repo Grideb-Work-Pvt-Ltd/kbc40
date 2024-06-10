@@ -104,7 +104,7 @@ namespace forex.context
                 SqlCommand cmd = new SqlCommand("prosUserInfo", con)
                 {
                     CommandType = CommandType.StoredProcedure
-                };
+                      };
                 cmd.Parameters.AddWithValue("@action", "All");
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();

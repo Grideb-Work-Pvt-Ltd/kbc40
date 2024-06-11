@@ -145,7 +145,7 @@ namespace forex.context
                     srq.userid = ds.Tables[0].Rows[i]["userid"].ToString();
                     srq.Content = ds.Tables[0].Rows[i]["feedback"].ToString();
                     srq.reply = ds.Tables[0].Rows[i]["reply"].ToString();
-                    srq.replydate = ds.Tables[0].Rows[i]["rdate"].ToString();
+                    srq.replydate = ds.Tables[0].Rows[i]["tdate"].ToString();
                     srq.ticketid = ds.Tables[0].Rows[i]["indexid"].ToString();
 
 

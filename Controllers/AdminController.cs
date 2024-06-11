@@ -708,6 +708,23 @@ namespace New_Dashboard.Controllers
         {
             return View();
         }
+
+        public IActionResult DownlineTeam(string uid)
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                Downline dowm = new Downline();
+                downlinedata dcO = new downlinedata();
+               
+                dowm = dcO.downlinesee(uid, connectionString);
+                return View(dowm);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
         public IActionResult Profile()
         {
             return View();
@@ -2454,6 +2471,24 @@ namespace New_Dashboard.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        public IActionResult pdf()
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+
+                IncomeWallet d = new IncomeWallet();
+                incomewalletContext dcO = new incomewalletContext();
+                d = dcO.slideimg(connectionString);
+                return View(d);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
 
         public IActionResult poplogin()
         {

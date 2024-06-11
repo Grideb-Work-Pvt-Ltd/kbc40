@@ -43,6 +43,7 @@ namespace forex.context
                     srq.TotalBusiness= ds.Tables[0].Rows[i]["TotalBusiness"].ToString();
                     srq.level = ds.Tables[0].Rows[i]["Employeelevel"].ToString();
                     srq.Package = ds.Tables[0].Rows[i]["package"].ToString();
+                    srq.RankName = ds.Tables[0].Rows[i]["planename"].ToString();
                     orderListO.Add(srq);
                 }
                 tl.downlineparameters = orderListO;

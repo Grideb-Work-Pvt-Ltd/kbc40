@@ -22,12 +22,40 @@ namespace New_Dashboard.Controllers
         readonly TreeDataaccess dbtreeContext = new TreeDataaccess();
         readonly string connectionString = @"Data Source=68.178.203.9;Initial Catalog=KBC40New;User ID=sa;Password=gri12DEB!@;";
         private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly ClickToCallService _clickToCallService;
 
-        public AdminController(ILogger<AdminController> logger, IWebHostEnvironment hostEnvironment)
+        public AdminController(ILogger<AdminController> logger, IWebHostEnvironment hostEnvironment, ClickToCallService clickToCallService)
         {
             webHostEnvironment = hostEnvironment;
+            _clickToCallService = clickToCallService;
         }
-        public IActionResult Index()
+       
+
+        public IActionResult ClickToCall()
+        {
+            return View();
+        }
+
+        [HttpPost("/click-to-call")]
+        public async Task<IActionResult> ClickToCall(string SID, string fromNumber, string toNumber)
+        {
+            SID = "801";
+            fromNumber = "9599273851";
+            toNumber = "7004807781";
+            try
+            {
+                string result = await _clickToCallService.ExecuteClickToCallAsync(SID, fromNumber, toNumber);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as needed
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+    
+
+    public IActionResult Index()
         {
             return View();
         }

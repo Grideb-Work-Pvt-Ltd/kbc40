@@ -1,3 +1,4 @@
+using forex.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,13 @@ namespace forex
         {
             services.AddControllersWithViews();
             services.AddSession();
+            services.AddHttpClient();
+
+            // Register ClickToCallService
+            services.AddScoped<ClickToCallService>();
+
+            // Configure your API settings from configuration
+            services.Configure<KaleyraApiSettings>(Configuration.GetSection("KaleyraApi"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

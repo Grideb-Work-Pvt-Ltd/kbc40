@@ -140,6 +140,7 @@ namespace forex.context
                     srq.pincode = ds.Tables[0].Rows[i]["pincode"].ToString();
                     srq.dob = ds.Tables[0].Rows[i]["dob"].ToString();
                     srq.father = ds.Tables[0].Rows[i]["father"].ToString();
+                    srq.adhaar = ds.Tables[0].Rows[i]["AdharNo"].ToString();
                     
                     orderListO.Add(srq);
                 }
@@ -294,6 +295,28 @@ namespace forex.context
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
                 
+                return "done";
+            }
+        }
+
+        public string updateplan(string name, string amount,string indexid, string connectionString)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proplankbc", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "update");
+                cmd.Parameters.AddWithValue("@planname", name);
+                cmd.Parameters.AddWithValue("@planamount", amount);
+                cmd.Parameters.AddWithValue("@indexid",indexid);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+
                 return "done";
             }
         }

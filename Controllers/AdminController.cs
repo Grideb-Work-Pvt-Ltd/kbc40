@@ -996,6 +996,25 @@ namespace New_Dashboard.Controllers
         }
 
         [HttpPost]
+        public IActionResult planupdate(string name, string amount,string indexid)
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                userlistContext duct = new userlistContext();
+                user ip = new user();
+                duct.updateplan(name, amount,indexid, connectionString);
+                return RedirectToAction("plan");
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
+            }
+        }
+
+
+
+        [HttpPost]
         public IActionResult plandelete(string name)
         {
             string k = HttpContext.Session.GetString("Adminflag");

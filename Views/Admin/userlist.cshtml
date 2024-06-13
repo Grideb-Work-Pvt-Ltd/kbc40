@@ -99,6 +99,7 @@
                                     <th scope="col" class="table-border">Email</th>
                                     <th scope="col" class="table-border">Mobile</th>
                                     <th scope="col" class="table-border">Father</th>
+                                    <th scope="col" class="table-border">Adhaar no</th>
                                     <th scope="col" class="table-border">pincode</th>
                                     <th scope="col" class="table-border">Dob</th>
                                     <th scope="col" class="table-border">Address</th>
@@ -122,52 +123,53 @@
                                 @foreach (var item in Model.reglist)
                                 {
                                     i++;
-                                    <tr>
-                                        <td scope="row">@i</td>
-                                        <td>@item.name</td>
-                                        <td><a href="profileupdate/?uid=@item.userid" style="color: #49bd82!important;">@item.userid</a></td>
-                                        <td>@item.Sponsorid</td>
-                                        <td>@item.Sponsorname</td>
-                                        <td>@item.parentid</td>
-                                        <td>@item.parentname</td>
+                                <tr>
+                                    <td scope="row">@i</td>
+                                    <td>@item.name</td>
+                                    <td><a href="profileupdate/?uid=@item.userid" style="color: #49bd82!important;">@item.userid</a></td>
+                                    <td>@item.Sponsorid</td>
+                                    <td>@item.Sponsorname</td>
+                                    <td>@item.parentid</td>
+                                    <td>@item.parentname</td>
 
-                                        <td>@item.password</td>
-                                        <td>@item.pancard</td>
-                                        <td>@item.package</td>
-                                        <td>@item.designation</td>
-                                        <td>@item.direct</td>
-                                        @*<td>@item.TotalBusiness</td>*@
-                                        <td>@item.emailaddress</td>
-                                        <td>@item.Mobile</td>
-                                        
-                                        <td>@item.father</td>
-                                        <td>@item.pincode</td>
-                                        <td>@item.dob</td>
-                                        <td>@item.address</td>
-                                        <td>@item.gender</td>
-                                       
-                                        <td>@item.planename</td>
-                                        <td>@item.City</td>
-                                        <td>@item.RegDate</td>
-                                        <td>@item.ActiveDate</td>
-                                        <td id="main_@item.userid"></td>
-                                        <td id="crowd_@item.userid"></td>
-                                        <td>@item.status</td>
+                                    <td>@item.password</td>
+                                    <td>@item.pancard</td>
+                                    <td>@item.package</td>
+                                    <td>@item.designation</td>
+                                    <td>@item.direct</td>
+                                    @*<td>@item.TotalBusiness</td>*@
+                                    <td>@item.emailaddress</td>
+                                    <td>@item.Mobile</td>
 
-                                        <td>@item.ccapping</td>
-                                        <td>@item.pcapping</td>
-                                        <td>
-                                            <form asp-action="block" asp-controller="admin">
-                                                <select type="text" name="block">
-                                                    <option value="">Select</option>
-                                                    <option value="0">BlockID</option>
-                                                    <option value="1">UnblockID</option>
-                                                </select>
-                                                <input name="userid" value="@item.userid" hidden>
-                                                <button class="btn btn-box" type="submit">Submit</button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    <td>@item.father</td>
+                                    <td>@item.adhaar</td>
+                                    <td>@item.pincode</td>
+                                    <td>@item.dob</td>
+                                    <td>@item.address</td>
+                                    <td>@item.gender</td>
+
+                                    <td>@item.planename</td>
+                                    <td>@item.City</td>
+                                    <td>@item.RegDate</td>
+                                    <td>@item.ActiveDate</td>
+                                    <td id="main_@item.userid"></td>
+                                    <td id="crowd_@item.userid"></td>
+                                    <td>@item.status</td>
+
+                                    <td>@item.ccapping</td>
+                                    <td>@item.pcapping</td>
+                                    <td>
+                                        <form asp-action="block" asp-controller="admin">
+                                            <select type="text" name="block">
+                                                <option value="">Select</option>
+                                                <option value="0">BlockID</option>
+                                                <option value="1">UnblockID</option>
+                                            </select>
+                                            <input name="userid" value="@item.userid" hidden>
+                                            <button class="btn btn-box" type="submit">Submit</button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

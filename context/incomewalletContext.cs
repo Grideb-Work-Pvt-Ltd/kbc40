@@ -319,6 +319,7 @@ namespace forex.context
                     srq.tDate = ds.Tables[0].Rows[i]["tDate"].ToString();
                     srq.NetAmount = ds.Tables[0].Rows[i]["Amount"].ToString();
                     srq.investedid = ds.Tables[0].Rows[i]["investid"].ToString();
+                    srq.Name = ds.Tables[0].Rows[i]["name"].ToString();
                     orderListO.Add(srq);
                 }
                 tl.incomelist = orderListO;

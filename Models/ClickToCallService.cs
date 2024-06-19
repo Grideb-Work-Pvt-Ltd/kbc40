@@ -1,58 +1,54 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace forex.Models
 {
     public class ClickToCallService
     {
-        private readonly IConfiguration _config;
         private readonly HttpClient _client;
+        private readonly IConfiguration _configuration;
 
-
-        public ClickToCallService(IConfiguration config, HttpClient client)
+        public ClickToCallService(HttpClient client, IConfiguration configuration)
         {
-            _config = config;
             _client = client;
+            _configuration = configuration;
         }
 
-        public async Task<string> ExecuteClickToCallAsync(string SID, string fromNumber, string toNumber)
+        public async Task<string> ExecuteClickToCallAsync()
         {
-            string baseUrl = "https://api.kaleyra.io/v1/";
-            string apiKey = "A496ce07795e216b3a5cf6b003fa14a4f";
+            var url = "https://api.kaleyra.io/v1/HXIN1696817637IN/voice/outbound";
 
-            string url = $"{baseUrl}{SID}/voice/click-to-call";
-            string contentType = "application/x-www-form-urlencoded";
-            string bridge = "+911161197301"; // Replace with your actual bridge number if needed
-            string prefix = "1"; // Optional
-            int retryCount = 2; // Optional
-            string dlrUrl = "kbc40.com"; // Optional
-            string time = "2009-11-04T19:55:41+05:30"; // Optional
-            string callback = "{\"profile_id\":\"your_profile_id\"}"; // Optional
+            _client.DefaultRequestHeaders.Clear();
+            _client.DefaultRequestHeaders.Add("api-key", "A496ce07795e216b3a5cf6b003fa14a4f");
 
-            var values = new FormUrlEncodedContent(new[]
+            var data = new Dictionary<string, string>
             {
-            new KeyValuePair<string, string>("from", fromNumber),
-            new KeyValuePair<string, string>("to", toNumber),
-            new KeyValuePair<string, string>("bridge", bridge),
-            new KeyValuePair<string, string>("prefix", prefix),
-            new KeyValuePair<string, string>("retry", retryCount.ToString()),
-            new KeyValuePair<string, string>("dlrurl", dlrUrl),
-            new KeyValuePair<string, string>("time", time),
-            new KeyValuePair<string, string>("callback", callback)
-        });
+                { "to", "+919971114246" },
+                { "retry", "2" },
+                { "bridge", "+911161197301" },
+              //  { "target", "[{\"message\":{\"language\":\"en-IN\", \"speed\":\"medium\", \"text\":\"This is test call. Thank you\"}}]" }
+                { "target", "[{\"sound\":[801]}]" }
+            };
 
-            _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue(contentType));
-            _client.DefaultRequestHeaders.Add("api-key", apiKey);
+            var content = new FormUrlEncodedContent(data);
 
-            HttpResponseMessage response = await _client.PostAsync(url, values);
-            string responseString = await response.Content.ReadAsStringAsync();
+            try
+            {
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
 
-            return responseString;
+                var response = await _client.PostAsync(url, content);
+                response.EnsureSuccessStatusCode(); // Throws an exception if the HTTP response status is not successful
+                string responseString = await response.Content.ReadAsStringAsync();
+                return responseString;
+            }
+            catch (HttpRequestException e)
+            {
+                // Handle error
+                return $"Request error: {e.Message}";
+            }
         }
     }
 }
-

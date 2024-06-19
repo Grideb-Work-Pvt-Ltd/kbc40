@@ -1014,6 +1014,73 @@ namespace forex.context
             }
         }
 
+        public userlistModel howitwork( string connectionString)
+        {
+
+            user tl = new user();
+
+            List<userlistModel> orderListO = new List<userlistModel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "byID");
+               
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                userlistModel srq = new userlistModel();
+                srq.name = ds.Tables[0].Rows[0]["Name"].ToString();
+                srq.emailaddress = ds.Tables[0].Rows[0]["Email"].ToString();
+                srq.Sponsorid = ds.Tables[0].Rows[0]["Sponsorid"].ToString();
+                srq.parentid = ds.Tables[0].Rows[0]["parentid"].ToString();
+                srq.Sponsorname = ds.Tables[0].Rows[0]["Sponsorname"].ToString();
+                srq.parentname = ds.Tables[0].Rows[0]["parentname"].ToString();
+                srq.Mobile = ds.Tables[0].Rows[0]["Mobile"].ToString();
+                srq.userid = ds.Tables[0].Rows[0]["UserId"].ToString();
+                srq.package = ds.Tables[0].Rows[0]["Package"].ToString();
+                srq.date = ds.Tables[0].Rows[0]["ActiveDate"].ToString();
+                srq.password = ds.Tables[0].Rows[0]["Password"].ToString();
+                srq.City = ds.Tables[0].Rows[0]["City"].ToString();
+                srq.address = ds.Tables[0].Rows[0]["address"].ToString();
+                srq.image = ds.Tables[0].Rows[0]["photo"].ToString();
+                srq.accountno = ds.Tables[0].Rows[0]["AccountNo"].ToString();
+                srq.ActiveDate = ds.Tables[0].Rows[0]["ActiveDate"].ToString();
+                srq.pancard = ds.Tables[0].Rows[0]["PanNo"].ToString();
+                srq.nominee = ds.Tables[0].Rows[0]["nominee"].ToString();
+                srq.planename = ds.Tables[0].Rows[0]["planename"].ToString();
+                return srq;
+            }
+        }
+        public userlistModel howit( string connectionString)
+        {
+
+            user tl = new user();
+
+            List<userlistModel> orderListO = new List<userlistModel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "selectpdf");
+              
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                userlistModel srq = new userlistModel();
+                srq.name = ds.Tables[0].Rows[0]["popimg"].ToString();
+               
+                return srq;
+            }
+        }
+
+
         public couponlist couponsee(string uid, string connectionString)
         {
 
@@ -1431,6 +1498,27 @@ namespace forex.context
                 cmd.Parameters.AddWithValue("@action", "insertpop");
 
                 cmd.Parameters.AddWithValue("@img", "../upload/" + f);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "ok";
+            }
+        }
+
+        public string pdf(string f, string connectionString)
+        {
+
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "insertpdf");
+
+                cmd.Parameters.AddWithValue("@img", "upload/" + f);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);

@@ -82,9 +82,89 @@ namespace forex.context
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
+                return ds.Tables[0].Rows[0][0].ToString();
+            }
+        }
+
+        public string accountveryfy(string uid, kycmodel logo, string connectionString)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@userid", uid);
+                cmd.Parameters.AddWithValue("@action", "accountveryfy");
+                cmd.Parameters.AddWithValue("@AccountNo", logo.accountno);
+                cmd.Parameters.AddWithValue("@IFSC", logo.ifsc);
+                cmd.Parameters.AddWithValue("@BankName", logo.bankname);
+                cmd.Parameters.AddWithValue("@Branch", logo.branch);
+                 cmd.Parameters.AddWithValue("@city", logo.city);
+               
+               
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
                 return "done";
             }
         }
+
+        public string adharveryfy(string uid, kycmodel logo, string connectionString)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@userid", uid);
+                cmd.Parameters.AddWithValue("@action", "adharveryfy");
+               
+                cmd.Parameters.AddWithValue("@AccountHolderName", logo.AccountHolderName);
+               
+                cmd.Parameters.AddWithValue("@state", logo.state);
+               
+                cmd.Parameters.AddWithValue("@pincode", logo.pincode);
+               
+                cmd.Parameters.AddWithValue("@address", logo.address);
+                cmd.Parameters.AddWithValue("@gender", logo.gender);
+                cmd.Parameters.AddWithValue("@AdharCardfront", "../upload/" + logo.adharfront);
+                cmd.Parameters.AddWithValue("@AdharCardback", "../upload/" + logo.adharback);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "done";
+            }
+        }
+
+
+        public string panveryfy(string uid, kycmodel logo, string connectionString)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@userid", uid);
+                cmd.Parameters.AddWithValue("@action", "panveryfy");
+
+                 cmd.Parameters.AddWithValue("@PanNo", logo.pannumbr);
+                cmd.Parameters.AddWithValue("@dob", logo.dob);
+                 cmd.Parameters.AddWithValue("@father", logo.father);
+                cmd.Parameters.AddWithValue("@PanCard", "../upload/" + logo.pancard);
+               
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "done";
+            }
+        }
+
+
 
 
         public string franchisebankin(string uid, kycmodel logo, string connectionString)
@@ -507,7 +587,7 @@ namespace forex.context
                 srq.ifsc = ds.Tables[0].Rows[0]["IFSC"].ToString();
                 srq.bankname = ds.Tables[0].Rows[0]["BankName"].ToString();
                 srq.branch = ds.Tables[0].Rows[0]["Branch"].ToString();
-                srq.bank = ds.Tables[0].Rows[0]["BankPassbook"].ToString();
+                srq.bank = ds.Tables[0].Rows[0]["Photo"].ToString();
                 srq.AccountHolderName = ds.Tables[0].Rows[0]["AccountHolderName"].ToString();
                 srq.state = ds.Tables[0].Rows[0]["STATE"].ToString();
                 srq.city = ds.Tables[0].Rows[0]["city"].ToString();

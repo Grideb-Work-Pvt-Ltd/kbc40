@@ -95,6 +95,38 @@ namespace forex.context
             }
         }
 
+        public IncomeWallet pdfimg(string connectionString)
+        {
+            IncomeWallet tl = new IncomeWallet();
+            List<walletmodel> orderListO = new List<walletmodel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "selectpdf");
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    walletmodel srq = new walletmodel();
+
+                    srq.Index = ds.Tables[0].Rows[i]["indexid"].ToString();
+                    srq.img = ds.Tables[0].Rows[i]["popimg"].ToString();
+
+                    orderListO.Add(srq);
+                }
+                tl.Incomewall = orderListO;
+                return tl;
+            }
+        }
+
+
         public IncomeWallet slideimglogin(string connectionString)
         {
             IncomeWallet tl = new IncomeWallet();
@@ -551,6 +583,25 @@ namespace forex.context
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@action", "delpop");
+                cmd.Parameters.AddWithValue("@indexid", index);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                return "Amount";
+            }
+        }
+
+        public string delpdf(string index, string connectionString)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("proscrchcoupon", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "delpdf");
                 cmd.Parameters.AddWithValue("@indexid", index);
 
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);

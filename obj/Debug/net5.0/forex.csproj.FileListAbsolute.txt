@@ -2139,6 +2139,7 @@ D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\bonnanza.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\charitysummary.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\charitywallet.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\charitywalletsendSummery.cshtml.g.cs
+D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\ClickToCall.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\clubdistribution.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\clube.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\clublist.cshtml.g.cs
@@ -2154,6 +2155,7 @@ D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\DirectReferral.cshtml.g.
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\donate.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\Donationwallet.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\DonationwalletsendSummery.cshtml.g.cs
+D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\DownlineTeam.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\Feedback.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\FeedbackSystem.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\franchisewallet.cshtml.g.cs
@@ -2190,6 +2192,7 @@ D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\PaymentRequest.cshtml.g.
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\PaymentRequestfranchise.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\PaymentSummery.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\PaymentSummeryfranchise.cshtml.g.cs
+D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\pdf.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\plan.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\pop.cshtml.g.cs
 D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\popdashbord.cshtml.g.cs
@@ -2329,5 +2332,3 @@ D:\all project\kbc40\obj\Debug\net5.0\forex.dll
 D:\all project\kbc40\obj\Debug\net5.0\ref\forex.dll
 D:\all project\kbc40\obj\Debug\net5.0\forex.pdb
 D:\all project\kbc40\obj\Debug\net5.0\forex.genruntimeconfig.cache
-D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\DownlineTeam.cshtml.g.cs
-D:\all project\kbc40\obj\Debug\net5.0\Razor\Views\Admin\ClickToCall.cshtml.g.cs

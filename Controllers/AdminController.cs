@@ -36,26 +36,15 @@ namespace New_Dashboard.Controllers
             return View();
         }
 
-        [HttpPost("/click-to-call")]
-        public async Task<IActionResult> ClickToCall(string SID, string fromNumber, string toNumber)
+        [HttpPost("click-to-call")]
+        public async Task<IActionResult> ClickToCall(string k)
         {
-            SID = "801";
-            fromNumber = "9599273851";
-            toNumber = "7004807781";
-            try
-            {
-                string result = await _clickToCallService.ExecuteClickToCallAsync(SID, fromNumber, toNumber);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it as needed
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-    
+            string response = await _clickToCallService.ExecuteClickToCallAsync();
+            Console.WriteLine(response);
 
-    public IActionResult Index()
+            return View("ClickToCallView", response); // Ensure you have a view named ClickToCallView.cshtml
+        }
+        public IActionResult Index()
         {
             return View();
         }
@@ -864,6 +853,26 @@ namespace New_Dashboard.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+
+        [HttpPost]
+        public IActionResult delpdf(string index)
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+
+
+                incomewalletContext dcO = new incomewalletContext();
+                dcO.delpdf(index, connectionString);
+                return RedirectToAction("pdf");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
 
         [HttpPost]
         public IActionResult delimagelogin(string index)
@@ -2527,12 +2536,42 @@ namespace New_Dashboard.Controllers
 
                 IncomeWallet d = new IncomeWallet();
                 incomewalletContext dcO = new incomewalletContext();
-                d = dcO.slideimg(connectionString);
+                d = dcO.pdfimg(connectionString);
                 return View(d);
             }
             else
             {
                 return RedirectToAction("Index", "Home");
+            }
+        }
+        [HttpPost]
+        public IActionResult pdf(IFormFile file)
+        {
+
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                string uniqueFileName = null;
+                if (file != null)
+                {
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                }
+
+                string f = uniqueFileName;
+                userlistContext duct = new userlistContext();
+
+                duct.pdf(f, connectionString);
+                return RedirectToAction("pdf");
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
             }
         }
 

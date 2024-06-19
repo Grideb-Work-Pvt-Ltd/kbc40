@@ -697,6 +697,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\360c67a0-befa-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\361a3514-31ef-464b-8cdd-621b8b71af7b_kbc-logo.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\36244af5-163f-4a87-a9ae-81eea56ad448_100.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\38250654-2dde-4383-aa1a-0b63a84b4b64_100.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\39d44011-defc-468f-8cba-864b1f57f2e9_kbc.pdf
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\39fb78e3-9a38-4a42-85f7-865d53c2dd81_4-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\3c3b7824-aa07-470c-950a-708bf074ee30_WhatsApp Image 2022-11-28 at 1.45.15 PM.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\3e8a466f-87f5-40cf-8510-4885810ea35a_food.jpeg
@@ -779,6 +780,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8d5a5074-cccf-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8d8ea82f-5a8f-47af-a920-444fd5f8a9a3_male.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8fe85514-6ff6-44a8-adeb-54b90deb8ef1_woom.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\8ffc33b1-6026-41c2-8b25-043296bebc78_pan.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9006c8e9-596f-46b2-bf44-7939be4271fc_kbc40 Bank Withdrawal Plan.pdf
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\90cb4a3c-feeb-486e-9810-2e4d4ffb7e28_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\91612fe8-a670-422a-a513-ad46f74ec8ed_medal-brown.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\91963eed-160b-448f-8f50-87fe68faa9f4_tc.jpeg
@@ -795,6 +797,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\99890eb0-55d8-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\999b81aa-2301-43fc-8c1c-f481b4c94612_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9b0e726f-d2a0-49ee-a27b-459ced6f42f5_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9bed8815-e639-4cdc-8a7c-ffdf3b8a5264_2-removebg-preview.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9fae0513-3092-45e3-bc3f-9119a5e85054_kbc40 Bank Withdrawal Plan.pdf
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\9fdc3fb1-bf03-4de0-9e27-3ccfe0c068b0_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\a0a9e308-0384-43be-bb59-847bf01dc9f3_3-removebg-preview.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\a1b11d2c-4624-42a9-9559-5d2f72403126_manish.jpg
@@ -839,6 +842,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cd5cea92-4910-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cd937ca6-1d73-4700-bb34-3d563b72c3e5_WhatsApp Image 2022-11-28 at 1.45.15 PM.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cdb80a25-529c-45ca-8c3e-3ae9c125fe1d_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\cdd5f28a-95b9-4b01-99c6-dc2a2b9761a9_3-removebg-preview.png
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ce47c083-ae6e-43a6-bff2-fbed40a10e38_FOS002924855827.pdf
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d0518c6f-358e-45f1-874e-938c5ae9e3d8_pan.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d247e9b9-8e8f-4262-82c7-5033d890151b_fornt.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\d304b7dc-f963-4aa3-ac0d-4640ebfe2075_tc.jpeg
@@ -864,6 +868,7 @@ D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ea32555c-16a1-
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ea6ed327-2db2-49b1-b04a-17a555a86736_fj.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eaa631e1-edc0-4cc8-aaa5-87cdf3147695_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eabbe2e5-15a1-4dca-9549-30faf10079af_fornt.jpeg
+D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eaf3cc3a-13f9-49b2-b6b2-162e5cdd76a4_kbc40 Bank Withdrawal Plan.pdf
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\eb85cc8b-1719-44b6-9731-0faf82eb1001_back.jpeg
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ec7b1412-f3fb-4d1f-bf20-6a724fb3558d_famel.png
 D:\all project\kbc40\obj\Release\net5.0\PubTmp\Out\wwwroot\upload\ec9d6807-ef29-45e5-b950-79ffbc69708c_back.jpeg

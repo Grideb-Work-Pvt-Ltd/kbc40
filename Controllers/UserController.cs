@@ -310,7 +310,11 @@ namespace forex.Controllers
                 string uid = HttpContext.Session.GetString("UserId");
                 ViewBag.shukla = uid;
                 ViewBag.data = TempData["tp2"];
-                return View();
+                userlistContext duct = new userlistContext();
+                userlistModel ip = new userlistModel();
+                
+                ip = duct.howit( connectionString);
+                return View(ip);
             }
             else
             {
@@ -1955,7 +1959,9 @@ namespace forex.Controllers
             logo.father = "Account ifsc Verify";
 
             string vid = HttpContext.Session.GetString("UserId");
-            logoc.kyccharge(vid,logo,connectionString);
+           string j= logoc.kyccharge(vid,logo,connectionString);
+            if(j=="1")
+            { 
             {
 
                 var client = new HttpClient();
@@ -1971,34 +1977,51 @@ namespace forex.Controllers
                 logo.token = resp.data.token;
                 //Console.WriteLine(await response.Content.ReadAsStringAsync());
             }
-            {
-                var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Get, "https://payout-api.cashfree.com/payout/v1.2/validation/bankDetails?bankAccount=" + accountno + "&ifsc=" + ifsc + "");
-                //request.Headers.Add("Authorization", logo.token);
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", logo.token);
-
-                request.Headers.Add("accept", "application/json");
-                var content = new StringContent(string.Empty);
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                request.Content = content;
-                var response = await client.SendAsync(request);
-
-                string responseBody = await response.Content.ReadAsStringAsync();
-                bankveri resp = JsonConvert.DeserializeObject<bankveri>(responseBody);
-                logo.TStatus = resp.message;
-
-                response.EnsureSuccessStatusCode();
-                if (resp.message != "Bank Account details verified successfully")
                 {
-                    TempData["asdfg"] = "Invaild Account number / ifsc code";
-                    return Json(resp);
+                    var client = new HttpClient();
+                    var request = new HttpRequestMessage(HttpMethod.Get, "https://payout-api.cashfree.com/payout/v1.2/validation/bankDetails?bankAccount=" + accountno + "&ifsc=" + ifsc + "");
+                    //request.Headers.Add("Authorization", logo.token);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", logo.token);
+
+                    request.Headers.Add("accept", "application/json");
+                    var content = new StringContent(string.Empty);
+                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    request.Content = content;
+                    var response = await client.SendAsync(request);
+
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    bankveri resp = JsonConvert.DeserializeObject<bankveri>(responseBody);
+                    logo.TStatus = resp.message;
+
+                    response.EnsureSuccessStatusCode();
+                    if (resp.message != "Bank Account details verified successfully")
+                    {
+                        TempData["asdfg"] = "Invaild Account number / ifsc code";
+                        return Json(resp);
+                    }
+                    else if (resp.message == "Bank Account details verified successfully")
+                    {
+                        logo.bank = resp.data.bankName;
+                        logo.branch = resp.data.branch;
+                        logo.city = resp.data.city;
+                        logoc.accountveryfy(vid, logo, connectionString);
+                        return Json(resp);
+
+                    }
+                    else
+                    {
+                        return Json(resp);
+                    }
                 }
+               
+            }
+            else
+            {
+                bankveri resp = new bankveri();
+                resp.message = "low balance";
 
                 return Json(resp);
-                // Console.WriteLine(await response.Content.ReadAsStringAsync());
-
             }
-
 
 
 
@@ -2014,33 +2037,53 @@ namespace forex.Controllers
             logo.father = "Pan Card Verify";
 
             string vid = HttpContext.Session.GetString("UserId");
-            logoc.kyccharge(vid, logo, connectionString);
-            string uniqueFileName1 = null;
-            if (file1 != null)
+          string j=  logoc.kyccharge(vid, logo, connectionString);
+            if (j == "1")
             {
-
-
-                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
-                uniqueFileName1 = Guid.NewGuid().ToString() + "_" + file1.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName1);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                string uniqueFileName1 = null;
+                if (file1 != null)
                 {
-                    file1.CopyTo(fileStream);
+
+
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
+                    uniqueFileName1 = Guid.NewGuid().ToString() + "_" + file1.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName1);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file1.CopyTo(fileStream);
+                    }
+                }
+                logo.pancard = uniqueFileName1;
+                pan p = new pan();
+                // Get your IFormFile from the form submission or other source
+                string originalFileName = file1.FileName;
+                panmod di = new panmod();
+                di = await p.CheckAsync(file1, originalFileName, vid);
+                if (di.message != "PAN card is valid")
+                {
+                    TempData["asdfg"] = "Invaild pan Card";
+                    return Json(di);
+                }
+                else if (di.message == "PAN card is valid")
+                {
+                    logo.dob = di.dob;
+                    logo.father = di.father;
+                    logo.pannumbr = di.pan;
+                    logoc.panveryfy(vid, logo, connectionString);
+                    return Json(di);
+                }
+                else
+                {
+                    return Json(di);
                 }
             }
-            logo.pancard = uniqueFileName1;
-            pan p = new pan();
-            // Get your IFormFile from the form submission or other source
-            string originalFileName = file1.FileName;
-            panmod di = new panmod();
-            di = await p.CheckAsync(file1, originalFileName, vid);
-            //if (di.message != "PAN card is valid")
-            //{
-            //    TempData["asdfg"] = "Invaild pan Card";
-            //    return RedirectToAction("bank");
-            //}
+            else
+            {
+                panmod resp = new panmod();
+                resp.message = "low balance";
 
-            return Json(di);
+                return Json(resp);
+            }
 
         }
 
@@ -2053,45 +2096,77 @@ namespace forex.Controllers
             logo.father = "Adhaar Card Verify";
 
             string vid = HttpContext.Session.GetString("UserId");
-            logoc.kyccharge(vid, logo, connectionString);
-            string uniqueFileName2 = null;
-            if (file2 != null)
+            string nam = HttpContext.Session.GetString("name");
+            string j=  logoc.kyccharge(vid, logo, connectionString);
+            if (j == "1")
             {
-                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
-                uniqueFileName2 = Guid.NewGuid().ToString() + "_" + file2.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName2);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                string uniqueFileName2 = null;
+                if (file2 != null)
                 {
-                    file2.CopyTo(fileStream);
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
+                    uniqueFileName2 = Guid.NewGuid().ToString() + "_" + file2.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName2);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file2.CopyTo(fileStream);
+                    }
+                }
+                logo.adharfront = uniqueFileName2;
+                string uniqueFileName3 = null;
+                if (file3 != null)
+                {
+                    string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
+                    uniqueFileName3 = Guid.NewGuid().ToString() + "_" + file3.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName3);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file3.CopyTo(fileStream);
+                    }
+                }
+                logo.adharback = uniqueFileName3;
+
+
+                aadhar ad = new aadhar();
+                string frontImageFileName = file2.FileName;
+                string backImageFileName = file3.FileName;
+                adharv av = new adharv();
+                av = await ad.adCheckAsync(file2, frontImageFileName, file3, backImageFileName, vid);
+                if (av.message != "Aadhaar card is valid")
+                {
+                    TempData["asdfg"] = "Invaild Aadhaar Card";
+                    return Json(av);
+                }
+                else if (av.message == "Aadhaar card is valid")
+                {
+                    logo.AccountHolderName = av.name;
+                    if (av.name == nam)
+                    {
+                        logo.address = av.address;
+                        logo.gender = av.gender;
+                        logo.pincode = av.pincode;
+                        logo.state = av.state;
+                        logoc.adharveryfy(vid, logo, connectionString);
+                        return Json(av);
+                    }
+                    else
+                    {
+                        adharv avs = new adharv();
+                        avs.message = "Name Not Match";
+                        return Json(avs);
+                    }
+                }
+                else
+                {
+                    return Json(av);
                 }
             }
-            logo.adharfront = uniqueFileName2;
-            string uniqueFileName3 = null;
-            if (file3 != null)
+            else
             {
-                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "upload");
-                uniqueFileName3 = Guid.NewGuid().ToString() + "_" + file3.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName3);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    file3.CopyTo(fileStream);
-                }
+                adharv resp = new adharv();
+                resp.message = "low balance";
+
+                return Json(resp);
             }
-            logo.adharback = uniqueFileName3;
-
-
-            aadhar ad = new aadhar();
-            string frontImageFileName = file2.FileName;
-            string backImageFileName = file3.FileName;
-            adharv av = new adharv();
-            av = await ad.adCheckAsync(file2, frontImageFileName, file3, backImageFileName, vid);
-            if (av.message != "Aadhaar card is valid")
-            {
-                TempData["asdfg"] = "Invaild Aadhaar Card";
-                return Json(av);
-            }
-
-            return Json(av);
 
         }
 

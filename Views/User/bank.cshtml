@@ -52,14 +52,47 @@
         }
 
 
-   
+       #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
 
-    /* The Close Button */
-   
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 </style>
 
 <div class="content-wrapper">
     <section class="content">
+        <div id="preloader" class="hidden">
+            <!-- Preloader content -->
+            <div class="loader"></div>
+        </div>
+
+
         <div class="row">
             <div class="col-xl-12">
                 <div class="card-box">
@@ -82,9 +115,18 @@
                                             <input class="form-control radi" type="text" id="ifsc" name="ifsc" value="@Model.ifsc" required />
 
                                         </div>
+                                        @if (Model.accountno == "" && Model.ifsc == "")
+                                        {
                                         <div class="form-group col-md-12">
                                             <button id="verifyButton">Account No Verify</button>
                                         </div>
+                                        }
+                                        else
+                                        {
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-success" disabled>Account No Verified</button>
+                                        </div>
+                                        }
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="uploadadhar">Adhaar Front upload</label>
                                             <input type="file" id="adhf" name="file2" value="@Model.adharfront" required />
@@ -96,17 +138,40 @@
                                             <img src="@Model.adharback" style="height: 260px;" />
                                         </div>
 
+
+                                        @if (Model.address == "")
+                                        {
                                         <div class="form-group col-md-12">
                                             <button id="adhverify">Adhaar Card Verify</button>
                                         </div>
+                                        }
+                                        else
+                                        {
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-success" disabled>Adhaar Card Verified</button>
+                                        </div>
+
+                                        }
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="uploadadhar">Pan Card</label>
                                             <input type="file" id="panup" name="file1" value="@Model.pancard" required />
                                             <img src="@Model.pancard" style="height: 260px;" />
                                         </div>
+
+                                        @if (Model.father == "")
+                                        {
                                         <div class="form-group col-md-12">
                                             <button id="panverify">Pancard Verify</button>
                                         </div>
+                                        }
+                                        else
+                                        {
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-success" disabled>Pancard Verify</button>
+                                        </div>
+                                      
+
+                                        }
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="accountno">Account Holder Name</label>
                                             <input class="form-control radi" type="text" id="namess" name="AccountHolderName" value="@Model.AccountHolderName" required />
@@ -172,7 +237,7 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label class="control-label" for="uploadadhar">Passbook/Cheque</label>
+                                            <label class="control-label" for="uploadadhar">Profile img</label>
                                             <input type="file" id="uploadadhar" name="files" value="@Model.bank" required />
                                             <img src="@Model.bank" style="height: 260px;" />
                                         </div>
@@ -194,7 +259,7 @@
         </div>
     </section>
 </div>
-<div  id="myModal" class="modal" tabindex="-1">
+<div id="myModal" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #adc3da !important;">
             <div class="modal-header">
@@ -209,9 +274,9 @@
                 <p id="bankName"></p>
                 <p id="branch"></p>
                 <p id="city"></p>
-                
+
             </div>
-           
+
         </div>
     </div>
 </div>
@@ -256,7 +321,7 @@
                 <p>Gender: <span id="gender"></span></p>
                 <p>Message: <span id="messages"></span></p>
                 <p>Pincode: <span id="pincode"></span></p>
-              
+
                 <p>State: <span id="state"></span></p>
                 <p>Status: <span id="statuss"></span></p>
                 <p>UID: <span id="uid"></span></p>
@@ -284,6 +349,9 @@
         }
         //$(".btn ").click(function () {
         $('#panverify').click(function () {
+            $('#preloader').css('display', 'flex'); // Show preloader
+
+            // Simulate AJAX request (replace with your actual AJAX call)
             var formData = new FormData();
 
             // Get the file from the input element
@@ -314,7 +382,7 @@
                     $('#reference_id').text(response.reference_id);
                     $('#status').text(response.status);
                     $('#valid').text(response.valid);
-                    var f = response.status; 
+                    var f = response.status;
                     if (f == "VALID") {
                         var button = document.getElementById("panverify");
                         button.classList.add("verified");
@@ -349,6 +417,12 @@
                     alert(response.responseText);
                 }
             });
+            setTimeout(function () {
+                // Simulate a delay (3 seconds in this example)
+                $('#preloader').css('display', 'none'); // Hide preloader after action completes
+                // Example action (replace with your actual action)
+            }, 3000);
+           
         });
     });
 </script>
@@ -367,13 +441,17 @@
         }
         //$(".btn ").click(function () {
         $('#adhverify').click(function () {
+            $('#preloader').css('display', 'flex'); // Show preloader
+
+            // Simulate AJAX request (replace with your actual AJAX call)
+           
             var formData = new FormData();
 
             // Get the file from the input element
             var fileInput = document.getElementById('adhf');
             var fileInputs = document.getElementById('adhb');
-             var file = fileInput.files[0];
-             var files = fileInputs.files[0];
+            var file = fileInput.files[0];
+            var files = fileInputs.files[0];
 
             // Append the file and other data to the FormData object
             formData.append('file2', file);
@@ -396,7 +474,7 @@
                     $('#messages').text(response.message);
                     $('#pincode').text(response.pincode);
                     $('#pincodes').val(response.pincode);
-                   
+
                     $('#state').text(response.state);
                     $('#states').val(response.state);
                     $('#statuss').text(response.status);
@@ -438,6 +516,11 @@
                     alert(response.responseText);
                 }
             });
+            setTimeout(function () {
+                // Simulate a delay (3 seconds in this example)
+                $('#preloader').css('display', 'none'); // Hide preloader after action completes
+                // Example action (replace with your actual action)
+            }, 3000);
         });
     });
 </script>
@@ -456,6 +539,10 @@
         }
 
         $('#verifyButton').click(function () {
+            $('#preloader').css('display', 'flex'); // Show preloader
+
+            // Simulate AJAX request (replace with your actual AJAX call)
+           
             $.ajax({
                 type: "POST",
                 url: "../user/accountverify",
@@ -474,7 +561,7 @@
                     const city = response.data.city;
 
                     const message = response.message;
-                   
+
                     // Display the extracted values in the modal
                     document.getElementById('modalMessage').textContent = message;
                     document.getElementById('accountName').textContent = `Account Holder: ${nameAtBank}`;
@@ -517,6 +604,24 @@
                     alert(response.responseText);
                 }
             });
+
+            setTimeout(function () {
+                // Simulate a delay (3 seconds in this example)
+                $('#preloader').css('display', 'none'); // Hide preloader after action completes
+                // Example action (replace with your actual action)
+            }, 3000);
         });
+    });
+</script>
+
+
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var preloader = document.getElementById("preloader");
+        if (preloader) {
+            preloader.style.display = "none";
+        }
     });
 </script>

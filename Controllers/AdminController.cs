@@ -22,28 +22,17 @@ namespace New_Dashboard.Controllers
         readonly TreeDataaccess dbtreeContext = new TreeDataaccess();
         readonly string connectionString = @"Data Source=68.178.203.9;Initial Catalog=KBC40New;User ID=sa;Password=gri12DEB!@;";
         private readonly IWebHostEnvironment webHostEnvironment;
-        private readonly ClickToCallService _clickToCallService;
+     
 
-        public AdminController(ILogger<AdminController> logger, IWebHostEnvironment hostEnvironment, ClickToCallService clickToCallService)
+        public AdminController(ILogger<AdminController> logger, IWebHostEnvironment hostEnvironment)
         {
             webHostEnvironment = hostEnvironment;
-            _clickToCallService = clickToCallService;
+            
         }
        
 
-        public IActionResult ClickToCall()
-        {
-            return View();
-        }
+       
 
-        [HttpPost("click-to-call")]
-        public async Task<IActionResult> ClickToCall(string k)
-        {
-            string response = await _clickToCallService.ExecuteClickToCallAsync();
-            Console.WriteLine(response);
-
-            return View("ClickToCallView", response); // Ensure you have a view named ClickToCallView.cshtml
-        }
         public IActionResult Index()
         {
             return View();

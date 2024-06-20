@@ -17,7 +17,7 @@ namespace forex.Models
             _configuration = configuration;
         }
 
-        public async Task<string> ExecuteClickToCallAsync()
+        public async Task<string> ExecuteClickToCallAsync(string id,string mob)
         {
             var url = "https://api.kaleyra.io/v1/HXIN1696817637IN/voice/outbound";
 
@@ -26,11 +26,11 @@ namespace forex.Models
 
             var data = new Dictionary<string, string>
             {
-                { "to", "+919971114246" },
+                { "to", "+91"+mob },
                 { "retry", "2" },
                 { "bridge", "+911161197301" },
               //  { "target", "[{\"message\":{\"language\":\"en-IN\", \"speed\":\"medium\", \"text\":\"This is test call. Thank you\"}}]" }
-                { "target", "[{\"sound\":[801]}]" }
+                { "target", "[{\"sound\":["+id+"]}]" }
             };
 
             var content = new FormUrlEncodedContent(data);

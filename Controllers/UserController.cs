@@ -26,10 +26,12 @@ namespace forex.Controllers
         readonly TreeDataaccess dbtreeContext = new TreeDataaccess();
         private readonly IWebHostEnvironment webHostEnvironment;
         readonly string connectionString = @"Data Source=68.178.203.9;Initial Catalog=KBC40New;User ID=sa;Password=gri12DEB!@;";
+        private readonly ClickToCallService _clickToCallService;
 
-        public UserController(ILogger<UserController> logger, IWebHostEnvironment hostEnvironment)
+        public UserController(ILogger<UserController> logger, IWebHostEnvironment hostEnvironment, ClickToCallService ClickToCallServices)
         {
             webHostEnvironment = hostEnvironment;
+            _clickToCallService = ClickToCallServices;
         }
         public IActionResult Index()
         {
@@ -1771,19 +1773,41 @@ namespace forex.Controllers
         }
 
         [HttpPost]
-        public IActionResult tree(string level, string topenter)
+        public async Task<IActionResult> tree(string level, string topenter,string rank)
         {
             string otp = HttpContext.Session.GetString("otp");
-
+            
             string k = HttpContext.Session.GetString("flag");
             if (k == "1")
             {
                 treelist tre = new treelist();
                 treeContext treeCon = new treeContext();
                 string uid = HttpContext.Session.GetString("UserId");
+                string mob = HttpContext.Session.GetString("mobile");
                 if (otp == topenter)
                 {
                     treeCon.LevelSee(uid, connectionString);
+                    string id ="";
+                    switch (rank)
+                    {
+                        case "Silver":
+                            id = "1033";
+                            break;
+                        case "Gold":
+                            id = "1034";
+                            break;
+
+                        case "Pearl":
+                            id = "1035";
+                            break;
+                        case "Topaz":
+                            id = "1036";
+                            break;
+                        
+                    }
+                    string response = await _clickToCallService.ExecuteClickToCallAsync(id,mob);
+                    Console.WriteLine(response);
+
                 }
                 else
                 {

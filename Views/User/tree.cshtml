@@ -98,7 +98,8 @@
                                                     <span @item.c1>Updated</span>
                                                     <form asp-action="tree" asp-controller="user" method="post">
                                                         <div class="form-group" @item.c2>
-                                                            <input type="text" name="topenter" value=""> 
+                                                            <input type="text" name="topenter" value="" required>
+                                                            <input type="text" name="rank" value="@item.RankName" hidden>
                                                             <button type="submit" for="exampleFormControlSelect1" style="color: white; background-color: #ffc107;">Upgrade:</button>
                                                         </div>
                                                     </form>

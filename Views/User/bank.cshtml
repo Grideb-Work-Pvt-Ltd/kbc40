@@ -174,18 +174,18 @@
                                         }
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="accountno">Account Holder Name</label>
-                                            <input class="form-control radi" type="text" id="namess" name="AccountHolderName" value="@Model.AccountHolderName" required />
+                                            <input class="form-control radi" type="text" id="namess" name="AccountHolderName" value="@Model.AccountHolderName" required readonly />
                                         </div>
 
 
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">Bank Name</label>
-                                            <input class="form-control radi" type="text" id="bankNames" name="bankname" value="@Model.bankname" required />
+                                            <input class="form-control radi" type="text" id="bankNames" name="bankname" value="@Model.bankname" required readonly/>
 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="branch">Branch</label>
-                                            <input class="form-control radi" type="text" id="branchs" name="branch" value="@Model.branch" required />
+                                            <input class="form-control radi" type="text" id="branchs" name="branch" value="@Model.branch" required readonly/>
 
                                         </div>
                                         <div class="form-group col-md-6">
@@ -203,17 +203,17 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">City</label>
-                                            <input class="form-control radi" type="text" id="citys" name="city" value="@Model.city" required />
+                                            <input class="form-control radi" type="text" id="citys" name="city" value="@Model.city" required readonly/>
 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">DOB</label>
-                                            <input class="form-control radi" type="text" id="dobs" name="dob" value="@Model.dob" required />
+                                            <input class="form-control radi" type="text" id="dobs" name="dob" value="@Model.dob" required readonly/>
 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label" for="bankname">Pincode</label>
-                                            <input class="form-control radi" type="text" id="pincodes" name="pincode" value="@Model.pincode" required />
+                                            <input class="form-control radi" type="text" id="pincodes" name="pincode" value="@Model.pincode" required  readonly/>
 
                                         </div>
                                         <div class="form-group col-md-6">
@@ -247,7 +247,7 @@
                                         </div>
 
                                         <div class="form-group text-right m-b-0">
-                                            <input type="submit" value="submit" class="btn btn-primary " />
+                                            <input type="submit" id="submitButton" value="Submit" class="btn btn-primary" disabled />
                                         </div>
                                     </div>
                                 </form>
@@ -384,9 +384,11 @@
                     $('#valid').text(response.valid);
                     var f = response.status;
                     if (f == "VALID") {
+                        var submitButton = document.getElementById("submitButton");
                         var button = document.getElementById("panverify");
                         button.classList.add("verified");
                         button.textContent = "Verified";
+                        submitButton.disabled =false;
                         checkAndSubmitForm()
                     }
                     var modal = document.getElementById("myModals");

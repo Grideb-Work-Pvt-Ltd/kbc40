@@ -2041,8 +2041,18 @@ namespace forex.Controllers
             }
             else
             {
-                bankveri resp = new bankveri();
-                resp.message = "low balance";
+                bankveri resp = new bankveri 
+                {
+                    message = "low balance",
+                    data = new Datas
+                    {
+                        
+                        branch = " ",
+                        city = " ",
+                        bankName = " ",
+                        nameAtBank = " "
+                    }
+                };
 
                 return Json(resp);
             }
@@ -2103,8 +2113,19 @@ namespace forex.Controllers
             }
             else
             {
-                panmod resp = new panmod();
-                resp.message = "low balance";
+                panmod resp = new panmod
+                {
+                    message = "low balance",
+                    age = "",
+                    dob = "",
+                    father = "",
+                    name = "",
+                    pan = "",
+                    pan_type = "",
+                    reference_id = "",
+                    status = "",
+                    valid = false
+                };
 
                 return Json(resp);
             }

@@ -101,11 +101,11 @@ namespace forex.context
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                SqlCommand cmd = new SqlCommand("prouserlist", con)
                 {
                     CommandType = CommandType.StoredProcedure
                       };
-                cmd.Parameters.AddWithValue("@action", "All");
+                //cmd.Parameters.AddWithValue("@action", "All");
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
@@ -141,6 +141,7 @@ namespace forex.context
                     srq.dob = ds.Tables[0].Rows[i]["dob"].ToString();
                     srq.father = ds.Tables[0].Rows[i]["father"].ToString();
                     srq.adhaar = ds.Tables[0].Rows[i]["AdharNo"].ToString();
+                    srq.kbcb = ds.Tables[0].Rows[i]["kbcbalance"].ToString();
                     
                     orderListO.Add(srq);
                 }
@@ -734,11 +735,11 @@ namespace forex.context
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                SqlCommand cmd = new SqlCommand("prouserlist", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.AddWithValue("@action", "Allbyuserid");
+              //  cmd.Parameters.AddWithValue("@action", "prouserlist");
                 cmd.Parameters.AddWithValue("@UserId", userid);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -747,6 +748,7 @@ namespace forex.context
                 {
                     userlistModel srq = new userlistModel();
                     srq.name = ds.Tables[0].Rows[i]["Name"].ToString();
+                    srq.planename = ds.Tables[0].Rows[i]["planename"].ToString();
                     srq.emailaddress = ds.Tables[0].Rows[i]["Email"].ToString();
                     srq.Sponsorid = ds.Tables[0].Rows[i]["Sponsorid"].ToString();
                     srq.Sponsorname = ds.Tables[0].Rows[i]["Sponsorname"].ToString();
@@ -764,6 +766,17 @@ namespace forex.context
                     srq.direct = ds.Tables[0].Rows[i]["Direct"].ToString();
                     srq.status = ds.Tables[0].Rows[i]["status"].ToString();
                     srq.TotalBusiness = ds.Tables[0].Rows[i]["TotalBusiness"].ToString();
+                    srq.pancard = ds.Tables[0].Rows[i]["panno"].ToString();
+                    srq.ccapping = ds.Tables[0].Rows[i]["charitycapping"].ToString();
+                    srq.pcapping = ds.Tables[0].Rows[i]["prelanunchcapping"].ToString();
+                    srq.address = ds.Tables[0].Rows[i]["address"].ToString();
+                    srq.image = ds.Tables[0].Rows[i]["photo"].ToString();
+                    srq.gender = ds.Tables[0].Rows[i]["gender"].ToString();
+                    srq.pincode = ds.Tables[0].Rows[i]["pincode"].ToString();
+                    srq.dob = ds.Tables[0].Rows[i]["dob"].ToString();
+                    srq.father = ds.Tables[0].Rows[i]["father"].ToString();
+                    srq.adhaar = ds.Tables[0].Rows[i]["AdharNo"].ToString();
+                    srq.kbcb = ds.Tables[0].Rows[i]["kbcbalance"].ToString();
                     orderListO.Add(srq);
                 }
                 tl.reglist = orderListO;

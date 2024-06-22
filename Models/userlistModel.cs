@@ -46,6 +46,7 @@ namespace forex.Models
         public string gender { get; set; }
         public string father { get; set; }
         public string adhaar { get; set; }
+        public string kbcb { get; set; }
         public string type { get; set; }
         public string latest1 { get; set; }
         public string latest2 { get; set; }

@@ -2382,3 +2382,5 @@ D:\all project\kbc40\obj\Release\net5.0\forex.dll
 D:\all project\kbc40\obj\Release\net5.0\ref\forex.dll
 D:\all project\kbc40\obj\Release\net5.0\forex.pdb
 D:\all project\kbc40\obj\Release\net5.0\forex.genruntimeconfig.cache
+D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\rankachiver.cshtml.g.cs
+D:\all project\kbc40\obj\Release\net5.0\Razor\Views\Admin\charitydonation.cshtml.g.cs

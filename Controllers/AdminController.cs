@@ -943,8 +943,39 @@ namespace New_Dashboard.Controllers
                 return RedirectToAction("adminlogin", "home");
             }
         }
+        public IActionResult rankachiver()
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                userlistContext duct = new userlistContext();
+                user ip = new user();
+                ip = duct.rankachichersee(connectionString);
+                return View(ip);
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
+            }
+        }
 
-       
+        public IActionResult charitydonation()
+        {
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                userlistContext duct = new userlistContext();
+                user ip = new user();
+                ip = duct.charitydonationsee(connectionString);
+                return View(ip);
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
+            }
+        }
+
+
         public IActionResult userlist()
         {
             string k = HttpContext.Session.GetString("Adminflag");

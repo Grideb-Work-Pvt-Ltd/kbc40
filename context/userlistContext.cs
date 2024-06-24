@@ -150,6 +150,75 @@ namespace forex.context
                 return tl;
             }
         }
+
+        public user rankachichersee(string connectionString)
+        {
+
+            user tl = new user();
+
+            List<userlistModel> orderListO = new List<userlistModel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prorankview", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                //cmd.Parameters.AddWithValue("@action", "All");
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    userlistModel srq = new userlistModel();
+                    srq.name = ds.Tables[0].Rows[i]["Name"].ToString();
+                   
+                    srq.Mobile = ds.Tables[0].Rows[i]["Mobile"].ToString();
+                  
+                    srq.userid = ds.Tables[0].Rows[i]["rankachiver"].ToString();
+                    srq.result = ds.Tables[0].Rows[i]["rankname"].ToString();
+                    srq.accountno = ds.Tables[0].Rows[i]["reciever"].ToString();
+                    srq.RegDate = ds.Tables[0].Rows[i]["tdate"].ToString();
+                   
+                    orderListO.Add(srq);
+                }
+                tl.reglist = orderListO;
+
+                return tl;
+            }
+        }
+
+        public user charitydonationsee(string connectionString)
+        {
+
+            user tl = new user();
+
+            List<userlistModel> orderListO = new List<userlistModel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prodonetionfound", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                //cmd.Parameters.AddWithValue("@action", "All");
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    userlistModel srq = new userlistModel();
+                   srq.userid = ds.Tables[0].Rows[i]["userid"].ToString();
+                    srq.result = ds.Tables[0].Rows[i]["donation"].ToString();
+                    srq.accountno = ds.Tables[0].Rows[i]["mila"].ToString();
+                   
+                    orderListO.Add(srq);
+                }
+                tl.reglist = orderListO;
+
+                return tl;
+            }
+        }
         public user userlistsee2(string connectionString)
         {
 

@@ -1,0 +1,91 @@
+﻿
+
+
+@model forex.Models.user
+@{
+    ViewData["Title"] = "userlist";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+
+<div class="content-wrapper" style="min-height: 333px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Rank</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container">
+
+            <button onclick="ExportToExcel('xlsx')" class="btn btn-success text-white" style="margin-top:78px;background-color: #23085a!important;">Export table to excel</button>
+            <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <div class="table">
+                        <input id="myInput" type="text" placeholder="Search.." />
+                        <table id="mytable" class="table table-hover table-striped table-border-whole table-bordered table-responsive-sm" style="font-size:14px;">
+                            <thead class="table-light-head">
+                                <tr class="table-border">
+                                    <th scope="col" class="table-border">S.no</th>
+                                    <th scope="col" class="table-border">Name</th>
+                                    <th scope="col" class="table-border">Mobile</th>
+                                    <th scope="col" class="table-border">Rank Achiver</th>
+                                    <th scope="col" class="table-border">Rank</th>
+                                    <th scope="col" class="table-border">Reciever</th>
+                                    <th scope="col" class="table-border">tdate</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-details">
+                                @{
+                                    int i = 0;
+                                }
+                                @foreach (var item in Model.reglist)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td scope="row">@i</td>
+                                        <td>@item.name</td>
+                                        <td>@item.Mobile</td>
+                                        <td>@item.userid</td>
+                                        <td>@item.result</td>
+                                        <td>@item.accountno</td>
+
+                                        <td>@item.RegDate</td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('mytable');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>

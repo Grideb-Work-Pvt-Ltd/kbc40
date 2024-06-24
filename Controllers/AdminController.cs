@@ -259,6 +259,23 @@ namespace New_Dashboard.Controllers
                 return RedirectToAction("adminlogin", "home");
             }
         }
+
+        public IActionResult profilehistory()
+        {
+
+            string k = HttpContext.Session.GetString("Adminflag");
+            if (k == "1")
+            {
+                userlistContext duct = new userlistContext();
+                user ip = new user();
+                ip = duct.userprofilehistrysee( connectionString);
+                return View(ip);
+            }
+            else
+            {
+                return RedirectToAction("adminlogin", "home");
+            }
+        }
         [HttpPost]
         public IActionResult pass(string City, string password, string userid, string name, string email, string mobile,string planename)
         {

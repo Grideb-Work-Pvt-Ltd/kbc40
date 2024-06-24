@@ -7,21 +7,27 @@ namespace forex.Models
         public string indexid { get; set; }
         public string crowd { get; set; }
         public string planename { get; set; }
+        public string planenames { get; set; }
         public string main { get; set; }
         public string nominee { get; set; }
         public string popup { get; set; }
         public string popups { get; set; }
         public string name { get; set; }
+        public string names { get; set; }
         public string pin { get; set; }
         public string state { get; set; }
         public string emailaddress { get; set; }
+        public string emailaddresss { get; set; }
         public string password { get; set; }
+        public string passwords { get; set; }
         public string result { get; set; }
         public string address { get; set; }
         public string Sponsorid { get; set; }
         public string Sponsorname { get; set; }
         public string City { get; set; }
+        public string Citys { get; set; }
         public string Mobile { get; set; }
+        public string Mobiles { get; set; }
         public string userid { get; set; }
         public string package { get; set; }
         public string date { get; set; }

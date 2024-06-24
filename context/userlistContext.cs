@@ -1027,6 +1027,49 @@ namespace forex.context
             }
         }
 
+        public user userprofilehistrysee( string connectionString)
+        {
+
+            user tl = new user();
+
+            List<userlistModel> orderListO = new List<userlistModel>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("prosUserInfo", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@action", "profilehistory");
+               
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    userlistModel srq = new userlistModel();
+                    srq.name = ds.Tables[0].Rows[i]["Name"].ToString();
+                    srq.names = ds.Tables[0].Rows[i]["Names"].ToString();
+                    srq.emailaddress = ds.Tables[0].Rows[i]["Email"].ToString();
+                    srq.emailaddresss = ds.Tables[0].Rows[i]["Emails"].ToString();
+
+                    srq.userid = ds.Tables[0].Rows[i]["UserId"].ToString();
+
+                    srq.password = ds.Tables[0].Rows[i]["Password"].ToString();
+                    srq.passwords = ds.Tables[0].Rows[i]["Passwords"].ToString();
+                    srq.City = ds.Tables[0].Rows[i]["City"].ToString();
+                    srq.Citys = ds.Tables[0].Rows[i]["Citys"].ToString();
+                    srq.Mobile = ds.Tables[0].Rows[i]["Mobile"].ToString();
+                    srq.Mobiles = ds.Tables[0].Rows[i]["Mobiles"].ToString();
+                    srq.planename = ds.Tables[0].Rows[i]["planename"].ToString();
+                    srq.planenames = ds.Tables[0].Rows[i]["planenames"].ToString();
+                    orderListO.Add(srq);
+                        }
+                tl.reglist = orderListO;
+                return tl;
+            }
+        }
+
         public userlistModel howitwork( string connectionString)
         {
 
